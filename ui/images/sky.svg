@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" id="svg4623" viewBox="0 0 1024 704" version="1.1" inkscape:version="0.91 r13725" sodipodi:docname="sky.svg">
+    <metadata id="metadata437">
+        <rdf:RDF>
+            <cc:Work rdf:about="">
+                <dc:format>image/svg+xml</dc:format>
+                <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+            </cc:Work>
+        </rdf:RDF>
+    </metadata>
+    <sodipodi:namedview id="namedview435" showgrid="false" showguides="false" inkscape:zoom="0.85954045" inkscape:cx="282.43911" inkscape:cy="450.34149" inkscape:window-width="1440" inkscape:window-height="800" inkscape:window-x="0" inkscape:window-y="1" inkscape:window-maximized="1" inkscape:current-layer="svg4623" />
+    <defs id="defs3">
+        <style id="style5">
+        .skyCls-1 {
+            fill: #c0e0ed;
+        }
+        
+        .skyCls-2 {
+            fill: #d5e9ef;
+        }
+        
+        .skyCls-3 {
+            fill: #e2c950;
+            stroke: #e5e529;
+            stroke-width: 59px;
+        }
+        
+        .skyCls-17,
+        .skyCls-18,
+        .skyCls-20,
+        .skyCls-22,
+        .skyCls-23,
+        .skyCls-24,
+        .skyCls-25,
+        .skyCls-26,
+        .skyCls-27,
+        .skyCls-3,
+        .skyCls-40 {
+            stroke-miterlimit: 10;
+        }
+        
+        .skyCls-4 {
+            fill: #fff;
+        }
+        
+        .skyCls-5 {
+            fill: #90c66d;
+        }
+        
+        .skyCls-6 {
+            fill: #c5db8f;
+        }
+        
+        .skyCls-7 {
+            fill: #739e57;
+        }
+        
+        .skyCls-8 {
+            fill: #63504b;
+        }
+        
+        .skyCls-9 {
+            fill: #8e8e8e;
+        }
+        
+        .skyCls-10,
+        .skyCls-41 {
+            fill: #1c1c1c;
+        }
+        
+        .skyCls-11 {
+            fill: #424242;
+        }
+        
+        .skyCls-12 {
+            fill: #636363;
+        }
+        
+        .skyCls-13 {
+            fill: #9e9a98;
+        }
+        
+        .skyCls-14 {
+            fill: #bcbcbc;
+        }
+        
+        .skyCls-15 {
+            fill: #dbdbdb;
+        }
+        
+        .skyCls-16 {
+            fill: #bfbfbf;
+        }
+        
+        .skyCls-17,
+        .skyCls-18,
+        .skyCls-20,
+        .skyCls-22,
+        .skyCls-23,
+        .skyCls-24,
+        .skyCls-25,
+        .skyCls-26,
+        .skyCls-40 {
+            fill: none;
+        }
+        
+        .skyCls-17 {
+            stroke: #eaeaea;
+        }
+        
+        .skyCls-17,
+        .skyCls-40 {
+            stroke-width: 9px;
+        }
+        
+        .skyCls-18,
+        .skyCls-27 {
+            stroke: #1c1c1c;
+        }
+        
+        .skyCls-18,
+        .skyCls-20 {
+            stroke-width: 36px;
+        }
+        
+        .skyCls-19 {
+            fill: #eaeaea;
+        }
+        
+        .skyCls-20,
+        .skyCls-24,
+        .skyCls-26 {
+            stroke: #bfbfbf;
+        }
+        
+        .skyCls-21 {
+            fill: #f4f4f4;
+        }
+        
+        .skyCls-22 {
+            stroke: #000;
+        }
+        
+        .skyCls-22,
+        .skyCls-26 {
+            stroke-width: 15px;
+        }
+        
+        .skyCls-22,
+        .skyCls-28 {
+            opacity: 0.3;
+        }
+        
+        .skyCls-23 {
+            stroke: #5e5e5e;
+            stroke-width: 3px;
+        }
+        
+        .skyCls-24 {
+            stroke-width: 8px;
+        }
+        
+        .skyCls-25 {
+            stroke: #686868;
+        }
+        
+        .skyCls-27,
+        .skyCls-30 {
+            fill: #b5b5b5;
+        }
+        
+        .skyCls-27 {
+            stroke-width: 67px;
+        }
+        
+        .skyCls-29 {
+            fill: #e0e0e0;
+        }
+        
+        .skyCls-31 {
+            fill: #6b6b6b;
+        }
+        
+        .skyCls-32,
+        .skyCls-33 {
+            fill: #666;
+        }
+        
+        .skyCls-33 {
+            font-size: 24px;
+            font-family: Helvetica Neue;
+            font-weight: 700;
+        }
+        
+        .skyCls-34 {
+            fill: #8c8c8c;
+        }
+        
+        .skyCls-35 {
+            fill: #a5a5a5;
+        }
+        
+        .skyCls-36 {
+            fill: #c8cdd1;
+        }
+        
+        .skyCls-37 {
+            fill: #e7776a;
+        }
+        
+        .skyCls-38 {
+            fill: #2c3d4f;
+        }
+        
+        .skyCls-39 {
+            fill: #e77366;
+        }
+        
+        .skyCls-40 {
+            stroke: #e77366;
+        }
+        
+        .skyCls-41 {
+            opacity: 0.35;
+        }
+        
+        .skyCls-42 {
+            fill: #6d6b6a;
+        }
+        
+        .skyCls-43 {
+            fill: #969696;
+        }
+        
+        .skyCls-44 {
+            fill: #595959;
+        }
+        
+        .skyCls-45 {
+            fill: #575354;
+        }
+        
+        .skyCls-46 {
+            fill: #5b5b5b;
+        }
+        
+        .skyCls-47 {
+            fill: #e8e8e8;
+        }
+        
+        .skyCls-48 {
+            fill: #ccc;
+        }
+        </style>
+    </defs>
+    <title id="title7">sky SVG</title>
+    <g id="background" transform="matrix(0.19541462,0,0,0.19541462,26.167972,-5.589797)">
+
+        <g id="sky">
+            <rect class="skyCls-1" x="-133.91" y="-268.20001" width="5240.1401" height="2476.29" id="skyHue" />
+        </g>
+
+        <circle style="fill:#e2c950;stroke:#e5e529;stroke-width:59px;stroke-miterlimit:10" id="sun" r="157.47" cy="281.54999" cx="1718.72" class="skyCls-3"/>
+
+        <g id="cloud3" class="lightCloud">
+            <rect id="rect23" ry="77.980003" rx="77.980003" height="155.97" width="794.41998" y="424.39999" x="554.40997" />
+            <circle id="circle25" r="106" cy="438" cx="759.34003" />
+            <circle id="circle27" r="39" cy="429" cx="1002.34" />
+            <circle id="circle29" r="92" cy="370" cx="1099.34" />
+            <circle id="circle31" r="70" cy="416" cx="1197.34" />
+        </g>
+
+        <g id="cloud6" class="darkCloud">
+            <rect x="296.39999" y="813.34003" width="1518.8199" height="294.16" rx="147.08" ry="147.08" id="rect11" />
+            <rect x="537.94" y="687.25" width="1518.8199" height="294.16" rx="147.08" ry="147.08" id="rect13" />
+        </g>
+        <rect id="cloud5" ry="147.08" rx="147.08" height="294.16" width="874.54999" y="468" x="2433.8401" class="darkCloud" />
+        <g id="cloud4" class="darkCloud">
+            <rect x="2816.6899" y="1029.77" width="1681.3" height="294.16" rx="147.08" ry="147.08" id="rect17" />
+            <rect x="3185.7" y="1219.27" width="1681.3" height="294.16" rx="147.08" ry="147.08" id="rect19" />
+        </g>
+        <g id="cloud2" class="lightCloud">
+            <rect x="3039.3401" y="502.39001" width="200" height="77.980003" rx="38.990002" ry="38.990002" id="rect33" />
+            <rect x="3299.3401" y="502.39001" width="404" height="77.980003" rx="38.990002" ry="38.990002" id="rect35" />
+            <circle cx="3637.3401" cy="504" r="50" id="circle37" />
+            <circle cx="3575.3401" cy="460" r="74" id="circle39" />
+            <circle cx="3497.3401" cy="488" r="46" id="circle41" />
+            <circle cx="3782.3401" cy="465" r="23" id="circle43" />
+        </g>
+        <g id="cloud1" class="lightCloud">
+            <rect x="3433.27" y="969.95001" width="1105.89" height="192.31" rx="96.150002" ry="96.150002" id="rect45" />
+            <circle cx="3734.04" cy="984.47998" r="134.17" id="circle47" />
+            <circle cx="3860.1299" cy="910.41998" r="126.09" id="circle49" />
+            <circle cx="4297.75" cy="899.76001" r="241.41" id="circle51" />
+        </g>
+    </g>
+</svg>

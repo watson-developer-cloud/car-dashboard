@@ -1,0 +1,168 @@
+<svg id="map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1330 993.77">
+    <defs>
+        <style>
+        .mapGeneralCls-1 {
+            fill: #ede4d6;
+        }
+        
+        .mapGeneralCls-2 {
+            fill: #67c5e5;
+        }
+        
+        .mapGeneralCls-3 {
+            fill: #adc646;
+        }
+        
+        .mapGeneralCls-11,
+        .mapGeneralCls-4,
+        .mapGeneralCls-6 {
+            fill: none;
+        }
+        
+        .mapGeneralCls-4 {
+            stroke: #fff;
+            stroke-width: 5px;
+        }
+        
+        .mapGeneralCls-11,
+        .mapGeneralCls-4 {
+            stroke-miterlimit: 10;
+        }
+        
+        .mapGeneralCls-5 {
+            fill: #bababa;
+        }
+        
+        .mapGeneralCls-6 {
+            stroke: #d69732;
+            stroke-linecap: round;
+            stroke-linejoin: bevel;
+            stroke-width: 10px;
+        }
+        
+        .mapGeneralCls-7 {
+            fill: #e22929;
+        }
+        
+        .mapGeneralCls-8,
+        .mapGeneralCls-9 {
+            fill: #fff;
+        }
+        
+        .mapGeneralCls-9 {
+            font-size: 72px;
+            font-family: Helvetica Neue;
+            font-weight: 700;
+        }
+        
+        .mapGeneralCls-10 {
+            fill: #1082e8;
+        }
+        
+        .mapGeneralCls-11 {
+            stroke: #1082e8;
+            stroke-width: 3px;
+        }
+        </style>
+    </defs>
+    <title>map general</title>
+    <rect class="mapGeneralCls-1" x="12.65" y="13.75" width="1296.16" height="951.7" rx="33.69" ry="33.69" />
+    <path class="mapGeneralCls-2" d="M411.1,25.5s-31.5,25.5-37.5,33c0,0,3,6,0,15s-18,16.5-18,16.5-22.5,24-22.5,39,6,28.5,9,40.5,15,7.5,12,15-9,33-9,33l-12,55.5s-25.5,15-30,36-24,76.5-24,76.5l16.5,58.5,49.5,94.5,18,109.49s37.5,87,36,112.49-3,40.5-21,75-33,81.95-33,81.95l-18,50,24,5,36-116,18-27h21l21,34.5s21,48.4,21,53.45,12,55.05,12,55.05h105s-22.5-65-27-68-30-40.5-30-40.5-12-22.5-9-40.5-6-40.5-6-40.5-18-1.5-18-6-4.5-19.5-4.5-19.5-42-114-39-118.49,7.5-19.5-4.5-28.5-15-15-15-15,10.5-39,10.5-46.5-3-45.87-3-45.87L397.6,465l-4.5-21v-28.5c0-6,10.5-46.5,10.5-46.5s13.5-42,15-46.5,13.5-33,13.5-33,55.5-42,55.5-49.5,6-25.5,6-30-27-45-27-45c7.5-9,24-28.5,24-28.5S504.1,114,504.1,105s-3-19.5-1.5-24l9-27,6-28.5H411.1Z" />
+    <path class="mapGeneralCls-3" d="M463.64,622.47s1.17,14.93-4.64,20.42l44,126,15,6,13,37-5,28,14,30,32.36,34,20.64,56H741l9-42.48L655.89,668.89,613,598.26Z" />
+    <polygon class="mapGeneralCls-3" points="805.73 379.88 970.18 355.88 936.08 237.88 781 265.88 805.73 379.88" />
+    <polygon class="mapGeneralCls-3" points="341 189.88 323 263.88 299 292.06 163.43 292.06 193 240.97 341 189.88" />
+    <polygon class="mapGeneralCls-3" points="1093.59 676.47 1161 823.88 1289.88 779.07 1224.24 650.23 1093.59 676.47" />
+    <polyline class="mapGeneralCls-4" points="10.86 697.88 341 652.97 375 737.06 375 779.07 301 965.88" />
+    <polyline class="mapGeneralCls-4" points="290.88 659.78 327.11 737.06 351.53 838.32" />
+    <line class="mapGeneralCls-4" x1="163.43" y1="677.13" x2="273.11" y2="972.46" />
+    <line class="mapGeneralCls-4" x1="89.74" y1="687.15" x2="187.61" y2="965.89" />
+    <polyline class="mapGeneralCls-4" points="348 674.88 301 683.88 176 717.88 106 743.88 -6 793.88" />
+    <polyline class="mapGeneralCls-4" points="354 690.88 310 701.88 195 763.88 133 813.88 -5 913.88" />
+    <line class="mapGeneralCls-4" x1="364" y1="708.89" x2="320" y2="722.89" />
+    <path class="mapGeneralCls-4" d="M372,727.89c-3-1-44,14-44,14l-115,65" />
+    <polyline class="mapGeneralCls-4" points="377 747.88 333 762.88 256 924.88" />
+    <polyline class="mapGeneralCls-4" points="375 765.88 344 800.88 283 960.88" />
+    <line class="mapGeneralCls-4" x1="225" y1="846.89" x2="160" y2="895.89" />
+    <polyline class="mapGeneralCls-4" points="133 682.88 109 518.88 98 221.88 88 24.89" />
+    <line class="mapGeneralCls-4" x1="107" y1="465.89" x2="219" y2="458.89" />
+    <line class="mapGeneralCls-4" x1="111" y1="544.89" y2="552.89" />
+    <line class="mapGeneralCls-4" x1="117" y1="583.89" x2="-9" y2="596.89" />
+    <path class="mapGeneralCls-4" d="M106,417.89c-3,1-106,2-106,2" />
+    <line class="mapGeneralCls-4" x1="63" y1="419.89" x2="90" y2="82.89" />
+    <polyline class="mapGeneralCls-4" points="89 60.88 304 88.89 342 85.89 361 62.88 376 24.89" />
+    <line class="mapGeneralCls-4" x1="225" y1="78.89" x2="238" y2="26.89" />
+    <polyline class="mapGeneralCls-4" points="1320 134.88 606 281.88 444.1 338.98 426.1 424.48" />
+    <line class="mapGeneralCls-4" x1="1023" y1="439.89" x2="878" y2="7.89" />
+    <line class="mapGeneralCls-4" x1="931" y1="162.89" x2="1322" y2="72.89" />
+    <line class="mapGeneralCls-4" x1="912" y1="110.89" x2="1310" y2="20.89" />
+    <line class="mapGeneralCls-4" x1="899" y1="70.89" x2="1187" y2="3.89" />
+    <line class="mapGeneralCls-4" x1="975" y1="205.89" x2="907" y2="13.89" />
+    <polyline class="mapGeneralCls-4" points="971 3.88 1042 191.88 1048.57 343.48 1026.07 986.95" />
+    <line class="mapGeneralCls-4" x1="1076" y1="183.89" x2="1008" y2="5.89" />
+    <line class="mapGeneralCls-4" x1="1209" y1="158.89" x2="1127" y2="5.89" />
+    <polyline class="mapGeneralCls-4" points="987.07 334.48 1165.57 362.98 1339.56 662.97" />
+    <polyline class="mapGeneralCls-4" points="967.58 281.99 1179.06 313.48 1315.56 398.98" />
+    <polyline class="mapGeneralCls-4" points="960.08 253.49 1200.06 253.49 1330.56 250.49" />
+    <polyline class="mapGeneralCls-4" points="952.58 229.49 1200.06 196.49 1317.06 184.49" />
+    <polyline class="mapGeneralCls-4" points="1003.57 202.49 1012.57 221.99 1012.57 254.99 1005.07 392.98" />
+    <polyline class="mapGeneralCls-4" points="1110.07 179.99 1123.57 206.99 1128.07 251.99 1129.57 304.49" />
+    <line class="mapGeneralCls-4" x1="720.09" y1="257.99" x2="880.58" y2="18" />
+    <polyline class="mapGeneralCls-4" points="804.08 977.95 778.59 908.96 700.59 676.47 637.59 589.47 685.59 505.48 766.59 250.49" />
+    <polyline class="mapGeneralCls-4" points="759.09 277.49 838.58 562.47 669.09 635.97" />
+    <line class="mapGeneralCls-4" x1="637.59" y1="589.47" x2="819.08" y2="502.47" />
+    <polyline class="mapGeneralCls-4" points="787.58 518.97 810.08 574.47 982.57 973.45" />
+    <line class="mapGeneralCls-4" x1="754.59" y1="533.97" x2="775.58" y2="589.47" />
+    <line class="mapGeneralCls-4" x1="724.59" y1="550.47" x2="748.59" y2="601.47" />
+    <polyline class="mapGeneralCls-4" points="696.09 562.47 720.09 614.97 883.58 964.45" />
+    <line class="mapGeneralCls-4" x1="838.58" y1="562.47" x2="1030.57" y2="811.46" />
+    <line class="mapGeneralCls-4" x1="763.59" y1="595.47" x2="928.58" y2="977.95" />
+    <line class="mapGeneralCls-4" x1="696.09" y1="623.97" x2="859.58" y2="983.95" />
+    <line class="mapGeneralCls-4" x1="700.59" y1="676.47" x2="873.08" y2="608.97" />
+    <path class="mapGeneralCls-4" d="M711.09,724.46c4.5,0,97.5-24,97.5-24l90-58.5" />
+    <polyline class="mapGeneralCls-4" points="732.09 788.96 945.08 703.47 1041.07 571.47 1222.56 461.98" />
+    <line class="mapGeneralCls-4" x1="748.59" y1="824.96" x2="894.08" y2="776.96" />
+    <line class="mapGeneralCls-4" x1="757.59" y1="856.46" x2="907.58" y2="803.96" />
+    <line class="mapGeneralCls-4" x1="766.59" y1="886.46" x2="919.58" y2="832.46" />
+    <line class="mapGeneralCls-4" x1="783.08" y1="928.45" x2="940.58" y2="883.46" />
+    <rect class="mapGeneralCls-5" x="294.45" y="520.77" width="29.53" height="94.41" transform="translate(-88.66 58.16) rotate(-9.41)" />
+    <rect class="mapGeneralCls-5" x="265.34" y="547.21" width="23.24" height="74.31" transform="translate(-91.77 53.11) rotate(-9.41)" />
+    <polygon class="mapGeneralCls-5" points="619 252.88 667 256.88 679 206.88 634 201.88 619 252.88" />
+    <polygon class="mapGeneralCls-5" points="798 651.88 812 685.88 842 667.88 827 635.88 798 651.88" />
+    <polygon class="mapGeneralCls-5" points="1075 533.22 1209 457.88 1183 417.88 1055 485.88 1075 533.22" />
+    <polyline class="mapGeneralCls-6" points="-6.35 676.47 492.1 607.47 609.09 586.47 673.59 483.11 618.09 325.48 673.59 285.88 700.59 224.99 843.08 0" />
+    <polyline class="mapGeneralCls-6" points="673.59 483.11 955.58 439.48 1198.56 972.46" />
+    <polyline class="mapGeneralCls-6" points="655.89 432.84 936.08 388.48 955.58 439.48" />
+    <polyline class="mapGeneralCls-6" points="992.84 521.22 673.59 665.88 763 917.41 749 992.46" />
+    <path class="mapGeneralCls-6" d="M857.87,454.59L869,503.11v50.78l18,32,16,44L915,706s16.15,23.92,21.08,29.92,32.92,74,32.92,74v50l10,66,13.84,46.57" />
+    <polyline class="mapGeneralCls-6" points="543.43 598.26 531 413.98 553 315.88 637 13.75" />
+    <polyline class="mapGeneralCls-6" points="585.09 590.78 575 373.88 559.62 292.06" />
+    <polyline class="mapGeneralCls-6" points="1043 25.5 1217 217.88 1163 361.88 970.18 471.52" />
+    <line class="mapGeneralCls-6" x1="163.43" y1="652.97" x2="109" y2="25.5" />
+    <path class="mapGeneralCls-7" d="M720.59,275.13h0a42.49,42.49,0,0,1,41.35,52.26l-41.35,96.7-41.35-96.7A42.49,42.49,0,0,1,720.59,275.13Z" />
+    <circle class="mapGeneralCls-8" cx="720.59" cy="316.93" r="33.82" />
+    <polygon class="mapGeneralCls-7" points="720.59 289.68 728.58 305.87 746.45 308.47 733.52 321.07 736.57 338.87 720.59 330.46 704.61 338.87 707.66 321.07 694.73 308.47 712.6 305.87 720.59 289.68" />
+    <path class="mapGeneralCls-7" d="M783.08,474.4h0a42.49,42.49,0,0,1,41.35,52.26l-41.35,96.7-41.35-96.7A42.49,42.49,0,0,1,783.08,474.4Z" />
+    <circle class="mapGeneralCls-8" cx="783.08" cy="516.21" r="33.82" />
+    <polygon class="mapGeneralCls-7" points="783.08 488.96 791.08 505.15 808.95 507.75 796.01 520.35 799.07 538.15 783.08 529.74 767.1 538.15 770.15 520.35 757.22 507.75 775.09 505.15 783.08 488.96" />
+    <path class="mapGeneralCls-7" d="M1077.51,63.51h0a42.49,42.49,0,0,1,41.35,52.26l-41.35,96.7-41.35-96.7A42.49,42.49,0,0,1,1077.51,63.51Z" />
+    <circle class="mapGeneralCls-8" cx="1077.51" cy="105.32" r="33.82" />
+    <polygon class="mapGeneralCls-7" points="1077.51 78.06 1085.5 94.26 1103.37 96.85 1090.43 109.46 1093.49 127.25 1077.51 118.85 1061.52 127.25 1064.58 109.46 1051.64 96.85 1069.51 94.26 1077.51 78.06" />
+    <path class="mapGeneralCls-7" d="M903.51,782h0a42.49,42.49,0,0,1,41.35,52.26l-41.35,96.7-41.35-96.7A42.49,42.49,0,0,1,903.51,782Z" />
+    <circle class="mapGeneralCls-8" cx="903.51" cy="823.78" r="33.82" />
+    <polygon class="mapGeneralCls-7" points="903.5 796.53 911.5 812.72 929.37 815.32 916.43 827.92 919.49 845.72 903.5 837.32 887.52 845.72 890.58 827.92 877.64 815.32 895.51 812.72 903.5 796.53" />
+    <path class="mapGeneralCls-7" d="M273.11,746.64h0a42.49,42.49,0,0,1,41.35,52.26l-41.35,96.7-41.35-96.7A42.49,42.49,0,0,1,273.11,746.64Z" />
+    <circle class="mapGeneralCls-8" cx="273.11" cy="788.45" r="33.82" />
+    <polygon class="mapGeneralCls-7" points="273.11 761.2 281.1 777.39 298.97 779.98 286.04 792.59 289.09 810.38 273.11 801.98 257.13 810.38 260.18 792.59 247.25 779.98 265.12 777.39 273.11 761.2" />
+    <circle class="mapGeneralCls-7" cx="816" cy="318.39" r="42.32" />
+    <text class="mapGeneralCls-9" transform="translate(796.47 342.31)">1</text>
+    <circle class="mapGeneralCls-7" cx="1174.32" cy="105.32" r="42.32" />
+    <text class="mapGeneralCls-9" transform="translate(1154.79 129.25)">1</text>
+    <circle class="mapGeneralCls-7" cx="878" cy="518.97" r="42.32" />
+    <text class="mapGeneralCls-9" transform="translate(858.47 542.9)">1</text>
+    <circle class="mapGeneralCls-7" cx="375" cy="789.96" r="42.32" />
+    <text class="mapGeneralCls-9" transform="translate(355.47 813.89)">1</text>
+    <circle class="mapGeneralCls-7" cx="1000.59" cy="826.52" r="42.32" />
+    <text class="mapGeneralCls-9" transform="translate(981.05 850.44)">1</text>
+    <circle class="mapGeneralCls-10" cx="648.48" cy="592.51" r="20.61" />
+    <circle class="mapGeneralCls-11" cx="648.48" cy="592.51" r="25.11" />
+</svg>

@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   id="svg4623"
+   viewBox="0 0 1024 704"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="background.svg"
+   width="1024"
+   height="704">
+  <metadata
+     id="metadata437">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>dashboard illustrations SVG</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1252"
+     inkscape:window-height="761"
+     id="namedview435"
+     showgrid="false"
+     inkscape:zoom="13.752648"
+     inkscape:cx="511.73096"
+     inkscape:cy="469.18648"
+     inkscape:window-x="283"
+     inkscape:window-y="83"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="horizon"
+     showguides="false" />
+  <defs
+     id="defs3">
+    <style
+       id="style5">
+        .backgroundCls-1 {
+            fill: #ffffff;
+        }
+        
+        .backgroundCls-2 {
+            fill: #d5e9ef;
+        }
+        
+        .backgroundCls-3 {
+            fill: #e2c950;
+            stroke: #e5e529;
+            stroke-width: 59px;
+        }
+        
+        .backgroundCls-17,
+        .backgroundCls-18,
+        .backgroundCls-20,
+        .backgroundCls-22,
+        .backgroundCls-23,
+        .backgroundCls-24,
+        .backgroundCls-25,
+        .backgroundCls-26,
+        .backgroundCls-27,
+        .backgroundCls-3,
+        .backgroundCls-40 {
+            stroke-miterlimit: 10;
+        }
+        
+        .backgroundCls-4 {
+            fill: #fff;
+        }
+        
+        .backgroundCls-5 {
+            fill: #90c66d;
+        }
+        
+        .backgroundCls-6 {
+            fill: #c5db8f;
+        }
+        
+        .backgroundCls-7 {
+            fill: #739e57;
+        }
+        
+        .backgroundCls-8 {
+            fill: #63504b;
+        }
+        
+        .backgroundCls-9 {
+            fill: #8e8e8e;
+        }
+        
+        .backgroundCls-10,
+        .backgroundCls-41 {
+            fill: #1c1c1c;
+        }
+        
+        .backgroundCls-11 {
+            fill: #424242;
+        }
+        
+        .backgroundCls-12 {
+            fill: #636363;
+        }
+        
+        .backgroundCls-13 {
+            fill: #9e9a98;
+        }
+        
+        .backgroundCls-14 {
+            fill: #bcbcbc;
+        }
+        
+        .backgroundCls-15 {
+            fill: #dbdbdb;
+        }
+        
+        .backgroundCls-16 {
+            fill: #bfbfbf;
+        }
+        
+        .backgroundCls-17,
+        .backgroundCls-18,
+        .backgroundCls-20,
+        .backgroundCls-22,
+        .backgroundCls-23,
+        .backgroundCls-24,
+        .backgroundCls-25,
+        .backgroundCls-26,
+        .backgroundCls-40 {
+            fill: none;
+        }
+        
+        .backgroundCls-17 {
+            stroke: #eaeaea;
+        }
+        
+        .backgroundCls-17,
+        .backgroundCls-40 {
+            stroke-width: 9px;
+        }
+        
+        .backgroundCls-18,
+        .backgroundCls-27 {
+            stroke: #1c1c1c;
+        }
+        
+        .backgroundCls-18,
+        .backgroundCls-20 {
+            stroke-width: 36px;
+        }
+        
+        .backgroundCls-19 {
+            fill: #eaeaea;
+        }
+        
+        .backgroundCls-20,
+        .backgroundCls-24,
+        .backgroundCls-26 {
+            stroke: #bfbfbf;
+        }
+        
+        .backgroundCls-21 {
+            fill: #f4f4f4;
+        }
+        
+        .backgroundCls-22 {
+            stroke: #000;
+        }
+        
+        .backgroundCls-22,
+        .backgroundCls-26 {
+            stroke-width: 15px;
+        }
+        
+        .backgroundCls-22,
+        .backgroundCls-28 {
+            opacity: 0.3;
+        }
+        
+        .backgroundCls-23 {
+            stroke: #5e5e5e;
+            stroke-width: 3px;
+        }
+        
+        .backgroundCls-24 {
+            stroke-width: 8px;
+        }
+        
+        .backgroundCls-25 {
+            stroke: #686868;
+        }
+        
+        .backgroundCls-27,
+        .backgroundCls-30 {
+            fill: #b5b5b5;
+        }
+        
+        .backgroundCls-27 {
+            stroke-width: 67px;
+        }
+        
+        .backgroundCls-29 {
+            fill: #e0e0e0;
+        }
+        
+        .backgroundCls-31 {
+            fill: #6b6b6b;
+        }
+        
+        .backgroundCls-32,
+        .backgroundCls-33 {
+            fill: #666;
+        }
+        
+        .backgroundCls-33 {
+            font-size: 24px;
+            font-family: Helvetica Neue;
+            font-weight: 700;
+        }
+        
+        .backgroundCls-34 {
+            fill: #8c8c8c;
+        }
+        
+        .backgroundCls-35 {
+            fill: #a5a5a5;
+        }
+        
+        .backgroundCls-36 {
+            fill: #c8cdd1;
+        }
+        
+        .backgroundCls-37 {
+            fill: #e7776a;
+        }
+        
+        .backgroundCls-38 {
+            fill: #2c3d4f;
+        }
+        
+        .backgroundCls-39 {
+            fill: #e77366;
+        }
+        
+        .backgroundCls-40 {
+            stroke: #e77366;
+        }
+        
+        .backgroundCls-41 {
+            opacity: 0.35;
+        }
+        
+        .backgroundCls-42 {
+            fill: #6d6b6a;
+        }
+        
+        .backgroundCls-43 {
+            fill: #969696;
+        }
+        
+        .backgroundCls-44 {
+            fill: #595959;
+        }
+        
+        .backgroundCls-45 {
+            fill: #575354;
+        }
+        
+        .backgroundCls-46 {
+            fill: #5b5b5b;
+        }
+        
+        .backgroundCls-47 {
+            fill: #e8e8e8;
+        }
+        
+        .backgroundCls-48 {
+            fill: #ccc;
+        }
+        </style>
+  </defs>
+  <title
+     id="title7">dashboard illustrations SVG</title>
+  <g
+     id="horizon"
+     transform="matrix(0.21144453,0,0,0.20991805,-17.686527,-185.70606)">
+    <rect
+       style="fill:#90c66d"
+       id="grass"
+       height="659.96002"
+       width="5202.3101"
+       y="2089.8091"
+       x="-107.89342"
+       class="backgroundCls-5" />
+    <g
+       id="tree1"
+       style="display:none">
+      <ellipse
+         id="ellipse57"
+         ry="3.6299372"
+         rx="9.6770382"
+         cy="2088.9082"
+         cx="2451.0171"
+         class="backgroundCls-7"
+         style="fill:#739e57;" />
+      <path
+         style="fill:#c5db8f"
+         inkscape:connector-curvature="0"
+         class="backgroundCls-6"
+         d="m 2455.6755,2077.5231 -8.7358,0 c -5.3548,0 -8.9596,-5.4813 -6.8383,-10.3978 l 11.2058,-20.1989 11.2058,20.1989 c 2.1213,4.9165 -1.4835,10.3978 -6.8375,10.3978 z"
+         id="path55" />
+      <rect
+         style="fill:#63504b"
+         class="backgroundCls-8"
+         x="2448.2439"
+         y="2065.2832"
+         width="5.5299759"
+         height="24.884892"
+         rx="2.5143874"
+         ry="2.5143874"
+         id="rect59" />
+      <path
+         style="fill:#739e57"
+         inkscape:connector-curvature="0"
+         class="backgroundCls-7"
+         d="m 2453.9733,2074.3257 -5.3314,0 c -3.2687,0 -5.4679,-3.345 -4.173,-6.3455 l 6.8391,-12.3289 6.8392,12.3289 c 1.2932,3.0005 -0.906,6.3455 -4.1739,6.3455 z"
+         id="path61" />
+    </g>
+    <g
+       id="tree2"
+       style="display:none">
+      <ellipse
+         id="ellipse57"
+         ry="3.6299372"
+         rx="9.6770382"
+         cy="2088.9082"
+         cx="2451.0171"
+         class="backgroundCls-7"
+         style="fill:#739e57;" />
+      <path
+         style="fill:#c5db8f"
+         inkscape:connector-curvature="0"
+         class="backgroundCls-6"
+         d="m 2455.6755,2077.5231 -8.7358,0 c -5.3548,0 -8.9596,-5.4813 -6.8383,-10.3978 l 11.2058,-20.1989 11.2058,20.1989 c 2.1213,4.9165 -1.4835,10.3978 -6.8375,10.3978 z"
+         id="path55" />
+      <rect
+         style="fill:#63504b"
+         class="backgroundCls-8"
+         x="2448.2439"
+         y="2065.2832"
+         width="5.5299759"
+         height="24.884892"
+         rx="2.5143874"
+         ry="2.5143874"
+         id="rect59" />
+      <path
+         style="fill:#739e57"
+         inkscape:connector-curvature="0"
+         class="backgroundCls-7"
+         d="m 2453.9733,2074.3257 -5.3314,0 c -3.2687,0 -5.4679,-3.345 -4.173,-6.3455 l 6.8391,-12.3289 6.8392,12.3289 c 1.2932,3.0005 -0.906,6.3455 -4.1739,6.3455 z"
+         id="path61" />
+    </g>
+    <g
+       id="road"
+       transform="translate(-11.823418,438.26636)">
+      <polygon
+         style="fill:#8e8e8e"
+         class="backgroundCls-9"
+         points="872.81,2070.04 3956.94,2070.04 2463.28,1651.54 2463.28,1651.54 "
+         id="polygon79" />
+      <g
+         id="dotted_line">
+        <polygon
+           id="polygon89"
+           points="2466.68,1664.66 2458.81,1664.77 2458.81,1664.77 2460.06,1661.07 2465.71,1660.91 "
+           class="backgroundCls-4"
+           style="fill:#ffffff" />
+        <polygon
+           id="polygon85"
+           points="2471.16,1681.96 2453.05,1681.79 2453.05,1681.79 2447.72,1697.57 2475.06,1696.98 "
+           class="backgroundCls-4"
+           style="fill:#ffffff" />
+        <polygon
+           id="polygon87"
+           points="2467.51,1667.86 2457.61,1668.31 2457.61,1668.31 2455.49,1674.6 2469.16,1674.21 "
+           class="backgroundCls-4"
+           style="fill:#ffffff" />
+        <polygon
+           id="polygon91"
+           points="2463.97,1654.21 2462.32,1654.38 2462.32,1654.38 2461.18,1657.76 2464.82,1657.46 "
+           class="backgroundCls-4"
+           style="fill:#ffffff" />
+        <polygon
+           style="fill:#ffffff"
+           class="backgroundCls-4"
+           points="2527.31,1898.63 2527.31,1898.63 2561.34,2030 2335.34,2030 2380.41,1896.68 "
+           id="polygon81" />
+        <polygon
+           style="fill:#ffffff"
+           class="backgroundCls-4"
+           points="2515.31,1852.34 2515.31,1852.34 2495.03,1774.07 2421.76,1774.36 2395.23,1852.84 "
+           id="polygon83" />
+        <polygon
+           style="fill:#ffffff"
+           class="backgroundCls-4"
+           points="2431.59,1745.3 2431.59,1745.3 2443.43,1710.26 2478.49,1710.21 2487.25,1744.03 "
+           id="polygon93" />
+      </g>
+      <g
+         id="stripes1"
+         transform="matrix(1.1303238,0,0,1.1303238,2318.5727,1651.5193)"
+         style="fill:#ffffff;fill-opacity:1">
+        <polygon
+           class="backgroundCls-1"
+           points="226,375.79 0,375.79 45.07,242.47 191.96,244.42 191.96,244.42 "
+           id="polygon34"
+           style="fill:#ffffff;fill-opacity:1" />
+        <polygon
+           class="backgroundCls-1"
+           points="159.69,119.86 86.42,120.14 59.89,198.63 179.97,198.12 179.97,198.12 "
+           id="polygon36"
+           style="fill:#ffffff;fill-opacity:1" />
+        <polygon
+           class="backgroundCls-1"
+           points="112.38,43.36 139.71,42.77 135.82,27.75 117.71,27.58 117.71,27.58 "
+           id="polygon38"
+           style="fill:#ffffff;fill-opacity:1" />
+        <polygon
+           class="backgroundCls-1"
+           points="120.14,20.38 133.81,20 132.17,13.65 122.27,14.1 122.27,14.1 "
+           id="polygon40"
+           style="fill:#ffffff;fill-opacity:1" />
+        <polygon
+           class="backgroundCls-1"
+           points="124.72,6.86 130.37,6.7 131.34,10.45 123.47,10.55 123.47,10.55 "
+           id="polygon42"
+           style="fill:#ffffff;fill-opacity:1" />
+        <polygon
+           class="backgroundCls-1"
+           points="125.83,3.55 129.47,3.25 128.63,0 126.98,0.16 126.98,0.16 "
+           id="polygon44"
+           style="fill:#ffffff;fill-opacity:1" />
+        <polygon
+           class="backgroundCls-1"
+           points="108.09,56.04 143.14,56 151.9,89.81 96.24,91.09 96.24,91.09 "
+           id="polygon46"
+           style="fill:#ffffff;fill-opacity:1" />
+      </g>
+      <g
+         id="stripes2"
+         transform="matrix(1.1103268,0,0,1.1103268,2320.773,1651.5234)"
+         style="fill:#ffffff;fill-opacity:1">
+        <polygon
+           class="backgroundCls-1"
+           points="120.85,18.29 120.14,20.38 117.71,27.58 116.63,30.79 136.61,30.79 136.61,30.79 135.82,27.75 133.81,20 133.37,18.29 "
+           id="polygon49"
+           style="fill:#ffffff;fill-opacity:1" />
+        <polygon
+           class="backgroundCls-1"
+           points="114.09,38.29 112.38,43.36 108.09,56.04 104.96,65.29 145.55,65.29 145.55,65.29 143.14,56 139.71,42.77 138.55,38.29 "
+           id="polygon51"
+           style="fill:#ffffff;fill-opacity:1" />
+        <polygon
+           class="backgroundCls-1"
+           points="86.42,120.14 79.78,139.79 164.85,139.79 159.69,119.86 151.9,89.81 151.9,89.81 149.69,81.29 99.56,81.29 96.24,91.09 "
+           id="polygon53"
+           style="fill:#ffffff;fill-opacity:1" />
+        <polygon
+           class="backgroundCls-1"
+           points="191.96,244.42 179.97,198.12 173.66,173.79 68.29,173.79 59.89,198.63 59.89,198.63 45.07,242.47 33.8,275.79 200.09,275.79 "
+           id="polygon55"
+           style="fill:#ffffff;fill-opacity:1" />
+        <polygon
+           class="backgroundCls-1"
+           points="123.78,9.62 123.47,10.55 122.27,14.1 121.87,15.29 132.59,15.29 132.59,15.29 132.17,13.65 131.34,10.45 131.13,9.62 "
+           id="polygon57"
+           style="fill:#ffffff;fill-opacity:1" />
+        <polygon
+           class="backgroundCls-1"
+           points="17.24,324.79 17.24,324.79 0,375.79 226,375.79 212.79,324.79 "
+           id="polygon59"
+           style="fill:#ffffff;fill-opacity:1" />
+        <polygon
+           class="backgroundCls-1"
+           points="126.98,0.16 125.83,3.55 124.72,6.86 124.43,7.7 130.63,7.7 130.63,7.7 130.37,6.7 129.47,3.25 128.63,0 "
+           id="polygon61"
+           style="fill:#ffffff;fill-opacity:1" />
+      </g>
+    </g>
+  </g>
+</svg>

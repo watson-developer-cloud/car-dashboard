@@ -1,0 +1,147 @@
+/*
+ * Copyright © 2016 I.B.M. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the “License”);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an “AS IS” BASIS,Li
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.tooltip-dialog-box {
+    font-family: "Helvetica Neue for IBM Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: absolute;
+    background: #F8F8F8;
+    border: 1px solid #979797;
+    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.50);
+    border-radius: 6px;
+    font-size: 16px;
+    color: #666666;
+    text-align: left;
+    z-index: 70;
+}
+
+.tooltip-dialog-box .tooltip-dialog-close {
+    float: right;
+}
+
+.tooltip-dialog-box .close {
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.tooltip-dialog-box p {
+    margin: 0;
+}
+
+.tooltip-dialog-text p {
+    white-space: pre-line;
+}
+
+.tooltip-dialog-box .tooltip-dialog-btn {
+    outline: none;
+    margin-bottom: 20px;
+}
+
+.tooltip-dialog-btn {
+    padding: 10px 25px;
+    outline: none;
+}
+
+.tooltip-dialog-btn, .suggestion-btn {
+    font-family: "Helvetica Neue for IBM Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    border: 2px solid #01A88F;
+    border-radius: 40px;
+    color: #01A88F;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.tooltip-dialog-btn-wrapper {
+    text-align: center;
+}
+
+#welcome-tooltip-dialog {
+    width: 450px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#welcome-tooltip-dialog .tooltip-dialog-text {
+    padding: 50px 60px 20px 60px;
+}
+
+#type-here-tooltip-dialog {
+    width: 300px;
+    left: 20px;
+    top: auto;
+    right: auto;
+    bottom: 90px;
+}
+
+#type-here-tooltip-dialog::before {
+    content: "";
+    position: absolute;
+    bottom: -22px;
+    left: 128px;
+    border-width: 21px 21px 0;
+    border-style: solid;
+    border-color: #979797 transparent;
+}
+
+#type-here-tooltip-dialog::after {
+    content: "";
+    position: absolute;
+    bottom: -21px;
+    left: 128px;
+    border-width: 21px 21px 0;
+    border-style: solid;
+    border-color: #F8F8F8 transparent;
+}
+
+#type-here-tooltip-dialog .tooltip-dialog-text {
+    padding: 50px 40px 20px 40px;
+}
+
+#menu-here-tooltip-dialog {
+    width: 425px;
+    right: 10px;
+    top: 85px;
+    left: auto;
+    bottom: auto;
+}
+
+#menu-here-tooltip-dialog .tooltip-dialog-text {
+    padding: 50px 50px 20px 50px;
+}
+
+#menu-here-tooltip-dialog::before {
+    content: "";
+    position: absolute;
+    top: -22px;
+    right: 68px;
+    border-width: 0 21px 21px;
+    border-style: solid;
+    border-color: #979797 transparent;
+}
+
+#menu-here-tooltip-dialog::after {
+    content: "";
+    position: absolute;
+    top: -21px;
+    /* value = - border-top-width - border-bottom-width */
+    right: 68px;
+    /* value = (:before left) + (:before border-left) - (:after border-left) */
+    border-width: 0 21px 21px;
+    border-style: solid;
+    border-color: #F8F8F8 transparent;
+}

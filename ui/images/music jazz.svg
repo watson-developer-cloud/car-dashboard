@@ -1,0 +1,77 @@
+<svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1317.64 976.26">
+    <defs>
+        <style>
+        .musicJazzCls-1 {
+            fill: #4ac1dd;
+        }
+        
+        .musicJazzCls-2 {
+            fill: #fff;
+        }
+        
+        .musicJazzCls-3 {
+            font-size: 55px;
+        }
+        
+        .musicJazzCls-3,
+        .musicJazzCls-5 {
+            fill: #21535b;
+            font-family: "HelvNeue Roman for IBM";
+        }
+        
+        .musicJazzCls-4 {
+            letter-spacing: -1px;
+        }
+        
+        .musicJazzCls-5 {
+            font-size: 131px;
+        }
+        
+        .musicJazzCls-6 {
+            letter-spacing: -2px;
+        }
+        
+        .musicJazzCls-7 {
+            letter-spacing: 7px;
+        }
+        
+        .musicJazzCls-8 {
+            letter-spacing: 5px;
+        }
+        
+        .musicJazzCls-9 {
+            fill: none;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+            stroke-width: 3px;
+        }
+        </style>
+    </defs>
+    <title>music jazz</title>
+    <rect class="musicJazzCls-1" x="11.47" y="12" width="1296.16" height="951.7" rx="33.69" ry="33.69" />
+    <rect class="musicJazzCls-2" x="106.06" y="113.22" width="468.05" height="468.05" rx="42.56" ry="42.56" />
+    <text class="musicJazzCls-3" transform="translate(648.58 271.55)">N
+        <tspan class="musicJazzCls-4" x="38.77" y="0">o</tspan>
+        <tspan x="68.36" y="0">w Pl</tspan>
+        <tspan x="167.75" y="0">a</tspan>
+        <tspan x="196.07" y="0">yi</tspan>
+        <tspan x="233.91" y="0">n</tspan>
+        <tspan x="263.01" y="0">g</tspan>
+    </text>
+    <text class="musicJazzCls-5" transform="translate(648.58 422.94)">
+        <tspan class="musicJazzCls-6" x="0" y="0">J</tspan>
+        <tspan class="musicJazzCls-7" x="63.67" y="0">A</tspan>
+        <tspan class="musicJazzCls-8" x="156.68" y="0">Z</tspan>
+        <tspan x="242.61" y="0">Z</tspan>
+    </text>
+    <polyline class="musicJazzCls-2" points="192.04 886.13 143.81 837.9 192.04 789.68" />
+    <polyline class="musicJazzCls-2" points="241.08 886.13 192.85 837.9 241.08 789.68" />
+    <polyline class="musicJazzCls-2" points="1134.59 789.68 1182.82 837.9 1134.59 886.13" />
+    <polyline class="musicJazzCls-2" points="1085.55 789.68 1133.78 837.9 1085.55 886.13" />
+    <rect class="musicJazzCls-2" x="623.05" y="789.68" width="17.86" height="89.64" />
+    <rect class="musicJazzCls-2" x="657.39" y="789.68" width="17.86" height="89.64" />
+    <line class="musicJazzCls-9" x1="133.59" y1="716.5" x2="1197.06" y2="716.5" />
+    <circle id="seek" class="musicJazzCls-2" cx="200" cy="718.62" r="17.17" />
+    <path class="musicJazzCls-1" d="M335.81,422c-14.66,10.65-39.58,31.52-39.58,31.52a18.13,18.13,0,0,1-24.8-4.28h0a18.13,18.13,0,0,1,1-22.7L439.29,236.85l0.69-3a41.07,41.07,0,0,0-40.44-50.35h0l-29.18-15.63,24.92,24.92a15.39,15.39,0,0,0,10.57,4.5,22.41,22.41,0,0,1,21.38,27.45L239.15,397.6a79,79,0,0,0-25.5,55.59h0A70.77,70.77,0,0,0,277.84,526l4.87,0.45c26.81,2.49,41.19-23.23,60-37.66s33-9.08,33-9.08l2.58-81.85A242.85,242.85,0,0,0,335.81,422Zm-35.58-53.23a8.12,8.12,0,1,1,11.49,0A8.12,8.12,0,0,1,300.23,368.74Zm17.65-17.65a8.12,8.12,0,1,1,11.49,0A8.12,8.12,0,0,1,317.88,351.09Zm17.65-17.65a8.12,8.12,0,1,1,11.49,0A8.12,8.12,0,0,1,335.53,333.43Z" />
+    <rect class="musicJazzCls-1" x="337.85" y="435.6" width="91.75" height="5.02" transform="translate(-61.25 813.84) rotate(-88.96)" />
+</svg>

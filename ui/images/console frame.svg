@@ -1,0 +1,29 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1404.32 1054.29">
+    <defs>
+        <style>
+        .consoleFrameCls-1,
+        .consoleFrameCls-2 {
+            fill: none;
+            stroke-miterlimit: 10;
+            stroke-width: 36px;
+        }
+        
+        .consoleFrameCls-1 {
+            stroke: #1c1c1c;
+        }
+        
+        .consoleFrameCls-2 {
+            stroke: #bfbfbf;
+        }
+        
+        .consoleFrameCls-3 {
+            fill: #f4f4f4;
+        }
+        </style>
+    </defs>
+    <title>console frame</title>
+    <rect class="consoleFrameCls-1" x="34.81" y="48.01" width="1334.16" height="978.7" rx="55.05" ry="55.05" />
+    <rect class="consoleFrameCls-2" x="34.81" y="28.01" width="1334.16" height="978.7" rx="55.05" ry="55.05" />
+    <path class="consoleFrameCls-3" d="M1351.58,951.67c0,30.4-7.26,48-37.67,48H89.86c-30.4,0-37.85-17.62-37.85-48,0,0,5.07,37,37.57,37s1189,0.5,1224,.5S1351.58,951.67,1351.58,951.67Z" />
+    <path class="consoleFrameCls-3" d="M1386.58,75.06c0-35.51-37.5-65-72.67-65H89.86c-35.44,0-72.61,29.53-72.61,65,0,0,1.45-15.67,30.83-35.21C60.23,31.78,76.68,28,89.86,28c0,0,1179.22-.84,1224.06,0S1386.58,75.06,1386.58,75.06Z" />
+</svg>

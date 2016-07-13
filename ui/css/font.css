@@ -1,0 +1,112 @@
+/*
+ * Copyright © 2016 I.B.M. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the “License”);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an “AS IS” BASIS,Li
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* IBM Design fonts https://github.ibm.com/Design/fonts */
+@font-face {
+    font-family: 'Helvetica Neue for IBM Light';
+    src: url('../fonts/light/h-n-light.eot?') format('eot'),
+    url('../fonts/light/h-n-light.woff2') format('woff2'),
+    url('../fonts/light/h-n-light.woff') format('woff'),
+    url('../fonts/light/h-n-light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Helvetica Neue for IBM Light Italic';
+    src: url('../fonts/light-italic/h-n-light-italic.eot?') format('eot'),
+    url('../fonts/light-italic/h-n-light-italic.woff2') format('woff2'),
+    url('../fonts/light-italic/h-n-light-italic.woff') format('woff'),
+    url('../fonts/light-italic/h-n-light-italic.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Helvetica Neue for IBM Roman';
+    src: url('../fonts/roman/h-n-roman.eot?') format('eot'),
+    url('../fonts/roman/h-n-roman.woff2') format('woff2'),
+    url('../fonts/roman/h-n-roman.woff') format('woff'),
+    url('../fonts/roman/h-n-roman.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Helvetica Neue for IBM Roman Italic';
+    src: url('../fonts/roman-italic/h-n-roman-italic.eot?') format('eot'),
+    url('../fonts/roman-italic/h-n-roman-italic.woff2') format('woff2'),
+    url('../fonts/roman-italic/h-n-roman-italic.woff') format('woff'),
+    url('../fonts/roman-italic/h-n-roman-italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Helvetica Neue for IBM Medium';
+    src: url('../fonts/medium/h-n-medium.eot?') format('eot'),
+    url('../fonts/medium/h-n-medium.woff2') format('woff2'),
+    url('../fonts/medium/h-n-medium.woff') format('woff'),
+    url('../fonts/medium/h-n-medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Helvetica Neue for IBM Medium Italic';
+    src: url('../fonts/medium-italic/h-n-medium-italic.eot?') format('eot'),
+    url('../fonts/medium-italic/h-n-medium-italic.woff2') format('woff2'),
+    url('../fonts/medium-italic/h-n-medium-italic.woff') format('woff'),
+    url('../fonts/medium-italic/h-n-medium-italic.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Helvetica Neue for IBM Bold';
+    src: url('../fonts/bold/h-n-bold.eot?') format('eot'),
+    url('../fonts/bold/h-n-bold.woff2') format('woff2'),
+    url('../fonts/bold/h-n-bold.woff') format('woff'),
+    url('../fonts/bold/h-n-bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Helvetica Neue for IBM Bold Italic';
+    src: url('../fonts/bold-italic/h-n-bold-italic.eot?') format('eot'),
+    url('../fonts/bold-italic/h-n-bold-italic.woff2') format('woff2'),
+    url('../fonts/bold-italic/h-n-bold-italic.woff') format('woff'),
+    url('../fonts/bold-italic/h-n-bold-italic.ttf') format('truetype');
+    font-weight: 700;
+    font-style: italic;
+}
+
+/* IBM Icons */
+@font-face {
+    font-family: 'ibm-icons';
+    src:url('../fonts/ibm-icons.eot?ytcz1z') format('eot'),
+    url('../fonts/ibm-icons.eot?ytcz1z#iefix') format('embedded-opentype'),
+    url('../fonts/ibm-icons.ttf?ytcz1z') format('truetype'),
+    url('../fonts/ibm-icons.woff?ytcz1z') format('woff'),
+    url('../fonts/ibm-icons.svg?ytcz1z#ibm-icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/* IBM glyphs */
+@font-face {
+    font-family: 'ibm-glyph';
+    src:url('../fonts/ibm-glyphs.eot?1b8643') format('eot'),
+    url('../fonts/ibm-glyphs.eot?1b8643#iefix') format('embedded-opentype'),
+    url('../fonts/ibm-glyphs.ttf?1b8643') format('truetype'),
+    url('../fonts/ibm-glyphs.woff?1b8643') format('woff'),
+    url('../fonts/ibm-glyphs.svg?1b8643#ibm-glyph') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

@@ -1,0 +1,130 @@
+/*
+ * Copyright © 2016 I.B.M. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the “License”);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an “AS IS” BASIS,Li
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+#dark-overlay {
+    background: black;
+    opacity: 0.62;
+    z-index: 40;
+}
+
+#clear-overlay {
+    background: transparent;
+    z-index: 60;
+}
+
+.between-overlays {
+    z-index: 50 !important;
+}
+
+.hide {
+    display: none !important;
+}
+
+.fade {
+    transition: opacity 3s;
+    -moz-transition: opacity 3s; /* Firefox */
+    -webkit-transition: opacity 3s; /* Safari and Chrome */
+    -o-transition: opacity 3s; /* Opera */
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+.close {
+    padding: 10px;
+    cursor: pointer;
+    width: 30px;
+    outline: none
+}
+
+.close:hover {
+    animation: hover 0.2s 1 ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes hover{
+    100% {
+        transform: scale(1.1);
+    }
+}
+.responsive-columns-wrapper {
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: row;
+    -ms-display: flex;
+    -ms-flex-direction: row;
+}
+
+.responsive-column {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+
+.pre-bar::before {
+    border-left: solid 4px #9E4CE6;
+    border-radius: 4px;
+    content: "";
+    margin-right: 7px;
+    margin-left: -10px;
+}
+
+#svg_wrapper {
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    min-width: 500px;
+    max-width: 1100px;
+}
+
+#svg_size {
+    font-size: 0;
+    position: relative;
+    height: 0;
+    width: 100%;
+    padding: 0;
+    padding-bottom: calc( 100% * 704 / 1024 );
+}
+
+#svg_canvas{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+}

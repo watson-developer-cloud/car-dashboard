@@ -1,0 +1,51 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1317.64 976.26">
+    <defs>
+        <style>
+        .textCls-1 {
+            fill: #499c00;
+        }
+        
+        .textCls-2 {
+            fill: #fff;
+        }
+        
+        .textCls-3 {
+            font-size: 131px;
+            fill: #0f4e0f;
+            font-family: HelvNeueRomanforIBM, HelvNeue Roman for IBM;
+        }
+        
+        .textCls-4 {
+            letter-spacing: 0em;
+        }
+        
+        .textCls-5 {
+            letter-spacing: 0.01em;
+        }
+        
+        .textCls-6 {
+            letter-spacing: 0.01em;
+        }
+        
+        .textCls-7 {
+            letter-spacing: -0.02em;
+        }
+        </style>
+    </defs>
+    <title>text</title>
+    <rect class="textCls-1" x="11.47" y="12" width="1296.16" height="951.7" rx="33.69" ry="33.69" />
+    <rect class="textCls-2" x="106.06" y="233.22" width="468.05" height="468.05" rx="42.56" ry="42.56" />
+    <text class="textCls-3" transform="translate(623.08 421.45)">M
+        <tspan class="textCls-4" x="110.56" y="0">E</tspan>
+        <tspan class="textCls-5" x="190.34" y="0">S</tspan>
+        <tspan class="textCls-6" x="274.57" y="0">S</tspan>
+        <tspan class="textCls-7" x="358.54" y="0">A</tspan>
+        <tspan x="441.2" y="0">GE</tspan>
+        <tspan x="0" y="135">SENT</tspan>
+    </text>
+    <ellipse class="textCls-1" cx="327.53" cy="452.94" rx="162.74" ry="122.84" />
+    <polyline class="textCls-1" points="341.61 553.87 308.75 619.59 426 550.75" />
+    <rect class="textCls-2" x="243.78" y="413.6" width="163.49" height="10.5" />
+    <rect class="textCls-2" x="243.78" y="441.6" width="163.49" height="10.5" />
+    <rect class="textCls-2" x="243.78" y="473" width="163.49" height="10.5" />
+</svg>
