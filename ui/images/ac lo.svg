@@ -1,37 +1,35 @@
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1317.64 971.06">
     <defs>
         <style>
-        .acloCls-1 {
-            fill: #4aa8dd;
-        }
-        
-        .acloCls-2 {
-            fill: #e2e2e2;
-        }
-        
-        .acloCls-3,
-        .acloCls-8 {
-            fill: #445772;
-        }
-        
-        .acloCls-4 {
-            fill: #b2b2b2;
-        }
-        
-        .acloCls-5,
-        .acloCls-6 {
-            fill: #fff;
-        }
-        
-        .acloCls-6,
-        .acloCls-8 {
-            font-size: 30px;
-            font-family: HelvNeue Roman for IBM;
-        }
-        
-        .acloCls-7 {
-            letter-spacing: -1px;
-        }
+            .acloCls-1 {
+                fill: #4aa8dd;
+            }
+
+            .acloCls-2 {
+                fill: #e2e2e2;
+            }
+
+            .acloCls-3,
+            .acloCls-8 {
+                fill: #445772;
+            }
+
+            .acloCls-4 {
+                fill: #b2b2b2;
+            }
+
+            .acloCls-5,
+            .acloCls-6 {
+                fill: #fff;
+            }
+
+            .acloCls-6,
+            .acloCls-8 {
+                font-size: 40px;
+                font-family: HelvNeue Roman for IBM;
+                weight: 600;
+                letter-spacing: 2px;
+            }
         </style>
     </defs>
     <title>ac lo</title>
@@ -47,9 +45,6 @@
     </g>
     <rect class="acloCls-5" x="490.82" y="841.01" width="350.24" height="53.52" rx="26.76" ry="26.76" />
     <rect class="acloCls-3" x="490.82" y="841.01" width="190.24" height="53.52" rx="26.76" ry="26.76" />
-    <text class="acloCls-6" transform="translate(571.82 877.53)">
-        <tspan class="acloCls-7" x="0" y="0">L</tspan>
-        <tspan x="15.39" y="0">O</tspan>
-    </text>
-    <text class="acloCls-8" transform="translate(737.82 877.53)">HI</text>
+    <text class="acloCls-6" transform="translate(562 884)">LO</text>
+    <text class="acloCls-8" transform="translate(728 884)">HI</text>
 </svg>

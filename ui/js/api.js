@@ -28,8 +28,8 @@ var Api = (function() {
 
   // Publicly accessible methods defined
   return {
-    postConversationMessage: postConversationMessage,
     initConversation: initConversation,
+    postConversationMessage: postConversationMessage,
 
     // The request/response getters/setters are defined here to prevent internal methods
     // from calling the methods without any of the callbacks that are added elsewhere.
@@ -47,6 +47,11 @@ var Api = (function() {
     }
   };
 
+  // Function used for initializing the conversation with the first message from Watson
+  function initConversation() {
+    postConversationMessage('');
+  }
+
   // Send a message request to the server
   function postConversationMessage(text) {
     var data = {'input': {'text': text}};
@@ -54,18 +59,24 @@ var Api = (function() {
       data.context = context;
     }
     Api.setUserPayload(data);
-    console.log('user sent: ' + JSON.stringify(data));
     var http = new XMLHttpRequest();
     http.open('POST', messageEndpoint, true);
     http.setRequestHeader('Content-type', 'application/json; charset=utf-8');
     http.onload = function() {
       if (http.status === 200 && http.responseText) {
-        console.log('watson response: ' + http.responseText);
         var response = JSON.parse(http.responseText);
-        Api.setWatsonPayload(response);
         context = response.context;
+        Api.setWatsonPayload(response);
       } else {
-        Api.setWatsonPayload({output: {text: ['The service may be down at the moment; please check <a href="https://status.ng.bluemix.net/">here</a> for the current status. <br> If the service is OK, the app may not be configured correctly, please check workspace id and credentials for typos. <br> If the service is running and the app is configured correctly, try refreshing the page and/or trying a different request.']}});
+        Api.setWatsonPayload({output: {text: [
+          'The service may be down at the moment; please check' +
+          ' <a href="https://status.ng.bluemix.net/" target="_blank">here</a>' +
+          ' for the current status. <br> If the service is OK,' +
+          ' the app may not be configured correctly,' +
+          ' please check workspace id and credentials for typos. <br>' +
+          ' If the service is running and the app is configured correctly,' +
+          ' try refreshing the page and/or trying a different request.'
+        ]}});
         console.error('Server error when trying to reply!');
       }
     };
@@ -74,10 +85,5 @@ var Api = (function() {
     };
 
     http.send(JSON.stringify(data));
-  }
-
-  // Function used for initializing the conversation with the first message from Watson
-  function initConversation() {
-    postConversationMessage('');
   }
 }());

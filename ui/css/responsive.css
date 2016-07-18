@@ -1,0 +1,61 @@
+/*
+ * Copyright © 2016 I.B.M. All rights reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the “License”);
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an “AS IS” BASIS,Li
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+html{
+    font-size: 16px;
+}
+
+@media only screen and (max-width: 1100px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 950px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    html {
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    html {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    html {
+        font-size: 11px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    html {
+        font-size: 10px;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    html {
+        font-size: 9px;
+    }
+}

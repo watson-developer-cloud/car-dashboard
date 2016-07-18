@@ -17,13 +17,14 @@
 /* The Animations module handles all animated parts of the app (in the SVG) */
 
 /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "^Animations$" }] */
-/* global Api: true, Common: true, Snap: true, mina: true, Panel: true, ConversationResponse:true, Promise: true*/
+/* global Common: true, Snap: true, mina: true, Panel: true */
 
 var Animations = (function() {
   'use strict';
 
   var snapSvgCanvas;
   var state;
+  var initialized = false;
 
   var classes = {
     drop: 'drop',
@@ -72,6 +73,7 @@ var Animations = (function() {
   // Publicly accessible methods defined
   return {
     init: init,
+    isInitialized: isInitialized,
     toggleRain: toggleRain,
     lightsOn: lightsOn,
     lightsOff: lightsOff,
@@ -85,8 +87,6 @@ var Animations = (function() {
 
   // Initialize the animations
   function init() {
-    initiateIntentHandling();
-
     state = {
       svg_width: 1154,
       svg_height: 704,
@@ -99,84 +99,88 @@ var Animations = (function() {
     snapSvgCanvas = Snap(idSelectors.svgCanvas);
 
     // Loads sky, then background, then dashboard, using callbacks
-    return new Promise(function(resolve) {
-      loadSky().then(resolve);
-    });
+    loadSky();
   }
 
-  // Create a callback when a new Watson response is received to handle the determined intent
-  function initiateIntentHandling() {
-    var currentResponsePayloadSetter = Api.setWatsonPayload;
-    Api.setWatsonPayload = function(payload) {
-      currentResponsePayloadSetter.call(Api, payload);
-      intentHandler(payload);
-    };
+  // Returns true if the Animations module is fully initialized (including full SVG loading)
+  function isInitialized() {
+    return initialized;
   }
 
   // Load the dashboard and wipers
   function loadDashboard() {
+    // Create SVG group to hold the SVG loaded from file
     var dash = snapSvgCanvas.group();
-    return new Promise(function(resolve) {
-      Snap.load('./images/dashboard.svg', function(svgFragment) {
-        svgFragment.select('title').remove();   // Remove the tooltip from the svg
-        dash.append(svgFragment);
+    Snap.load('./images/dashboard.svg', function(svgFragment) {
+      svgFragment.select('title').remove();   // Remove the tooltip from the SVG
+      // Append the loaded fragment from file to the SVG group
+      dash.append(svgFragment);
 
-        animateNeedles();
-        var rightWiper = Snap.select(idSelectors.rightWiper);
-        var leftWiper = Snap.select(idSelectors.leftWiper);
+      animateNeedles();
+      var rightWiper = Snap.select(idSelectors.rightWiper);
+      var leftWiper = Snap.select(idSelectors.leftWiper);
 
-        rightWiper.bbox = rightWiper.getBBox();
-        leftWiper.bbox = leftWiper.getBBox();
+      // Remember the initial positioning of wipers
+      rightWiper.bbox = rightWiper.getBBox();
+      leftWiper.bbox = leftWiper.getBBox();
 
-        state.wipers = {
-          right: rightWiper,
-          left: leftWiper
-        };
+      state.wipers = {
+        right: rightWiper,
+        left: leftWiper
+      };
 
-        Panel.init();
-        resolve();
-      });
+      // Draw the Watson log on the panel and set up for animations
+      Panel.init();
+
+      initialized = true;
     });
   }
 
   // Load the background and set the rain to start in 1 minute, lasting for 30 seconds
   function loadBackground() {
+    // Create SVG group to hold the SVG loaded from file
     var background = snapSvgCanvas.group();
-    return new Promise(function(resolve) {
-      Snap.load('./images/background.svg', function(svgFragment) {
-        svgFragment.select('title').remove();   // Remove the tooltip from the svg
-        background.append(svgFragment);
-        animateRoad();
-        animateTrees();
-        animateClouds();
+    Snap.load('./images/background.svg', function(svgFragment) {
+      svgFragment.select('title').remove();   // Remove the tooltip from the SVG
+      // Append the loaded fragment from file to the SVG group
+      background.append(svgFragment);
 
-        initiateRaining();
+      // Begin animating the elements
+      animateRoad();
+      animateTrees();
+      animateClouds();
 
-        // Setup a loop to call toggle rain every 30s
-        (function rainLoop() {
+      // Create the rain drops without displaying them
+      initiateRaining();
+
+      // Setup a loop to call toggle rain every 30s
+      (function rainLoop() {
+        setTimeout(function() {
+          toggleRain();
           setTimeout(function() {
             toggleRain();
-            setTimeout(function() {
-              toggleRain();
-              rainLoop();
-            }, 60000);
-          }, 30000);
-        })();
+            rainLoop();
+          }, 60000);
+        }, 30000);
+      })();
 
-        loadDashboard().then(resolve);
-      });
+      // Begin loading the dashboard SVGs
+      loadDashboard();
     });
   }
 
   // Loads the sky
   function loadSky() {
+    // Create SVG group to hold the SVG loaded from file
     var sky = snapSvgCanvas.group();
-    return new Promise(function(resolve) {
-      Snap.load('./images/sky.svg', function(svgFragment) {
-        svgFragment.select('title').remove();   // Remove the tooltip from the svg
-        sky.append(svgFragment);
-        loadBackground().then(resolve);
-      });
+    Snap.load('./images/sky.svg', function(svgFragment) {
+      svgFragment.select('title').remove();   // Remove the tooltip from the SVG
+
+      // Append the loaded fragment from file to the SVG group
+      sky.append(svgFragment);
+
+      // Load the background
+      loadBackground();
     });
   }
 
@@ -184,22 +188,28 @@ var Animations = (function() {
   function animateRoad() {
     Common.hide(document.getElementById(ids.dottedLine));
     Common.hide(document.getElementById(ids.stripes1));
+
+    // Ever 120ms alternate the positioning of the dotted line
+    // To create illusion of a moving road by alternating visibility
+    // of sections
     setInterval(function() {
       Common.toggle(document.getElementById(ids.stripes1));
       Common.toggle(document.getElementById(ids.stripes2));
-    },
-    120);
+    }, 120);
   }
 
-  // Animate movement of clouds by dx
+  // Repeatedly animate movement of cloud by dx over a specified duration
   function moveCloud(cloud, duration, dx) {
+    // move cloud to starting position
     cloud.attr({opacity: 0, transform: 't' + [0, 0]});
 
     // In 1 tenth of the duration bring opacity to 1 then in the rest move the cloud
     cloud.animate({opacity: 1}, 0.1 * duration, mina.linear, function() {
-      cloud.animate({opacity: 0.5, transform: 't' + [dx, 0]}, 0.9 * duration, mina.linear, function() {
-        moveCloud(cloud, duration, dx);
-      });
+      cloud.animate({opacity: 0.5, transform: 't' + [dx, 0]}, 0.9 * duration, mina.linear,
+        function() {
+          // Repeat the animation from the top
+          moveCloud(cloud, duration, dx);
+        });
     });
   }
 
@@ -213,25 +223,27 @@ var Animations = (function() {
     moveCloud(Snap.select('#cloud6'), 20000, 2000);
   }
 
-
-  // Animates the trees to pass by on the right and left
+  // Repeatedly animates the trees to pass by on the right and left
   function animateTrees() {
-    // randomly move trees to left or right side of road
+    // Randomly move trees to left or right side of road
     var trees = [idSelectors.tree1, idSelectors.tree2];
 
-    // select a random tree to work with
+    // Relect a random tree to work with
     var t = Snap.select(trees[Math.floor(Math.random() * trees.length)]);
+
+    // Move to original position
     t.transform('t0,0');
+
+    // Make tree visible
     t.attr( {display: ''});
 
-    var translate = [-130, 10];
+    var leftXtransform = [-130, 10];
+    var rightXtransform = [120, 10];
 
-    // Toss a coin to decide direction
-    if (Math.random() > 0.5 ) {
-      translate = [120, 10];
-    }
+    // Randomly chose to move tree on left or right side of the road
+    var translate = (Math.random() > 0.5 ? leftXtransform : rightXtransform);
 
-    // Start transforming the trees slowly then faster as the car get closer
+    // Start transforming the trees slowly then faster as the car gets closer
     mina.easeInExpo = function(n) {
       return ( n === 0 ) ? 0 : Math.pow( 2, 10 * ( n - 1 ) );
     };
@@ -239,8 +251,12 @@ var Animations = (function() {
     // Final transform should be scaled 20x and translated
     var endScene = 's20,20,' + 't' + translate;
 
+    // Animate tree to the end scene in 4.5s
     t.animate({transform: endScene}, 4500, mina.easeInExpo, function() {
+      // Hide tree once the animation is complete
       t.attr( {display: 'none'});
+
+      // Repeat animation
       animateTrees();
     });
   }
@@ -254,17 +270,18 @@ var Animations = (function() {
   // Create the raindrop objects
   function makeRain() {
     // Create 2 groups of rain drops. One for the top half and one for the bottom.
-    // Each animated slight differently to create illusion of continiuty
+    // Each animated slight differently to create illusion of continuity
     var upperDrops = snapSvgCanvas.group();
     var lowerDrops = snapSvgCanvas.group();
     addDropsToGroup(state.num_drops / 2, upperDrops);
     addDropsToGroup(state.num_drops / 2, lowerDrops);
 
+    // Set the IDs for the groups so we can easily identify them in other functions
     upperDrops.node.id = ids.upperDrops;
     lowerDrops.node.id = ids.lowerDrops;
   }
 
-  // Draw randomly positioned drops and add them to the svg group
+  // Draw count randomly positioned drops and add them to the SVG group
   function addDropsToGroup(count, group) {
     for (var i =  0; i < count; i++) {
       var x = Math.random() * state.svg_width;
@@ -282,14 +299,18 @@ var Animations = (function() {
     var dropPath =
       'm,' + [x, y] +
       ',l,' + [0, 0] +
-      ' ,c,' + [-3.4105934 * scale, -3.41062 * scale, -3.013645 * scale, -9.00921 * scale, 3.810723 * scale, -14.7348 * scale] +
+      ' ,c,' + [-3.4105934 * scale, -3.41062 * scale, -3.013645 * scale,
+        -9.00921 * scale, 3.810723 * scale, -14.7348 * scale] +
       ',l,' + [68.031 * scale, -57.107 * scale] +
       ',l,' + [-57.107 * scale, 68.034 * scale] +
-      ',c,' + [-5.725604 * scale, 6.8212 * scale, -11.324178 * scale, 7.22133 * scale, -14.734769 * scale, 3.80759 * scale] +
+      ',c,' + [-5.725604 * scale, 6.8212 * scale, -11.324178 * scale,
+        7.22133 * scale, -14.734769 * scale, 3.80759 * scale] +
       ',z';
 
+    // Make sure the path dims are relative
     var rel = Snap.path.toRelative(dropPath);
     var drop = snapSvgCanvas.path(rel);
+
     drop.attr({
       class: cls,
       fill: '#ceeaf4'   // give drops the blue color
@@ -313,24 +334,27 @@ var Animations = (function() {
 
     // Move the group of upper drops downwards
     function animateUpper() {
-        // Reset to top of screen
+      // Reset to top of screen
       upperDrops.transform('t' + topTransform);
 
-        // Animate falling movement to bottom of screen
-      upperDrops.animate({ transform: 't' + [Math.random() * 50, topTransform[1] + fallDistance] }, 5000, mina.linear);
+      // Animate falling movement to bottom of screen
+      upperDrops.animate({ transform: 't' + [Math.random() * 50,
+        topTransform[1] + fallDistance] }, 5000, mina.linear);
     }
 
     // Begin moving the lower drops downwards then move the upper drops
     function animateDrops() {
-        // Reset to top of screen
+      // Reset to top of screen
       lowerDrops.transform('t' + topTransform);
 
       // Animate falling of lower drops
-      lowerDrops.animate({ transform: 't' + [Math.random() * 50, topTransform[1] + fallDistance / 2.0] }, 2500, mina.linear, function() {
-        // begin animation of upper drops half way through the animation
-        animateUpper();
-        lowerDrops.animate({ transform: 't' + [Math.random() * 50, topTransform[1] + fallDistance] }, 2500, mina.linear, animateDrops);
-      });
+      lowerDrops.animate({ transform: 't' + [Math.random() * 50,
+        topTransform[1] + fallDistance / 2.0] }, 2500, mina.linear, function() {
+          // begin animation of upper drops half way through the animation
+          animateUpper();
+          lowerDrops.animate({ transform: 't' + [Math.random() * 50,
+          topTransform[1] + fallDistance] }, 2500, mina.linear, animateDrops);
+        });
     }
 
     var drop = document.getElementsByClassName(classes.drop);
@@ -349,12 +373,14 @@ var Animations = (function() {
   // Darken the sky to correspond with the rain
   function toggleDarkenSky() {
     // hide the sun and make the clouds darker
-    Common.listForEach(document.getElementsByClassName(classes.darkCloud), function(currentElement) {
-      Common.toggleClass(currentElement, classes.lightGrayCloud);
-    });
-    Common.listForEach(document.getElementsByClassName(classes.lightCloud), function(currentElement) {
-      Common.toggleClass(currentElement, classes.darkGrayCloud);
-    });
+    Common.listForEach(document.getElementsByClassName(classes.darkCloud),
+      function(currentElement) {
+        Common.toggleClass(currentElement, classes.lightGrayCloud);
+      });
+    Common.listForEach(document.getElementsByClassName(classes.lightCloud),
+      function(currentElement) {
+        Common.toggleClass(currentElement, classes.darkGrayCloud);
+      });
     Common.fadeToggle(document.getElementById(ids.sun));
     Common.toggleClass(document.getElementById(ids.skyHue), classes.darkSky);
   }
@@ -365,19 +391,31 @@ var Animations = (function() {
     var revmeter = Snap.select(idSelectors.revmeter);
     var rightNeedle = Snap.select(idSelectors.rightNeedle);
     var leftNeedle = Snap.select(idSelectors.leftNeedle);
-    rightNeedle.animate({transform: 'r' + ((100 * Math.random()) + 10) +  ', ' + speedometer.getBBox().cx + ',' + speedometer.getBBox().cy}, 9000 * Math.random(), mina.linear, animateNeedles);
-    leftNeedle.animate({transform: 'r' + ((100 * Math.random()) + 10) + ',' + revmeter.getBBox().cx + ',' + revmeter.getBBox().cy}, 9000, mina.linear);
+
+    // Animate the needles around the center of the dials in a range
+    // of 10-110 randomly
+    leftNeedle.animate({transform: 'r' + ((100 * Math.random()) + 10) + ','
+    + revmeter.getBBox().cx + ',' + revmeter.getBBox().cy}, 9000, mina.linear);
+    rightNeedle.animate({transform: 'r' + ((100 * Math.random()) + 10) +  ', '
+    + speedometer.getBBox().cx + ',' + speedometer.getBBox().cy},
+      9000 * Math.random(), mina.linear, function() {
+        // Repeat the animation
+        animateNeedles();
+      });
   }
 
   // Turn headlights on
   function lightsOn() {
+    // Set the light to visible and fade in over 300ms
     Snap.select(idSelectors.headlights).attr({display: '', opacity: 0});
     Snap.select(idSelectors.headlights).animate({opacity: 1}, 300, mina.linear);
   }
 
   // Turn headlights off
   function lightsOff() {
+    // Fade out the light over 500s
     Snap.select(idSelectors.headlights).animate({opacity: 0}, 500, mina.linear, function() {
+      // After fading, hide the light from the DOM
       Snap.select(idSelectors.headlights).attr({display: 'none'});
     });
   }
@@ -402,7 +440,7 @@ var Animations = (function() {
     state.wiping = false;
   }
 
-  // Rotate the wipers in degrees from, to
+  // Rotate the wipers in degrees from -> to, then execute the next callback
   function rotateWipers( from, to, next) {
     var rWiper = state.wipers.right;
     var lWiper = state.wipers.left;
@@ -412,14 +450,14 @@ var Animations = (function() {
     }, 2000, mina.linear, next);
   }
 
-  // Function to set up the wiper movement
+  // Repeatedly animates movement of the wipers back and fourth
   function moveWipers() {
     // check if the user has called wipers off
     if (!state.wiping) {
       state.wipingAnim = false; // signal that the animations is over
       return;
     }
-    // rotate the wipers 170 degrees back then restart the moveWipers function
+    // rotate the wipers 170 degrees back then restart moveWipers
     function back() {
       rotateWipers(170, 0, moveWipers);
     }
@@ -428,116 +466,7 @@ var Animations = (function() {
       rotateWipers(0, 170, back);
     }
 
+    // Kick off the animation with a forward animation
     forward();
-  }
-
-  // Called when a Watson response is received, manages the behavior of the app based on the user intent that was determined by Watson
-  function intentHandler(data) {
-    if (data && data.intents && data.entities) {
-      var primaryIntent = data.intents[0];
-      var primaryEntity = data.entities[0];
-
-      // TODO: handle multiple entities and check state
-
-      if (primaryIntent && primaryEntity && !data.output.error) {
-        switch (primaryEntity.entity) {
-        case ConversationResponse.entities.genre.name:
-          Panel.playMusic(primaryEntity.value);
-          break;
-
-        case ConversationResponse.entities.appliance.name:
-          switch (primaryEntity.value) {
-          case ConversationResponse.entities.appliance.values.air_conditioner:
-            if (primaryIntent.intent === ConversationResponse.intents.turn_on) {
-              Panel.ac('lo');
-            } else {
-              Panel.ac('hi');
-            }
-            break;
-
-          case ConversationResponse.entities.appliance.values.heater:
-            if (primaryIntent.intent === ConversationResponse.intents.turn_on) {
-              Panel.heat('lo');
-            } else {
-              Panel.heat('hi');
-            }
-            break;
-
-          case ConversationResponse.entities.appliance.values.light:
-            if (primaryIntent.intent === ConversationResponse.intents.turn_on) {
-              Animations.lightsOn();
-            } else if (primaryIntent.intent === ConversationResponse.intents.turn_off) {
-              Animations.lightsOff();
-            }
-            break;
-
-          case ConversationResponse.entities.appliance.values.wiper:
-            if (primaryIntent.intent === ConversationResponse.intents.turn_on) {
-              Animations.wipersOn();
-            } else if (primaryIntent.intent === ConversationResponse.intents.turn_off) {
-              Animations.wipersOff();
-            }
-            break;
-
-          case ConversationResponse.entities.appliance.values.music:
-            if (primaryIntent.intent === ConversationResponse.intents.turn_up) {
-              Panel.playMusic('general');
-            }
-            break;
-
-          default:
-            break;
-          }
-          break;
-
-        case ConversationResponse.entities.amenity.name:
-          switch (primaryEntity.value) {
-          case  ConversationResponse.entities.amenity.values.gas_station:
-            Panel.mapGas();
-            break;
-          case ConversationResponse.entities.amenity.values.restaurant:
-            if (primaryIntent.intent === ConversationResponse.intents.locate_amenity) {
-              Panel.mapFoodCuisine();
-            } else {
-              Panel.mapFoodNumbers();
-            }
-            break;
-          default:
-            break;
-          }
-          break;
-
-        case ConversationResponse.entities.cuisine.name:
-          Panel.mapFoodNumbers();
-          break;
-
-        case ConversationResponse.entities.phone.name:
-          switch (primaryEntity.value) {
-          case ConversationResponse.entities.phone.values.call:
-            Panel.mapGas();
-            break;
-          case ConversationResponse.entities.phone.values.text:
-            Panel.text();
-            break;
-          default:
-            break;
-          }
-          break;
-
-        default:
-          break;
-        }
-      } else if (primaryIntent && !data.output.error && !primaryEntity) {
-        // handle case if there in an intent but no entity
-        switch (primaryIntent.intent) {
-        case ConversationResponse.intents.locate_amenity:
-          Panel.mapGeneral();
-          break;
-
-        default:
-          break;
-        }
-      }
-    }
   }
 }());

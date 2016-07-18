@@ -36,6 +36,7 @@ var tests = (function() {
     var durationMs = duration * 1000;
 
     setTimeout(function() {
+      // TODO remove console logging
       console.log('test: ' + label);
       func();
     }, time);
@@ -54,8 +55,6 @@ var tests = (function() {
     doTest(function() {Panel.mapFoodCuisine();}, 5, 'map food cuisine');
     doTest(function() {Panel.mapGas();}, 5, 'map gas');
     doTest(function() {Panel.mapFoodNumbers();}, 5, 'map food numbers');
-    doTest(function() {Panel.mapGeneral();}, 5, 'map general');
-    doTest(function() {Panel.text();}, 5, 'send text message');
   }
 
   function testDash() {
@@ -97,6 +96,7 @@ var tests = (function() {
 
     var sendSuggestion = function(index) {
       return function() {
+        // TODO remove console logging
         console.log('using suggestion: ' + suggestions[index]);
         Conversation.sendMessage(suggestions[index]);
       };

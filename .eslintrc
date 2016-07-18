@@ -3,11 +3,12 @@
     "no-console": 0,
     "func-names": 0,
     "vars-on-top": 0,
-    "consistent-return": 0
+    "consistent-return": 0,
+    "complexity": ["error", 10]
   },
   "globals": {
-    describe: true,
-    it: true
+    "describe": true,
+    "it": true
   },
   "env": {
     "node": true

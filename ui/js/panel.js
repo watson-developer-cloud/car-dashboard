@@ -17,7 +17,7 @@
 /* The Panel module involves the display and behavior of the dashboard panel within the SVG */
 
 /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "^Panel$" }] */
-/* global mina: true, Snap: true */
+/* global mina: true, Snap: true, Common: true */
 
 var Panel = (function() {
   var selectors = {
@@ -39,33 +39,48 @@ var Panel = (function() {
     mapFoodNumbers: mapFoodNumbers,
     mapFoodCuisine: mapFoodCuisine,
     mapGas: mapGas,
+    mapRestrooms: mapRestrooms,
     mapGeneral: mapGeneral,
-    text: text,
+    mapNavigation: mapNavigation,
     init: defaultScreen
   };
 
-  // clear everything on the panel until only the watson logo is left
+  // clear everything on the panel until only the Watson logo is left
   function clearToDefault(panel) {
-    Array.from(panel.node.childNodes).forEach(function(element) {
+    Common.listForEach(panel.node.childNodes, function(element) {
       if (element.id !== selectors.defaultScreen) {
-        element.remove();
+        panel.node.removeChild(element);
       }
     });
   }
 
   // Auxiliary function for loading an SVG into the panel
   function loadSvg(filename, next) {
+    // Clear the panel console display and leave on the Watson logo
     var p = Snap.select(idSelectors.panel);
     clearToDefault(p);
+
+    // Create a new SVG group to hold the loaded SVG
     var svgGroup = snapSvgCanvas.group();
+
     Snap.load('./images/' + filename + '.svg', function(svgFragment) {
       svgFragment.select('title').remove();   // Remove the tooltip from the svg
-      svgGroup.attr({opacity: 0});
+
+      // Position the SVG group on the panel console
       svgGroup.append(svgFragment);
       svgGroup.transform('T' + [180, 137] + 's0.29,0.29');
       p.append(svgGroup);
+
+      // Place a rectangular mask around the panel console area to clip off any bits
+      // of the SVG group That are not within the panel console area
+      var panelMask = svgGroup.rect(60, 15, 910, 680, 20, 20).attr({ 'strokeWidth': 0, fill: 'white' });
+      svgGroup.attr({mask: panelMask});
+
+      // Fade in the SVG group
+      svgGroup.attr({opacity: 0});
       svgGroup.animate({opacity: 1}, 700, mina.linear);
 
+      // Execute callback if provided
       if (next) {
         next(svgFragment, svgGroup);
       }
@@ -73,76 +88,71 @@ var Panel = (function() {
     return svgGroup;
   }
 
-  function animateFan(level, next) {
+  // Rotate the fan in the svgGroup at the speed specified by level
+  function animateFan(level, svgGroup) {
+    // Find the fan in the DOM and get its initial coordinates
     var fan = Snap.select(idSelectors.fan);
     var bbox = fan.getBBox();
 
-    var doneNext = false;
+    // TODO Speeds seem to be much faster in Chrome than FF
+    var speed = {
+      hi: 20,
+      lo: 10
+    }[level];
+
+    var doneFade = false;
     Snap.animate(0, 100, function(val) {
-      var speed = ((level === 'hi') ? 10 : 5);
+      // At 60% of the animation apply the fade animation once to
+      // Begin fading out the SVG group from the panel display
       if (val > 60) {
-        // at 60% of the animation apply the callback once
-        if (!doneNext) {
-          next();
-          doneNext = true;
+        if (!doneFade) {
+          svgGroup.animate({opacity: 0}, 500, mina.linear, function() {
+            svgGroup.remove();
+          });
+          doneFade = true;
         }
       }
-      // rotate the fan around its center
+      // Rotate the fan around its center (bbox.cx, bbox.cy) at the speed given
       var localMat = fan.transform().localMatrix;
       fan.transform( localMat.rotate(speed, bbox.cx, bbox.cy) );
     }, 8000, mina.linear);
   }
 
-  // Set up fan to animate and then fade out
-  function animateFanThenFade(level, svgGroup) {
-    function next() {
-      svgGroup.animate({opacity: 0}, 500, mina.linear, function() {
-        svgGroup.remove();
-      });
-    }
-    animateFan(level, next);
-  }
-
   // Show that music of the given genre is playing
   function playMusic(genre) {
+    // Define a callback for the loading function
     function next(svgFragment, svgGroup) {
       var seek = Snap.select('#seek');
       var localMat = seek.transform().localMatrix;
+
+      // Animate moving the seek position
       seek.animate({transform: localMat.translate(950, 0)}, 4000, mina.linear, function() {
+        // After the seek position has reached the end fade out the SVG group
         svgGroup.animate({opacity: 0}, 500, mina.linear, function() {
           svgGroup.remove();
         });
       });
     }
+
+    // Load the SVG then execute the next callback
     loadSvg('music ' + genre, next);
   }
 
   // Turn on A/C
   function ac(level) {
     loadSvg('ac ' + level, function(svgFragment, svgGroup) {
-      animateFanThenFade(level, svgGroup);
+      animateFan(level, svgGroup);
     });
   }
 
   // Turn on heat
   function heat(level) {
     loadSvg('heat ' + level, function(svgFragment, svgGroup) {
-      animateFanThenFade(level, svgGroup);
+      animateFan(level, svgGroup);
     });
   }
 
-  // load svg element then fade it ouy after 4.5s
-  function loadSvgThenFade(filename) {
-    loadSvg(filename, function(svgFragment, svgGroup) {
-      setTimeout( function() {
-        svgGroup.animate({opacity: 0}, 500, mina.linear, function() {
-          svgGroup.remove();
-        });
-      }, 4500);
-    });
-  }
-
-  // show watson logo on panel
+  // Show Watson logo on panel
   function defaultScreen() {
     loadSvg('default screen', function(svgFragment, svgGroup) {
       svgGroup.node.id = selectors.defaultScreen;
@@ -161,16 +171,30 @@ var Panel = (function() {
 
   // Show the map of gas stations
   function mapGas() {
-    loadSvgThenFade('map gas');
+    loadSvg('map gas');
+  }
+
+  // Show the map of restrooms
+  function mapRestrooms() {
+    loadSvg('map restrooms');
   }
 
   // Show the map of the surrounding area
   function mapGeneral() {
-    loadSvgThenFade('map general');
+    loadSvg('map general');
   }
 
-  // Show screen showing message sent
-  function text() {
-    loadSvgThenFade('text');
+  // Set a given choice (e.g first, second e.t.c) as the current goal on the
+  // Map
+  function mapNavigation(choice) {
+    Snap.selectAll('.nav_active').forEach(function(e) {
+      e.removeClass('nav_active');
+    });
+
+    var goal = Snap.select('#' + choice);
+
+    if (goal) {
+      goal.addClass('nav_active');
+    }
   }
 })();

@@ -14,12 +14,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* global WatsonSpeech: true, Conversation: true, Api: true*/
+/* global WatsonSpeech: true, Conversation: true, Api: true Common: true*/
 
 'use strict';
 var mic        = document.getElementById('input-mic');
 var recording  = false;
 var stream;
+
+(function() {
+  // Check if browser supports speech
+  if (!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia || navigator.msGetUserMedia)) {
+    Common.hide(mic);
+  }
+})();
+
 
 mic.onclick = function() {              // When the microphone button is clicked
   if (recording === false) {            // If we're not currently recording anything

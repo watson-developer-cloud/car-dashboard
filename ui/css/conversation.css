@@ -15,14 +15,14 @@
  */
 
 #input-wrapper {
-    padding: 20px;
+    padding: 1.25rem;
     background: white;
     position: relative;
 }
 
 #input-mic-holder {
-    height: 48px;
-    width: 48px;
+    height: 3rem;
+    width: 3rem;
     position: relative;
 }
 
@@ -32,32 +32,25 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 40px;
-    width: 40px;
-    border-radius: 24px;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 1.5rem;
     transition: 0.4s;
     cursor: pointer;
     background-color: #BCC8C8;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 55%;
 }
 
-#input-mic img {
-    border: none;
-    height: 30px;
-    margin: 5px auto;
-    width: 30px;
+#input-mic.inactive-mic {
+  background-image: url("../images/mic-off.svg");
 }
 
-#input-mic .active-mic-img, #input-mic:active .inactive-mic-img {
-    display: none;
-}
-
-#input-mic:active .active-mic-img, #input-mic .inactive-mic-img {
-    display: block;
-}
-
-#input-mic:active {
-    background-color: #32D0B6;
-    border: 4px solid #01745E;
+#input-mic.active-mic, #input-mic:active {
+  background-image: url("../images/mic-on.svg");
+  background-color: #32D0B6;
+  border: 0.25rem solid #01745E;
 }
 
 /*
@@ -89,10 +82,11 @@
 .input-outline {
     background-color: white;
     display: block;
-    margin-left: 4px;
+    margin-left: 0.25rem;
     text-align: left;
     width: 100%;
     position: relative;
+    overflow: hidden;
 }
 
 #user-input {
@@ -100,15 +94,15 @@
     max-width: 90%;
     background: white;
     font-family: "Helvetica Neue for IBM Roman", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 20px;
+    font-size: 1.25rem;
     color: #323232;
-    letter-spacing: 0.3px;
-    line-height: 26px;
+    letter-spacing:  0.01875rem;
+    line-height:  1.625rem;
     border: none;
     outline: none;
-    border-bottom: 1px solid #AEAEAE;
-    padding-left: 5px;
-    margin-bottom: -2px;
+    border-bottom: 0.0625rem solid #AEAEAE;
+    padding-left: 0.3125rem;
+    margin-bottom: -0.125rem;
     box-sizing: border-box;
     position: absolute;
     top: 50%;
@@ -116,7 +110,7 @@
 }
 
 #user-input.underline {
-    border-bottom: 2px solid #00B4A0;
+    border-bottom:  0.125rem solid #00B4A0;
 }
 
 #user-input::-webkit-input-placeholder {
@@ -155,22 +149,22 @@ input#user-input:-moz-placeholder {
 
 #chat-scroll-wrapper{
     position: absolute;
-    bottom: 90px;
-    max-height: 250px;
-    width: 400px;
-    max-width: 400px;
+    bottom:  5.625rem;
+    max-height:  15.625rem;
+    width:  25rem;
+    max-width:  25rem;
     overflow: hidden;
-    padding-top: 5px;
-    margin-left: 20px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    padding-top: 0.3125rem;
+    margin-left: 1.25rem;
+    border-top-left-radius: 0.625rem;
+    border-top-right-radius: 0.625rem;
     background: rgba(0,0,0,0.3);
 }
 
 #chat-flow {
     text-align: left;
     width: calc(100% + 20px);
-    max-height: 250px;
+    max-height:  15.625rem;
     overflow-x: hidden;
     overflow-y: scroll;
 }
@@ -179,20 +173,20 @@ input#user-input:-moz-placeholder {
     display: block;
     overflow: visible;
     position: relative;
-    margin-left: 85px;
-    max-width: 320px;
+    margin-left: 5.3125rem;
+    max-width:  20rem;
 }
 
 .watson-message,
 .user-message {
-    border-radius: 6px;
+    border-radius: 0.375rem;
     font-family: "Helvetica Neue for IBM Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 16px;
+    font-size: 1rem;
     color: #FFFFFF;
-    padding: 20px 30px;
+    padding: 1.25rem 1.875rem;
     display: inline-block;
-    margin: 5px 0;
-    max-width: calc(100% - 85px);
+    margin: 0.3125rem 0;
+    max-width: calc(100% - 5.3125rem);
     word-wrap: break-word;
 }
 
@@ -207,17 +201,17 @@ input#user-input:-moz-placeholder {
 .user-message::before {
     content: "";
     position: absolute;
-    left: -12px;
-    border-width: 10px 12px 10px 0;
+    left: -0.75rem;
+    border-width: 0.625rem 0.75rem 0.625rem 0;
     border-style: solid;
     border-color: transparent #00B4A0 transparent transparent;
 }
 
 .user img {
-    height: 60px;
+    height: 3.75rem ;
     position: absolute;
-    left: -75px;
-    top: 5px;
+    left: -4.6875rem;
+    top: 0.3125rem;
 }
 
 .watson .pre-bar::before {
