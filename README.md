@@ -131,12 +131,17 @@ To build the application:
 3 Install [Node.js](http://nodejs.org/).
 
 4 Open the terminal, go to the project folder, and run this command:
-    ```
+    ```sh
     npm install
     ```
 
-5  Start the application by running this command:
+5  Build the UI by running this command:
+    ```sh
+    npm run-script build
     ```
+
+6  Start the application by running this command:
+    ```sh
     npm start
     ```
 
