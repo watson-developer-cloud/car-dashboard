@@ -54,7 +54,8 @@ var Conversation = (function() {
     Api.initConversation();
   }
 
-  // Hide chat box until there are messages, set up messages to display when user or Watson sends message
+  // Hide chat box until there are messages,
+  // set up messages to display when user or Watson sends message
   function chatSetup() {
     document.getElementById(ids.chatScrollWrapper).style.display = 'none';
 
@@ -83,7 +84,8 @@ var Conversation = (function() {
   }
 
   // Set up the input box to underline text as it is typed
-  // This is done by creating a hidden dummy version of the input box that is used to determine what the width of the input text is.
+  // This is done by creating a hidden dummy version of the input box that
+  // is used to determine what the width of the input text should be.
   // This value is then used to set the new width of the visible input box.
   function setupInputBox() {
     var input = document.getElementById(ids.userInput);
@@ -101,9 +103,10 @@ var Conversation = (function() {
       };
 
       dummy = Common.buildDomElement(dummyJson);
-      ['font-size', 'font-style', 'font-weight', 'font-family', 'line-height', 'text-transform', 'letter-spacing'].forEach(function(index) {
-        dummy.style[index] = window.getComputedStyle( input, null ).getPropertyValue( index );
-      });
+      ['font-size', 'font-style', 'font-weight', 'font-family', 'line-height',
+        'text-transform', 'letter-spacing'].forEach(function(index) {
+          dummy.style[index] = window.getComputedStyle( input, null ).getPropertyValue( index );
+        });
 
       document.body.appendChild(dummy);
     }
@@ -116,7 +119,8 @@ var Conversation = (function() {
         this.setAttribute('style', 'width:' + '100%');
         this.style.width = '100%';
       } else {
-        // otherwise, adjust the dummy text to match, and then set the width of the visible input box to match it (thus extending the underline)
+        // otherwise, adjust the dummy text to match, and then set the width of
+        // the visible input box to match it (thus extending the underline)
         Common.addClass(this, 'underline');
         var txtNode = document.createTextNode(this.value);
         dummy.textContent = txtNode.textContent;
@@ -205,7 +209,9 @@ var Conversation = (function() {
       'children': [{
         // <p class='user-message / watson-message'>
         'tagName': 'p',
-        'classNames': (isUser ? [authorTypes.user + '-message'] : [authorTypes.watson + '-message', 'pre-bar']),
+        'classNames': (isUser
+          ? [authorTypes.user + '-message']
+          : [authorTypes.watson + '-message', 'pre-bar']),
         'html': (isUser ? '<img src=\'/images/head.svg\' />' + dataObj.text : dataObj.text)
       }]
     };
@@ -213,7 +219,8 @@ var Conversation = (function() {
     return Common.buildDomElement(messageJson);
   }
 
-  // Display the chat box if it's currently hidden (i.e. if this is the first message), scroll to the bottom of the chat
+  // Display the chat box if it's currently hidden
+  // (i.e. if this is the first message), scroll to the bottom of the chat
   function updateChat() {
     document.getElementById(ids.chatScrollWrapper).style.display = '';
     var messages = document.getElementById(ids.chatFlow).getElementsByClassName(classes.messageWrapper);

@@ -1,37 +1,35 @@
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1317.64 971.06">
     <defs>
         <style>
-        .heatHiCls-1 {
-            fill: #d19828;
-        }
-        
-        .heatHiCls-2 {
-            fill: #e2e2e2;
-        }
-        
-        .heatHiCls-3,
-        .heatHiCls-6 {
-            fill: #705543;
-        }
-        
-        .heatHiCls-4 {
-            fill: #b2b2b2;
-        }
-        
-        .heatHiCls-5,
-        .heatHiCls-8 {
-            fill: #fff;
-        }
-        
-        .heatHiCls-6,
-        .heatHiCls-8 {
-            font-size: 30px;
-            font-family: HelvNeue Roman for IBM;
-        }
-        
-        .heatHiCls-7 {
-            letter-spacing: -1px;
-        }
+            .heatHiCls-1 {
+                fill: #d19828;
+            }
+
+            .heatHiCls-2 {
+                fill: #e2e2e2;
+            }
+
+            .heatHiCls-3,
+            .heatHiCls-6 {
+                fill: #705543;
+            }
+
+            .heatHiCls-4 {
+                fill: #b2b2b2;
+            }
+
+            .heatHiCls-5,
+            .heatHiCls-8 {
+                fill: #fff;
+            }
+
+            .heatHiCls-6,
+            .heatHiCls-8 {
+                font-size: 40px;
+                font-family: HelvNeue Roman for IBM;
+                weight: 600;
+                letter-spacing: 2px;
+            }
         </style>
     </defs>
     <title>heat hi</title>
@@ -47,9 +45,6 @@
     </g>
     <rect class="heatHiCls-5" x="493" y="841.48" width="350.24" height="53.52" rx="26.76" ry="26.76" />
     <rect class="heatHiCls-3" x="653" y="841.48" width="190.24" height="53.52" rx="26.76" ry="26.76" />
-    <text class="heatHiCls-6" transform="translate(574 878)">
-        <tspan class="heatHiCls-7" x="0" y="0">L</tspan>
-        <tspan x="15.39" y="0">O</tspan>
-    </text>
-    <text class="heatHiCls-8" transform="translate(740 878)">HI</text>
+    <text class="heatHiCls-6" transform="translate(562 884)">LO</text>
+    <text class="heatHiCls-8" transform="translate(728 884)">HI</text>
 </svg>

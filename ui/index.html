@@ -16,8 +16,8 @@
          WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
          See the License for the specific language governing permissions and
          limitations under the License.">
-    <meta name="description" content="Try Buy Dialog Sample application">
-    <title>Watson Conversation Try/Buy Application</title>
+    <meta name="description" content="Watson Conversation Service Car Dashboard Sample Application">
+    <title>Watson Conversation Service Car Dashboard Sample Application</title>
     <!-- build:css css/main.min.css -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/tooltip-dialogs.css">
@@ -25,13 +25,11 @@
     <link rel="stylesheet" type="text/css" href="css/sidebar.css">
     <link rel="stylesheet" type="text/css" href="css/weather.css">
     <link rel="stylesheet" type="text/css" href="css/font.css">
+    <link rel="stylesheet" type="text/css" href="css/responsive.css">
     <!-- endbuild -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="ct" content="vPWQz9kc-2sDXDdB6m_K5RLm_mwStA0c3cyo">
-    <!-- build:js vendor.min.js -->
-    <script src="./../node_modules/snapsvg/dist/snap.svg.js"></script>
-    <script src="./../node_modules/whatwg-fetch/fetch.js"></script>
-    <!-- endbuild -->
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -47,10 +45,7 @@
             <div id="chat-scroll-wrapper"><div id="chat-flow"></div></div>
             <div id="input-wrapper" class="responsive-columns-wrapper">
                 <div id="input-mic-holder">
-                    <div id="input-mic" class="inactive-mic">
-                        <img class="inactive-mic-img" src="images/mic-off.svg" />
-                        <img class="active-mic-img" src="images/mic-on.svg" />
-                    </div>
+                    <div id="input-mic" class="inactive-mic"></div>
                 </div>
 
                 <label for="user-input" class="input-outline responsive-column">
@@ -71,15 +66,19 @@
         // For cloaking. Done in JS for the case of disabled JS (i.e. even though not much will work, something will be displayed.)
         document.body.style.visibility = 'hidden';
     </script>
+    <!-- build:js vendor.min.js -->
+    <script src="./../node_modules/snapsvg/dist/snap.svg.js"></script>
+    <script src="./../node_modules/whatwg-fetch/fetch.js"></script>
+    <!-- endbuild -->
     <!-- build:js dashboard.min.js -->
     <script src="js/common.js"></script>
-    <script src="js/conversationResponse.js"></script>
     <script src="js/api.js"></script>
     <script src="js/sidebar.js"></script>
+    <script src="js/tooltip-dialogs.js"></script>
     <script src="js/animations.js"></script>
     <script src="js/panel.js"></script>
     <script src="js/conversation.js"></script>
-    <script src="js/tooltip-dialogs.js"></script>
+    <script src="js/conversationResponse.js"></script>
     <script src="js/global.js"></script>
     <script src="js/ui_tests/tests.js"></script>
     <!-- endbuild -->

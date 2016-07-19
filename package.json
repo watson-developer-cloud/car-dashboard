@@ -13,16 +13,20 @@
   "author": "IBM Corp.",
   "dependencies": {
     "body-parser": "1.15.1",
+    "basic-auth-connect": "1.0.0",
     "chai": "^3.5.0",
     "compression": "1.6.2",
     "dotenv": "^2.0.0",
     "express": "4.13.4",
     "mocha": "^2.5.3",
-    "morgan": "~1.6.1",
     "request": "^2.72.0",
     "vcap_services": "^0.2.0",
-    "watson-developer-cloud": "^1.12.0",
-    "watson-speech": "^0.19.1"
+    "watson-developer-cloud": "^1.12.2",
+    "watson-speech": "^0.19.1",
+    "cloudant": "1.4.1",
+    "express-csv": "0.6.0",
+    "nano" : "*",
+    "uuid": "2.0.2"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",

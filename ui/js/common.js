@@ -31,6 +31,7 @@ var Common = (function() {
   // Publicly accessible methods defined
   return {
     buildDomElement: buildDomElementFromJson,
+    wait: wait,
     fireEvent: fireEvent,
     listForEach: listForEach,
     hide: hide,
@@ -98,6 +99,18 @@ var Common = (function() {
     return element;
   }
 
+  // Wait until a condition is true until running a function
+  // (poll based on interval in ms)
+  function wait(conditionFunction, execFunction, interval) {
+    if (!conditionFunction()) {
+      setTimeout(function() {
+        wait(conditionFunction, execFunction, interval);
+      }, interval);
+    } else {
+      execFunction();
+    }
+  }
+
   // Triggers an event of the given type on the given object
   function fireEvent(element, event) {
     var evt;
@@ -146,13 +159,15 @@ var Common = (function() {
     removeClass(element, classes.fadeOut);
   }
 
-  // Causes an element to toggle fading out or back in by adding the 'fade' class and toggling the 'fade-out' class
+  // Causes an element to toggle fading out or back in
+  // by adding the 'fade' class and toggling the 'fade-out' class
   function fadeToggle(element) {
     addClass(element, classes.fade);
     toggleClass(element, classes.fadeOut);
   }
 
-  // Auxiliary function for adding a class to an element (to help mitigate IE's lack of support for svg.classList)
+  // Auxiliary function for adding a class to an element
+  // (to help mitigate IE's lack of support for svg.classList)
   function addClass(element, clazz) {
     if (element.classList) {
       element.classList.add(clazz);
@@ -161,7 +176,8 @@ var Common = (function() {
     }
   }
 
-  // Auxiliary function for removing a class from an element (to help mitigate IE's lack of support for svg.classList)
+  // Auxiliary function for removing a class from an element
+  // (to help mitigate IE's lack of support for svg.classList)
   function removeClass(element, clazz) {
     if (element.classList) {
       element.classList.remove(clazz);
@@ -170,7 +186,8 @@ var Common = (function() {
     }
   }
 
-  // Auxiliary function for toggling a class on an element (to help mitigate IE's lack of support for svg.classList)
+  // Auxiliary function for toggling a class on an element
+  // (to help mitigate IE's lack of support for svg.classList)
   function toggleClass(element, clazz) {
     if (element.classList) {
       element.classList.toggle(clazz);
@@ -179,12 +196,14 @@ var Common = (function() {
     }
   }
 
-  // Auxiliary function for checking whether an element contains a class (to help mitigate IE's lack of support for svg.classList)
+  // Auxiliary function for checking whether an element contains a class
+  // (to help mitigate IE's lack of support for svg.classList)
   function ieSvgContainsClass(element, clazz) {
     return (element.className.baseVal.indexOf(clazz) > -1);
   }
 
-  // Auxiliary function for adding a class to an element without using the classList property (to help mitigate IE's lack of support for svg.classList)
+  // Auxiliary function for adding a class to an element without using the classList property
+  // (to help mitigate IE's lack of support for svg.classList)
   function ieSvgAddClass(element, clazz, bypassCheck) {
     if (bypassCheck || !ieSvgContainsClass(element, clazz)) {
       var classNameValue = element.className.baseVal;
@@ -193,14 +212,16 @@ var Common = (function() {
     }
   }
 
-  // Auxiliary function for removing a class from an element without using the classList property (to help mitigate IE's lack of support for svg.classList)
+  // Auxiliary function for removing a class from an element without using the classList property
+  // (to help mitigate IE's lack of support for svg.classList)
   function ieSvgRemoveClass(element, clazz) {
     var classNameValue = element.className.baseVal;
-    classNameValue.replace(clazz, '');
+    classNameValue = classNameValue.replace(clazz, '');
     element.className.baseVal = classNameValue;
   }
 
-  // Auxiliary function for toggling a class on an element without using the classList property (to help mitigate IE's lack of support for svg.classList)
+  // Auxiliary function for toggling a class on an element without using the classList property
+  // (to help mitigate IE's lack of support for svg.classList)
   function ieSvgToggleClass(element, clazz) {
     if (ieSvgContainsClass(element, clazz)) {
       ieSvgRemoveClass(element, clazz);

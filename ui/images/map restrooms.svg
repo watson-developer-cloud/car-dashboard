@@ -138,6 +138,34 @@
     <polyline class="mapGeneralCls-6" points="585.09 590.78 575 373.88 559.62 292.06" />
     <polyline class="mapGeneralCls-6" points="1043 25.5 1217 217.88 1163 361.88 970.18 471.52" />
     <line class="mapGeneralCls-6" x1="163.43" y1="652.97" x2="109" y2="25.5" />
+    <path class="mapGeneralCls-7" id="second" d="M720.59,275.13h0a42.49,42.49,0,0,1,41.35,52.26l-41.35,96.7-41.35-96.7A42.49,42.49,0,0,1,720.59,275.13Z" />
+    <circle class="mapGeneralCls-8" cx="720.59" cy="316.93" r="33.82" />
+    <polygon class="mapGeneralCls-7" points="720.59 289.68 728.58 305.87 746.45 308.47 733.52 321.07 736.57 338.87 720.59 330.46 704.61 338.87 707.66 321.07 694.73 308.47 712.6 305.87 720.59 289.68" />
+    <path class="mapGeneralCls-7" id="first" d="M783.08,474.4h0a42.49,42.49,0,0,1,41.35,52.26l-41.35,96.7-41.35-96.7A42.49,42.49,0,0,1,783.08,474.4Z" />
+    <circle class="mapGeneralCls-8" cx="783.08" cy="516.21" r="33.82" />
+    <polygon class="mapGeneralCls-7" points="783.08 488.96 791.08 505.15 808.95 507.75 796.01 520.35 799.07 538.15 783.08 529.74 767.1 538.15 770.15 520.35 757.22 507.75 775.09 505.15 783.08 488.96" />
+    <path class="mapGeneralCls-7" id="fifth" d="M1077.51,63.51h0a42.49,42.49,0,0,1,41.35,52.26l-41.35,96.7-41.35-96.7A42.49,42.49,0,0,1,1077.51,63.51Z" />
+    <circle class="mapGeneralCls-8" cx="1077.51" cy="105.32" r="33.82" />
+    <polygon class="mapGeneralCls-7" points="1077.51 78.06 1085.5 94.26 1103.37 96.85 1090.43 109.46 1093.49 127.25 1077.51 118.85 1061.52 127.25 1064.58 109.46 1051.64 96.85 1069.51 94.26 1077.51 78.06" />
+    <path class="mapGeneralCls-7" id="third" d="M903.51,782h0a42.49,42.49,0,0,1,41.35,52.26l-41.35,96.7-41.35-96.7A42.49,42.49,0,0,1,903.51,782Z" />
+    <circle class="mapGeneralCls-8" cx="903.51" cy="823.78" r="33.82" />
+    <polygon class="mapGeneralCls-7" points="903.5 796.53 911.5 812.72 929.37 815.32 916.43 827.92 919.49 845.72 903.5 837.32 887.52 845.72 890.58 827.92 877.64 815.32 895.51 812.72 903.5 796.53" />
+    <path class="mapGeneralCls-7" id="fourth" d="M273.11,746.64h0a42.49,42.49,0,0,1,41.35,52.26l-41.35,96.7-41.35-96.7A42.49,42.49,0,0,1,273.11,746.64Z" />
+    <circle class="mapGeneralCls-8" cx="273.11" cy="788.45" r="33.82" />
+    <polygon class="mapGeneralCls-7" points="273.11 761.2 281.1 777.39 298.97 779.98 286.04 792.59 289.09 810.38 273.11 801.98 257.13 810.38 260.18 792.59 247.25 779.98 265.12 777.39 273.11 761.2" />
+    <circle class="mapGeneralCls-7" cx="878" cy="518.97" r="42.32" />
+    <text class="mapGeneralCls-9" transform="translate(858.47 542.9)">1</text>
+    <circle class="mapGeneralCls-7" cx="816" cy="318.39" r="42.32" />
+    <text class="mapGeneralCls-9" transform="translate(796.47 342.31)">2</text>
+    <circle class="mapGeneralCls-7" cx="1000.59" cy="826.52" r="42.32" />
+    <text class="mapGeneralCls-9" transform="translate(981.05 850.44)">3</text>
+    <circle class="mapGeneralCls-7" cx="375" cy="789.96" r="42.32" />
+    <text class="mapGeneralCls-9" transform="translate(355.47 813.89)">4</text>
+    <circle class="mapGeneralCls-7" cx="1174.32" cy="105.32" r="42.32" />
+    <text class="mapGeneralCls-9" transform="translate(1154.79 129.25)">5</text>
+    <g id="currentLocation">
     <circle class="mapGeneralCls-10" cx="648.48" cy="592.51" r="20.61" />
     <circle class="mapGeneralCls-11" cx="648.48" cy="592.51" r="25.11" />
+    </g>
+    <!-- <path id="pathTo2" d="m 641.84134,592.19014 44.61999,-87.52382 25.7423,-75.51074 6.86461,-20.59384" /> -->
 </svg>

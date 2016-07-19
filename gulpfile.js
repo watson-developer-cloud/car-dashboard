@@ -37,7 +37,7 @@
 
     gulp.task('build-fonts', function() {
         return gulp.src([appDev + 'fonts/**'])
-            .pipe($.fontmin())
+//            .pipe($.fontmin())
             .pipe(gulp.dest(appProd + 'fonts'));
     });
 
@@ -47,6 +47,7 @@
             .pipe(assets) //node_modules dir is in the current dir, search there for dependencies!
             .pipe($.sourcemaps.init({ 'identityMap': true, 'debug': true }))
             .pipe($.useref())
+            // TODO re-add with caching
             //.pipe(sourcemaps.write('./maps'))
             .pipe($.if('*.js', $.if('**/dashboard.min.js', $.uglify({mangle: false, preserveComments: 'license'}), $.uglify())))
             .pipe($.if('*.css', $.cleanCss()))
@@ -56,7 +57,8 @@
 
     gulp.task('build-img', function() {
         return gulp.src(appDev + 'images/**/*')
-            .pipe($.if('*.png', $.imagemin()))
+          // TODO re-add with caching
+//            .pipe($.if('*.png', $.imagemin()))
             .pipe(gulp.dest(appProd + 'images/'));
     });
 
@@ -65,7 +67,7 @@
             .pipe($.clean());
     });
 
-    gulp.task('watch', function() {
+    gulp.task('watch', ['build-html'], function() {
         gulp.watch(appDev + '**/*.js', ['build-html']);
         gulp.watch(appDev + 'css/*.css', ['build-html']);
         gulp.watch(appDev + '**/*.html', ['build-html']);

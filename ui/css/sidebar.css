@@ -15,19 +15,19 @@
  */
 
 #help {
-    padding: 12px 25px;
+    padding: 0.75rem 1.5625rem;
     background: white;
     position: absolute;
-    right: 20px;
-    top: 20px;
+    right: 1.25rem;
+    top: 1.25rem;
 }
 
 #sidebar {
     position: absolute;
     top: 0;
     right: 0;
-    height: calc(100% - 88px);
-    width: 300px;
+    height: calc(100% - 5.5rem);
+    width: 18.75rem;
     /*visibility: hidden;*/
     -webkit-transform: translateX(100%);
     -moz-transform: translateX(100%);
@@ -44,31 +44,31 @@
 
 #sidebar ul {
     list-style: none;
-    padding: 0 0 0 40px;
+    padding: 0 0 0 2.5rem;
     margin: 0;
 }
 
 #sidebar ul li {
     border-top: none;
-    padding: 0 0 12px 0;
+    padding: 0 0 0.75rem 0;
     display: block;
 }
 
 #sidebar .suggestion-btn {
     background-color: transparent;
-    border: 2px solid #01A88F;
-    border-radius: 28px;
+    border:  0.125rem solid #01A88F;
+    border-radius: 1.75rem;
     font-family: "Helvetica Neue for IBM Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #01A88F;
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem;
     cursor: pointer;
     z-index: 10;
 }
 
 #sidebar p {
-    padding: 40px 20px 25px 40px;
-    font-size: 16px;
+    padding: 2.5rem 1.25rem 1.5625rem 2.5rem;
+    font-size: 1rem;
     margin-bottom: 0;
     color: white;
     font-family: "Helvetica Neue for IBM Medium", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -76,8 +76,8 @@
 
 #sidebar .close-div {
     float: right;
-    padding-top: 15px;
-    padding-right: 15px;
+    padding-top: 0.9375rem;
+    padding-right: 0.9375rem;
 }
 
 #sidebar.is-active {

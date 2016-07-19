@@ -1,37 +1,35 @@
 <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1317.64 971.06">
     <defs>
         <style>
-        .achiCls-1 {
-            fill: #4aa8dd;
-        }
-        
-        .achiCls-2 {
-            fill: #e2e2e2;
-        }
-        
-        .achiCls-3,
-        .achiCls-6 {
-            fill: #445772;
-        }
-        
-        .achiCls-4 {
-            fill: #b2b2b2;
-        }
-        
-        .achiCls-5,
-        .achiCls-8 {
-            fill: #fff;
-        }
-        
-        .achiCls-6,
-        .achiCls-8 {
-            font-size: 30px;
-            font-family: HelvNeue Roman for IBM;
-        }
-        
-        .achiCls-7 {
-            letter-spacing: -1px;
-        }
+            .achiCls-1 {
+                fill: #4aa8dd;
+            }
+
+            .achiCls-2 {
+                fill: #e2e2e2;
+            }
+
+            .achiCls-3,
+            .achiCls-6 {
+                fill: #445772;
+            }
+
+            .achiCls-4 {
+                fill: #b2b2b2;
+            }
+
+            .achiCls-5,
+            .achiCls-8 {
+                fill: #fff;
+            }
+
+            .achiCls-6,
+            .achiCls-8 {
+                font-size: 40px;
+                font-family: HelvNeue Roman for IBM;
+                weight: 600;
+                letter-spacing: 2px;
+            }
         </style>
     </defs>
     <title>ac hi</title>
@@ -47,9 +45,6 @@
     </g>
     <rect class="achiCls-5" x="493" y="841.48" width="350.24" height="53.52" rx="26.76" ry="26.76" />
     <rect class="achiCls-3" x="653" y="841.48" width="190.24" height="53.52" rx="26.76" ry="26.76" />
-    <text class="achiCls-6" transform="translate(574 878)">
-        <tspan class="achiCls-7" x="0" y="0">L</tspan>
-        <tspan x="15.39" y="0">O</tspan>
-    </text>
-    <text class="achiCls-8" transform="translate(740 878)">HI</text>
+    <text class="achiCls-6" transform="translate(562 884)">LO</text>
+    <text class="achiCls-8" transform="translate(728 884)">HI</text>
 </svg>
