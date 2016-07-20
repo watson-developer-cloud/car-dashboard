@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1296.16 951.7">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1317.64 976.26">
     <defs>
         <style>
         .musicRockCls-1 {
@@ -20,18 +20,10 @@
         }
         
         .musicRockCls-4 {
-            letter-spacing: -1px;
-        }
-        
-        .musicRockCls-5 {
             font-size: 131px;
         }
         
-        .musicRockCls-6 {
-            letter-spacing: 1px;
-        }
-        
-        .musicRockCls-7 {
+        .musicRockCls-5 {
             fill: none;
             stroke: #fff;
             stroke-miterlimit: 10;
@@ -40,29 +32,18 @@
         </style>
     </defs>
     <title>music rock</title>
-    <rect class="musicRockCls-1" width="1296.16" height="951.7" rx="33.69" ry="33.69" />
-    <rect class="musicRockCls-2" x="94.59" y="101.22" width="468.05" height="468.05" rx="42.56" ry="42.56" />
-    <text class="musicRockCls-3" transform="translate(637.11 259.55)">N
-        <tspan class="musicRockCls-4" x="38.77" y="0">o</tspan>
-        <tspan x="68.36" y="0">w Pl</tspan>
-        <tspan x="167.75" y="0">a</tspan>
-        <tspan x="196.07" y="0">yi</tspan>
-        <tspan x="233.91" y="0">n</tspan>
-        <tspan x="263.01" y="0">g</tspan>
-    </text>
-    <text class="musicRockCls-5" transform="translate(637.11 410.94)">
-        <tspan class="musicRockCls-4" x="0" y="0">R</tspan>
-        <tspan class="musicRockCls-6" x="86.72" y="0">O</tspan>
-        <tspan x="186.28" y="0">CK</tspan>
-    </text>
-    <polyline class="musicRockCls-2" points="180.57 874.13 132.34 825.9 180.57 777.68" />
-    <polyline class="musicRockCls-2" points="229.61 874.13 181.38 825.9 229.61 777.68" />
-    <polyline class="musicRockCls-2" points="1123.12 777.68 1171.35 825.9 1123.12 874.13" />
-    <polyline class="musicRockCls-2" points="1074.08 777.68 1122.31 825.9 1074.08 874.13" />
-    <rect class="musicRockCls-2" x="611.58" y="777.68" width="17.86" height="89.64" />
-    <rect class="musicRockCls-2" x="645.92" y="777.68" width="17.86" height="89.64" />
-    <line class="musicRockCls-7" x1="122.12" y1="704.5" x2="1185.59" y2="704.5" />
-    <circle id="seek" class="musicRockCls-2" cx="200" cy="706.62" r="17.17" />
+    <rect class="musicRockCls-1" x="11.47" y="12" width="1296.16" height="951.7" rx="33.69" ry="33.69" />
+    <rect class="musicRockCls-2" x="106.06" y="113.22" width="468.05" height="468.05" rx="42.56" ry="42.56" />
+    <text class="musicRockCls-3" transform="translate(648.58 271.55)">Now Playing</text>
+    <text class="musicRockCls-4" transform="translate(648.58 422.94)">ROCK</text>
+    <polyline class="musicRockCls-2" points="192.04 886.13 143.81 837.9 192.04 789.68" />
+    <polyline class="musicRockCls-2" points="241.08 886.13 192.85 837.9 241.08 789.68" />
+    <polyline class="musicRockCls-2" points="1134.59 789.68 1182.82 837.9 1134.59 886.13" />
+    <polyline class="musicRockCls-2" points="1085.55 789.68 1133.78 837.9 1085.55 886.13" />
+    <rect class="musicRockCls-2" x="623.05" y="789.68" width="17.86" height="89.64" />
+    <rect class="musicRockCls-2" x="657.39" y="789.68" width="17.86" height="89.64" />
+    <line class="musicRockCls-5" x1="133.59" y1="716.5" x2="1197.06" y2="716.5" />
+    <circle id="seek" class="musicRockCls-2" cx="150" cy="718.62" r="17.17" />
     <path class="musicRockCls-1" d="M532.22,195.32l-9.5-5.08-51.84,3,0.15,1a19.5,19.5,0,0,1-5.5,16.64l-113.4,113.4a11.82,11.82,0,0,1-15.07,1.36L330,320.7l-61.84,76.4L126.49,436.71c35.37,76.4,163.41,87.72,163.41,87.72l21.93-87.72L432.9,387.07a6.09,6.09,0,0,0-1.4-11.65l-35.39-5.33a33.67,33.67,0,0,1-26.75-22.15h0a8.94,8.94,0,0,1-1.24-13.67L487.94,214.45A28.69,28.69,0,0,1,504,206.35l27-4A3.76,3.76,0,0,0,532.22,195.32Zm-243,239.43-25.85-25.85,3-3,25.85,25.85Zm33.46-27.5-25.85-25.85,12.81-12.81,25.85,25.85ZM352.51,377l-25.85-25.85,12.72-12.72,25.85,25.85Z" transform="translate(-11.47 -12)" />
     <path class="musicRockCls-1" d="M877.27,267.42" transform="translate(-11.47 -12)" />
 </svg>

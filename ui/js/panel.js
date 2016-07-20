@@ -20,8 +20,9 @@
 /* global mina: true, Snap: true, Common: true */
 
 var Panel = (function() {
-  var selectors = {
-    defaultScreen: 'defaultScreen'
+  var ids = {
+    defaultScreen: 'defaultScreen',
+    panelGenreText: 'panel-genre-text'
   };
   var idSelectors = {
     svgCanvas: '#svg_canvas',
@@ -29,6 +30,7 @@ var Panel = (function() {
     fan: '#fan',
     seek: '#seek'
   };
+  var genres = ['general', 'jazz', 'rock', 'pop'];
   var snapSvgCanvas = Snap.select(idSelectors.svgCanvas);
 
   // Publicly accessible methods defined
@@ -48,7 +50,7 @@ var Panel = (function() {
   // clear everything on the panel until only the Watson logo is left
   function clearToDefault(panel) {
     Common.listForEach(panel.node.childNodes, function(element) {
-      if (element.id !== selectors.defaultScreen) {
+      if (element.id !== ids.defaultScreen) {
         panel.node.removeChild(element);
       }
     });
@@ -122,11 +124,16 @@ var Panel = (function() {
   function playMusic(genre) {
     // Define a callback for the loading function
     function next(svgFragment, svgGroup) {
-      var seek = Snap.select('#seek');
+      var genreText = document.getElementById(ids.panelGenreText);
+      if (genreText) {
+        genreText.textContent = genre.toUpperCase();
+      }
+
+      var seek = Snap.select(idSelectors.seek);
       var localMat = seek.transform().localMatrix;
 
       // Animate moving the seek position
-      seek.animate({transform: localMat.translate(950, 0)}, 4000, mina.linear, function() {
+      seek.animate({transform: localMat.translate(1050, 0)}, 4000, mina.linear, function() {
         // After the seek position has reached the end fade out the SVG group
         svgGroup.animate({opacity: 0}, 500, mina.linear, function() {
           svgGroup.remove();
@@ -134,8 +141,13 @@ var Panel = (function() {
       });
     }
 
+    var genreStr = genre;
+    if (genres.indexOf(genreStr) < 0) {
+      genreStr = 'genre';
+    }
+
     // Load the SVG then execute the next callback
-    loadSvg('music ' + genre, next);
+    loadSvg('music ' + genreStr, next);
   }
 
   // Turn on A/C
@@ -155,7 +167,7 @@ var Panel = (function() {
   // Show Watson logo on panel
   function defaultScreen() {
     loadSvg('default screen', function(svgFragment, svgGroup) {
-      svgGroup.node.id = selectors.defaultScreen;
+      svgGroup.node.id = ids.defaultScreen;
     });
   }
 

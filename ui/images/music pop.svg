@@ -20,14 +20,10 @@
         }
         
         .musicPopCls-4 {
-            letter-spacing: -1px;
-        }
-        
-        .musicPopCls-5 {
             font-size: 131px;
         }
         
-        .musicPopCls-6 {
+        .musicPopCls-5 {
             fill: none;
             stroke: #fff;
             stroke-miterlimit: 10;
@@ -38,23 +34,16 @@
     <title>music pop</title>
     <rect class="musicPopCls-1" x="11.47" y="12" width="1296.16" height="951.7" rx="33.69" ry="33.69" />
     <rect class="musicPopCls-2" x="106.06" y="113.22" width="468.05" height="468.05" rx="42.56" ry="42.56" />
-    <text class="musicPopCls-3" transform="translate(648.58 271.55)">N
-        <tspan class="musicPopCls-4" x="38.77" y="0">o</tspan>
-        <tspan x="68.36" y="0">w Pl</tspan>
-        <tspan x="167.75" y="0">a</tspan>
-        <tspan x="196.07" y="0">yi</tspan>
-        <tspan x="233.91" y="0">n</tspan>
-        <tspan x="263.01" y="0">g</tspan>
-    </text>
-    <text class="musicPopCls-5" transform="translate(648.58 422.94)">POP</text>
+    <text class="musicPopCls-3" transform="translate(648.58 271.55)">Now Playing</text>
+    <text class="musicPopCls-4" transform="translate(648.58 422.94)">POP</text>
     <polyline class="musicPopCls-2" points="192.04 886.13 143.81 837.9 192.04 789.68" />
     <polyline class="musicPopCls-2" points="241.08 886.13 192.85 837.9 241.08 789.68" />
     <polyline class="musicPopCls-2" points="1134.59 789.68 1182.82 837.9 1134.59 886.13" />
     <polyline class="musicPopCls-2" points="1085.55 789.68 1133.78 837.9 1085.55 886.13" />
     <rect class="musicPopCls-2" x="623.05" y="789.68" width="17.86" height="89.64" />
     <rect class="musicPopCls-2" x="657.39" y="789.68" width="17.86" height="89.64" />
-    <line class="musicPopCls-6" x1="133.59" y1="716.5" x2="1197.06" y2="716.5" />
-    <circle id="seek" class="musicPopCls-2" cx="200" cy="718.62" r="17.17" />
+    <line class="musicPopCls-5" x1="133.59" y1="716.5" x2="1197.06" y2="716.5" />
+    <circle id="seek" class="musicPopCls-2" cx="150" cy="718.62" r="17.17" />
     <path class="musicPopCls-1" d="M460.92,342.79A72.58,72.58,0,0,1,358.27,240.15" />
     <path class="musicPopCls-1" d="M366,233.4A72.59,72.59,0,0,1,467.67,335" />
     <rect class="musicPopCls-1" x="328.03" y="289.33" width="159.44" height="7.97" transform="translate(326.83 -202.41) rotate(45)" />
