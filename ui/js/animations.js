@@ -25,6 +25,7 @@ var Animations = (function() {
   var snapSvgCanvas;
   var state;
   var initialized = false;
+  var wiperSpeed;
 
   var classes = {
     drop: 'drop',
@@ -69,6 +70,11 @@ var Animations = (function() {
     cloud5: '#cloud5',
     cloud6: '#cloud6'
   };
+  var svgUrls = {
+    background: './images/background.svg',
+    dashboard: './images/dashboard.svg',
+    sky: './images/sky.svg'
+  };
 
   // Publicly accessible methods defined
   return {
@@ -111,7 +117,7 @@ var Animations = (function() {
   function loadDashboard() {
     // Create SVG group to hold the SVG loaded from file
     var dash = snapSvgCanvas.group();
-    Snap.load('./images/dashboard.svg', function(svgFragment) {
+    Snap.load(svgUrls.dashboard, function(svgFragment) {
       svgFragment.select('title').remove();   // Remove the tooltip from the SVG
       // Append the loaded fragment from file to the SVG group
       dash.append(svgFragment);
@@ -140,7 +146,7 @@ var Animations = (function() {
   function loadBackground() {
     // Create SVG group to hold the SVG loaded from file
     var background = snapSvgCanvas.group();
-    Snap.load('./images/background.svg', function(svgFragment) {
+    Snap.load(svgUrls.background, function(svgFragment) {
       svgFragment.select('title').remove();   // Remove the tooltip from the SVG
       // Append the loaded fragment from file to the SVG group
       background.append(svgFragment);
@@ -173,7 +179,7 @@ var Animations = (function() {
   function loadSky() {
     // Create SVG group to hold the SVG loaded from file
     var sky = snapSvgCanvas.group();
-    Snap.load('./images/sky.svg', function(svgFragment) {
+    Snap.load(svgUrls.sky, function(svgFragment) {
       svgFragment.select('title').remove();   // Remove the tooltip from the SVG
 
       // Append the loaded fragment from file to the SVG group
@@ -215,12 +221,12 @@ var Animations = (function() {
 
   // Start the clouds animations
   function animateClouds() {
-    moveCloud(Snap.select('#cloud1'), 50000, -4500);
-    moveCloud(Snap.select('#cloud2'), 90000, -4500);
-    moveCloud(Snap.select('#cloud3'), 23000, 2000);
-    moveCloud(Snap.select('#cloud4'), 90000, -4500);
-    moveCloud(Snap.select('#cloud5'), 21000, 2000);
-    moveCloud(Snap.select('#cloud6'), 20000, 2000);
+    moveCloud(Snap.select(idSelectors.cloud1), 50000, -4500);
+    moveCloud(Snap.select(idSelectors.cloud2), 90000, -4500);
+    moveCloud(Snap.select(idSelectors.cloud3), 23000, 2000);
+    moveCloud(Snap.select(idSelectors.cloud4), 90000, -4500);
+    moveCloud(Snap.select(idSelectors.cloud5), 21000, 2000);
+    moveCloud(Snap.select(idSelectors.cloud6), 20000, 2000);
   }
 
   // Repeatedly animates the trees to pass by on the right and left
@@ -421,15 +427,20 @@ var Animations = (function() {
   }
 
   // Turn wipers on
-  function wipersOn() {
+  function wipersOn(speed) {
     if (!state.wiping) {
       state.wiping = true;  // Signal to enter the wiping state
     }
+    setWiperSpeed(speed);
 
     if (state.wipingAnim) { // If animation is already going on return
       return;
     }
     moveWipers();
+  }
+
+  function setWiperSpeed(speed) {
+    wiperSpeed = speed;
   }
 
   // Turn wipers off
@@ -444,10 +455,14 @@ var Animations = (function() {
   function rotateWipers( from, to, next) {
     var rWiper = state.wipers.right;
     var lWiper = state.wipers.left;
+    var speeds = {
+      hi: 1000,
+      lo: 2000
+    };
     state.wipingAnim = Snap.animate(from, to, function(val) {
       rWiper.transform('r' + [val, rWiper.bbox.x + rWiper.bbox.w, rWiper.bbox.y + rWiper.bbox.h]);
       lWiper.transform('r' + [val, lWiper.bbox.x + lWiper.bbox.w, lWiper.bbox.y + lWiper.bbox.h]);
-    }, 2000, mina.linear, next);
+    }, Math.max(speeds[wiperSpeed], speeds.lo), mina.linear, next);
   }
 
   // Repeatedly animates movement of the wipers back and fourth

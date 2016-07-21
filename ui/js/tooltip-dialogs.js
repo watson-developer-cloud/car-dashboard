@@ -30,6 +30,11 @@ var TooltipDialogs = (function() {
     clearOverlay: 'clear-overlay'
   };
 
+  var classes = {
+    betweenOverlays: 'between-overlays',
+    hide: 'hide'
+  };
+
   // Simplified data structure that is used for dialog box population
   var dialogBoxes = [{
     // id attribute for the dialog box
@@ -90,7 +95,7 @@ var TooltipDialogs = (function() {
           'value': dialogBox.dialogId
         }],
         'classNames': (i !== dialogIndex.get()
-          ? ['tooltip-dialog-box', 'hide']
+          ? ['tooltip-dialog-box', classes.hide]
           : ['tooltip-dialog-box']),
         'children': [{
           'tagName': 'img',
@@ -133,7 +138,7 @@ var TooltipDialogs = (function() {
   function nextDialog() {
     var oldShow = document.getElementById(dialogBoxes[dialogIndex.get()].showId);
     if (oldShow) {
-      Common.removeClass(oldShow, 'between-overlays');
+      Common.removeClass(oldShow, classes.betweenOverlays);
     }
     dialogIndex.increment();
     adjustDialogBoxDisplay();
@@ -142,7 +147,7 @@ var TooltipDialogs = (function() {
     } else {
       var newShow = document.getElementById(dialogBoxes[dialogIndex.get()].showId);
       if (newShow) {
-        Common.addClass(newShow, 'between-overlays');
+        Common.addClass(newShow, classes.betweenOverlays);
       }
     }
   }
@@ -153,7 +158,7 @@ var TooltipDialogs = (function() {
     for (var i = 0; i < dialogBoxes.length; i++) {
       var toReset = document.getElementById(dialogBoxes[i].showId);
       if (toReset) {
-        Common.removeClass(toReset, 'between-overlays');
+        Common.removeClass(toReset, classes.betweenOverlays);
       }
     }
     hideOverlays();
@@ -165,9 +170,9 @@ var TooltipDialogs = (function() {
     for (var i = 0; i < dialogBoxes.length; i++) {
       var currentDialog = document.getElementById(dialogBoxes[i].dialogId);
       if (i === dialogIndex.get()) {
-        Common.removeClass(currentDialog, 'hide');
+        Common.removeClass(currentDialog, classes.hide);
       } else {
-        Common.addClass(currentDialog, 'hide');
+        Common.addClass(currentDialog, classes.hide);
       }
     }
   }
@@ -176,7 +181,7 @@ var TooltipDialogs = (function() {
   function hideOverlays() {
     var darkOverlay = document.getElementById(ids.darkOverlay);
     var clearOverlay = document.getElementById(ids.clearOverlay);
-    Common.addClass(darkOverlay, 'hide');
-    Common.addClass(clearOverlay, 'hide');
+    Common.addClass(darkOverlay, classes.hide);
+    Common.addClass(clearOverlay, classes.hide);
   }
 }());

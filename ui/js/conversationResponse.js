@@ -41,7 +41,7 @@ var  ConversationResponse = (function() {
           fan: function() { Panel.ac('lo'); },
           heater: function() { Panel.heat('lo'); },
           lights: function() { Animations.lightsOn(); },
-          wipers: function() { Animations.wipersOn(); }
+          wipers: function() { Animations.wipersOn('lo'); }
         },
         genre: function(value) { Panel.playMusic(value); }
       },
@@ -56,7 +56,8 @@ var  ConversationResponse = (function() {
           ac: function() { Panel.ac('hi'); },
           fan: function() { Panel.ac('hi'); },
           heater: function() { Panel.heat('hi'); },
-          music: function() { Panel.playMusic('general'); }
+          music: function() { Panel.playMusic('general'); },
+          wipers: function() { Animations.wipersOn('hi'); }
         },
         genre: function(value) { Panel.playMusic(value); }
       },
@@ -65,7 +66,8 @@ var  ConversationResponse = (function() {
           ac: function() { Panel.ac('lo'); },
           fan: function() { Panel.ac('lo'); },
           heater: function() { Panel.heat('lo'); },
-          music: function() { Panel.playMusic('general'); }
+          music: function() { Panel.playMusic('general'); },
+          wipers: function() { Animations.wipersOn('lo'); }
         },
         genre: function(value) { Panel.playMusic(value); }
       },

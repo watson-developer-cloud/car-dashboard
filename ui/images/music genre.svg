@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1317.64 976.26">
+    <defs>
+        <style>
+        .musicGenreCls-1 {
+            fill: #4ac1dd;
+        }
+        
+        .musicGenreCls-2 {
+            fill: #fff;
+        }
+        
+        .musicGenreCls-3 {
+            font-size: 55px;
+        }
+        
+        .musicGenreCls-3,
+        .musicGenreCls-5 {
+            fill: #21535b;
+            font-family: "HelvNeue Roman for IBM";
+        }
+        
+        .musicGenreCls-4 {
+            font-size: 119px;
+        }
+        
+        .musicGenreCls-5 {
+            fill: none;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+            stroke-width: 3px;
+        }
+        </style>
+    </defs>
+    <title>music general</title>
+    <rect class="musicGenreCls-1" x="11.47" y="12" width="1296.16" height="951.7" rx="33.69" ry="33.69" />
+    <rect class="musicGenreCls-2" x="106.06" y="113.22" width="468.05" height="468.05" rx="42.56" ry="42.56" />
+    <text class="musicGenreCls-3" transform="translate(648.58 271.55)">Now Playing</text>
+    <text id="panel-genre-text" class="musicGenreCls-4" transform="translate(648.58 402.94)"></text>
+    <polyline class="musicGenreCls-2" points="192.04 886.13 143.81 837.9 192.04 789.68" />
+    <polyline class="musicGenreCls-2" points="241.08 886.13 192.85 837.9 241.08 789.68" />
+    <polyline class="musicGenreCls-2" points="1134.59 789.68 1182.82 837.9 1134.59 886.13" />
+    <polyline class="musicGenreCls-2" points="1085.55 789.68 1133.78 837.9 1085.55 886.13" />
+    <rect class="musicGenreCls-2" x="623.05" y="789.68" width="17.86" height="89.64" />
+    <rect class="musicGenreCls-2" x="657.39" y="789.68" width="17.86" height="89.64" />
+    <line class="musicGenreCls-5" x1="133.59" y1="716.5" x2="1197.06" y2="716.5" />
+    <circle id="seek" class="musicGenreCls-2" cx="150" cy="718.62" r="17.17" />
+    <path class="musicGenreCls-1" d="M461.08,194.9l-0.77.42v-0.43l-206.88,48V438.67c-10.49-1.42-23.31-.5-36.61,3.16-29.7,8.18-50.44,26.9-46.33,41.8S202,504,231.69,495.8c26.56-7.32,46-23.07,46.81-37l0,0V292.54L436,256V407.88c-10.49-1.42-23.31-.5-36.61,3.16-29.7,8.18-50.44,26.9-46.33,41.8s31.51,20.35,61.2,12.16c26.61-7.33,46-23.13,46.81-37.05h0V194.9Z" />
+</svg>

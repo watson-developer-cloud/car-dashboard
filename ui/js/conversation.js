@@ -31,7 +31,9 @@ var Conversation = (function() {
     chatScrollWrapper: 'chat-scroll-wrapper'
   };
   var classes = {
-    messageWrapper: 'message-wrapper'
+    messageWrapper: 'message-wrapper',
+    preBar: 'pre-bar',
+    underline: 'underline'
   };
   var authorTypes = {
     user: 'user',
@@ -121,7 +123,7 @@ var Conversation = (function() {
       } else {
         // otherwise, adjust the dummy text to match, and then set the width of
         // the visible input box to match it (thus extending the underline)
-        Common.addClass(this, 'underline');
+        Common.addClass(this, classes.underline);
         var txtNode = document.createTextNode(this.value);
         dummy.textContent = txtNode.textContent;
         var widthValue = ( dummy.offsetWidth + padding) + 'px';
@@ -211,7 +213,7 @@ var Conversation = (function() {
         'tagName': 'p',
         'classNames': (isUser
           ? [authorTypes.user + '-message']
-          : [authorTypes.watson + '-message', 'pre-bar']),
+          : [authorTypes.watson + '-message', classes.preBar]),
         'html': (isUser ? '<img src=\'/images/head.svg\' />' + dataObj.text : dataObj.text)
       }]
     };
