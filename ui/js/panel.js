@@ -104,9 +104,9 @@ var Panel = (function() {
 
     var doneFade = false;
     Snap.animate(0, 100, function(val) {
-      // At 60% of the animation apply the fade animation once to
+      // At 90% of the animation apply the fade animation once to
       // Begin fading out the SVG group from the panel display
-      if (val > 60) {
+      if (val > 90) {
         if (!doneFade) {
           svgGroup.animate({opacity: 0}, 500, mina.linear, function() {
             svgGroup.remove();
@@ -117,7 +117,7 @@ var Panel = (function() {
       // Rotate the fan around its center (bbox.cx, bbox.cy) at the speed given
       var localMat = fan.transform().localMatrix;
       fan.transform( localMat.rotate(speed, bbox.cx, bbox.cy) );
-    }, 8000, mina.linear);
+    }, 30000, mina.linear);
   }
 
   // Show that music of the given genre is playing
@@ -133,7 +133,7 @@ var Panel = (function() {
       var localMat = seek.transform().localMatrix;
 
       // Animate moving the seek position
-      seek.animate({transform: localMat.translate(1050, 0)}, 4000, mina.linear, function() {
+      seek.animate({transform: localMat.translate(1050, 0)}, 30000, mina.linear, function() {
         // After the seek position has reached the end fade out the SVG group
         svgGroup.animate({opacity: 0}, 500, mina.linear, function() {
           svgGroup.remove();

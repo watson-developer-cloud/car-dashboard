@@ -1,1 +1,16 @@
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 244.9 407.91"><defs><style>.cls-1{fill:#e22929;}.cls-2{fill:#fff;}</style></defs><title>pin star</title><path class="cls-1" d="M122.25,11.35h0c70.9,0,123.23,66.15,106.92,135.15L122.25,396.56,15.33,146.5C-1,77.5,51.35,11.35,122.25,11.35Z"/><circle class="cls-2" cx="122.25" cy="119.46" r="87.46"/><polygon class="cls-1" points="119.87 58.2 137.98 94.9 178.48 100.78 149.17 129.35 156.09 169.69 119.87 150.64 83.64 169.69 90.56 129.35 61.26 100.78 101.76 94.9 119.87 58.2"/></svg>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 244.9 407.91">
+    <defs>
+        <style>
+            .cls-1{
+                fill:#e22929;
+            }
+            .cls-2{
+                fill:#fff;
+            }
+        </style>
+    </defs>
+    <title>pin star</title>
+    <path class="cls-1" d="M122.25,11.35h0c70.9,0,123.23,66.15,106.92,135.15L122.25,396.56,15.33,146.5C-1,77.5,51.35,11.35,122.25,11.35Z"/>
+    <circle class="cls-2" cx="122.25" cy="119.46" r="87.46"/>
+    <polygon class="cls-1" points="119.87 58.2 137.98 94.9 178.48 100.78 149.17 129.35 156.09 169.69 119.87 150.64 83.64 169.69 90.56 129.35 61.26 100.78 101.76 94.9 119.87 58.2"/>
+</svg>

@@ -456,13 +456,13 @@ var Animations = (function() {
     var rWiper = state.wipers.right;
     var lWiper = state.wipers.left;
     var speeds = {
-      hi: 1000,
-      lo: 2000
+      hi: 2,
+      lo: 1
     };
     state.wipingAnim = Snap.animate(from, to, function(val) {
       rWiper.transform('r' + [val, rWiper.bbox.x + rWiper.bbox.w, rWiper.bbox.y + rWiper.bbox.h]);
       lWiper.transform('r' + [val, lWiper.bbox.x + lWiper.bbox.w, lWiper.bbox.y + lWiper.bbox.h]);
-    }, Math.max(speeds[wiperSpeed], speeds.lo), mina.linear, next);
+    }, 2000 / Math.max(speeds[wiperSpeed], speeds.lo), mina.linear, next);
   }
 
   // Repeatedly animates movement of the wipers back and fourth

@@ -1,34 +1,34 @@
 <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1317.64 976.26">
     <defs>
         <style>
-        .musicJazzCls-1 {
-            fill: #4ac1dd;
-        }
-        
-        .musicJazzCls-2 {
-            fill: #fff;
-        }
-        
-        .musicJazzCls-3 {
-            font-size: 55px;
-        }
-        
-        .musicJazzCls-3,
-        .musicJazzCls-5 {
-            fill: #21535b;
-            font-family: "HelvNeue Roman for IBM";
-        }
-        
-        .musicJazzCls-4 {
-            font-size: 131px;
-        }
-        
-        .musicJazzCls-5 {
-            fill: none;
-            stroke: #fff;
-            stroke-miterlimit: 10;
-            stroke-width: 3px;
-        }
+            .musicJazzCls-1 {
+                fill: #4ac1dd;
+            }
+
+            .musicJazzCls-2 {
+                fill: #fff;
+            }
+
+            .musicJazzCls-3 {
+                font-size: 55px;
+            }
+
+            .musicJazzCls-3,
+            .musicJazzCls-5 {
+                fill: #21535b;
+                font-family: "HelvNeue Roman for IBM";
+            }
+
+            .musicJazzCls-4 {
+                font-size: 131px;
+            }
+
+            .musicJazzCls-5 {
+                fill: none;
+                stroke: #fff;
+                stroke-miterlimit: 10;
+                stroke-width: 3px;
+            }
         </style>
     </defs>
     <title>music jazz</title>
