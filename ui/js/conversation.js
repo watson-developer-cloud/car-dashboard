@@ -105,11 +105,6 @@ var Conversation = (function() {
       };
 
       dummy = Common.buildDomElement(dummyJson);
-      ['font-size', 'font-style', 'font-weight', 'font-family', 'line-height',
-        'text-transform', 'letter-spacing'].forEach(function(index) {
-          dummy.style[index] = window.getComputedStyle( input, null ).getPropertyValue( index );
-        });
-
       document.body.appendChild(dummy);
     }
 
@@ -125,6 +120,10 @@ var Conversation = (function() {
         // the visible input box to match it (thus extending the underline)
         Common.addClass(this, classes.underline);
         var txtNode = document.createTextNode(this.value);
+        ['font-size', 'font-style', 'font-weight', 'font-family', 'line-height',
+          'text-transform', 'letter-spacing'].forEach(function(index) {
+            dummy.style[index] = window.getComputedStyle( input, null ).getPropertyValue( index );
+          });
         dummy.textContent = txtNode.textContent;
         var widthValue = ( dummy.offsetWidth + padding) + 'px';
         this.setAttribute('style', 'width:' + widthValue);

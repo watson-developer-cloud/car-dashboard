@@ -1,77 +1,74 @@
 <svg id="map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1330 993.77">
     <defs>
         <style>
-        .mapGeneralCls-1 {
-            fill: #ede4d6;
-        }
-        
-        .mapGeneralCls-2 {
-            fill: #67c5e5;
-        }
-        
-        .mapGeneralCls-3 {
-            fill: #adc646;
-        }
-        
-        .mapGeneralCls-11,
-        .mapGeneralCls-4,
-        .mapGeneralCls-6 {
-            fill: none;
-        }
-        
-        .mapGeneralCls-4 {
-            stroke: #fff;
-            stroke-width: 5px;
-        }
-        
-        .mapGeneralCls-11,
-        .mapGeneralCls-4 {
-            stroke-miterlimit: 10;
-        }
-        
-        .mapGeneralCls-5 {
-            fill: #bababa;
-        }
-        
-        .mapGeneralCls-6 {
-            stroke: #d69732;
-            stroke-linecap: round;
-            stroke-linejoin: bevel;
-            stroke-width: 10px;
-        }
-        
-        .mapGeneralCls-7 {
-            fill: #e22929;
-        }
-        
-        .mapGeneralCls-8,
-        .mapGeneralCls-9 {
-            fill: #fff;
-        }
-        
-        .mapGeneralCls-9 {
-            font-size: 72px;
-            font-family: Helvetica Neue;
-            font-weight: 700;
-        }
-        
-        .mapGeneralCls-10 {
-            fill: #1082e8;
-        }
-        
-        .mapGeneralCls-11 {
-            stroke: #1082e8;
-            stroke-width: 3px;
-        }
+            .mapGeneralCls-1 {
+                fill: #ede4d6;
+            }
+
+            .mapGeneralCls-2 {
+                fill: #67c5e5;
+            }
+
+            .mapGeneralCls-3 {
+                fill: #adc646;
+            }
+
+            .mapGeneralCls-11,
+            .mapGeneralCls-4,
+            .mapGeneralCls-6 {
+                fill: none;
+            }
+
+            .mapGeneralCls-4 {
+                stroke: #fff;
+                stroke-width: 5px;
+            }
+
+            .mapGeneralCls-11,
+            .mapGeneralCls-4 {
+                stroke-miterlimit: 10;
+            }
+
+            .mapGeneralCls-5 {
+                fill: #bababa;
+            }
+
+            .mapGeneralCls-6 {
+                stroke: #d69732;
+                stroke-linecap: round;
+                stroke-linejoin: bevel;
+                stroke-width: 10px;
+            }
+
+            .mapGeneralCls-7 {
+                fill: #e22929;
+            }
+
+            .mapGeneralCls-8,
+            .mapGeneralCls-9 {
+                fill: #fff;
+            }
+
+            .mapGeneralCls-9 {
+                font-size: 72px;
+                font-family: Helvetica Neue;
+                font-weight: 700;
+            }
+
+            .mapGeneralCls-10 {
+                fill: #1082e8;
+            }
+
+            .mapGeneralCls-11 {
+                stroke: #1082e8;
+                stroke-width: 3px;
+            }
         </style>
     </defs>
     <title>map general</title>
     <rect class="mapGeneralCls-1" x="12.65" y="13.75" width="1296.16" height="951.7" rx="33.69" ry="33.69" />
     <path class="mapGeneralCls-2" d="M411.1,25.5s-31.5,25.5-37.5,33c0,0,3,6,0,15s-18,16.5-18,16.5-22.5,24-22.5,39,6,28.5,9,40.5,15,7.5,12,15-9,33-9,33l-12,55.5s-25.5,15-30,36-24,76.5-24,76.5l16.5,58.5,49.5,94.5,18,109.49s37.5,87,36,112.49-3,40.5-21,75-33,81.95-33,81.95l-18,50,24,5,36-116,18-27h21l21,34.5s21,48.4,21,53.45,12,55.05,12,55.05h105s-22.5-65-27-68-30-40.5-30-40.5-12-22.5-9-40.5-6-40.5-6-40.5-18-1.5-18-6-4.5-19.5-4.5-19.5-42-114-39-118.49,7.5-19.5-4.5-28.5-15-15-15-15,10.5-39,10.5-46.5-3-45.87-3-45.87L397.6,465l-4.5-21v-28.5c0-6,10.5-46.5,10.5-46.5s13.5-42,15-46.5,13.5-33,13.5-33,55.5-42,55.5-49.5,6-25.5,6-30-27-45-27-45c7.5-9,24-28.5,24-28.5S504.1,114,504.1,105s-3-19.5-1.5-24l9-27,6-28.5H411.1Z" />
-    <path class="mapGeneralCls-3" d="M463.64,622.47s1.17,14.93-4.64,20.42l44,126,15,6,13,37-5,28,14,30,32.36,34,20.64,56H741l9-42.48L655.89,668.89,613,598.26Z" />
-    <polygon class="mapGeneralCls-3" points="805.73 379.88 970.18 355.88 936.08 237.88 781 265.88 805.73 379.88" />
-    <polygon class="mapGeneralCls-3" points="341 189.88 323 263.88 299 292.06 163.43 292.06 193 240.97 341 189.88" />
-    <polygon class="mapGeneralCls-3" points="1093.59 676.47 1161 823.88 1289.88 779.07 1224.24 650.23 1093.59 676.47" />
+
     <polyline class="mapGeneralCls-4" points="10.86 697.88 341 652.97 375 737.06 375 779.07 301 965.88" />
     <polyline class="mapGeneralCls-4" points="290.88 659.78 327.11 737.06 351.53 838.32" />
     <line class="mapGeneralCls-4" x1="163.43" y1="677.13" x2="273.11" y2="972.46" />
@@ -124,11 +121,18 @@
     <line class="mapGeneralCls-4" x1="757.59" y1="856.46" x2="907.58" y2="803.96" />
     <line class="mapGeneralCls-4" x1="766.59" y1="886.46" x2="919.58" y2="832.46" />
     <line class="mapGeneralCls-4" x1="783.08" y1="928.45" x2="940.58" y2="883.46" />
+
+    <path class="mapGeneralCls-3" d="M463.64,622.47s1.17,14.93-4.64,20.42l44,126,15,6,13,37-5,28,14,30,32.36,34,20.64,56H741l9-42.48L655.89,668.89,613,598.26Z" />
+    <polygon class="mapGeneralCls-3" points="805.73 379.88 970.18 355.88 936.08 237.88 781 265.88 805.73 379.88" />
+    <polygon class="mapGeneralCls-3" points="341 189.88 323 263.88 299 292.06 163.43 292.06 193 240.97 341 189.88" />
+    <polygon class="mapGeneralCls-3" points="1093.59 676.47 1161 823.88 1289.88 779.07 1224.24 650.23 1093.59 676.47" />
+
     <rect class="mapGeneralCls-5" x="294.45" y="520.77" width="29.53" height="94.41" transform="translate(-88.66 58.16) rotate(-9.41)" />
     <rect class="mapGeneralCls-5" x="265.34" y="547.21" width="23.24" height="74.31" transform="translate(-91.77 53.11) rotate(-9.41)" />
     <polygon class="mapGeneralCls-5" points="619 252.88 667 256.88 679 206.88 634 201.88 619 252.88" />
     <polygon class="mapGeneralCls-5" points="798 651.88 812 685.88 842 667.88 827 635.88 798 651.88" />
     <polygon class="mapGeneralCls-5" points="1075 533.22 1209 457.88 1183 417.88 1055 485.88 1075 533.22" />
+
     <polyline class="mapGeneralCls-6" points="-6.35 676.47 492.1 607.47 609.09 586.47 673.59 483.11 618.09 325.48 673.59 285.88 700.59 224.99 843.08 0" />
     <polyline class="mapGeneralCls-6" points="673.59 483.11 955.58 439.48 1198.56 972.46" />
     <polyline class="mapGeneralCls-6" points="655.89 432.84 936.08 388.48 955.58 439.48" />
@@ -138,6 +142,9 @@
     <polyline class="mapGeneralCls-6" points="585.09 590.78 575 373.88 559.62 292.06" />
     <polyline class="mapGeneralCls-6" points="1043 25.5 1217 217.88 1163 361.88 970.18 471.52" />
     <line class="mapGeneralCls-6" x1="163.43" y1="652.97" x2="109" y2="25.5" />
-    <circle class="mapGeneralCls-10" cx="648.48" cy="592.51" r="20.61" />
-    <circle class="mapGeneralCls-11" cx="648.48" cy="592.51" r="25.11" />
+
+    <g id="currentLocation">
+        <circle class="mapGeneralCls-10" cx="648.48" cy="592.51" r="20.61" />
+        <circle class="mapGeneralCls-11" cx="648.48" cy="592.51" r="25.11" />
+    </g>
 </svg>

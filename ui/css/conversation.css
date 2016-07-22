@@ -150,10 +150,6 @@ input#user-input:-moz-placeholder {
 #chat-scroll-wrapper{
     position: absolute;
     bottom:  5.625rem;
-    max-height:  15.625rem;
-    width:  25rem;
-    max-width:  25rem;
-    overflow: hidden;
     padding-top: 0.3125rem;
     margin-left: 1.25rem;
     border-top-left-radius: 0.625rem;
@@ -165,8 +161,11 @@ input#user-input:-moz-placeholder {
     text-align: left;
     width: calc(100% + 20px);
     max-height:  15.625rem;
-    overflow-x: hidden;
-    overflow-y: scroll;
+    overflow: hidden;
+}
+
+#chat-flow:hover {
+    overflow-y: auto;
 }
 
 .user, .watson {

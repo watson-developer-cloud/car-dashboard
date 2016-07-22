@@ -1,85 +1,82 @@
 <svg id="map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1330 993.77">
     <defs>
         <style>
-        .mapFoodCuisineCls-1 {
-            fill: #ede4d6;
-        }
-        
-        .mapFoodCuisineCls-2 {
-            fill: #67c5e5;
-        }
-        
-        .mapFoodCuisineCls-3 {
-            fill: #adc646;
-        }
-        
-        .mapFoodCuisineCls-13,
-        .mapFoodCuisineCls-4,
-        .mapFoodCuisineCls-6 {
-            fill: none;
-        }
-        
-        .mapFoodCuisineCls-4 {
-            stroke: #fff;
-            stroke-width: 5px;
-        }
-        
-        .mapFoodCuisineCls-13,
-        .mapFoodCuisineCls-4 {
-            stroke-miterlimit: 10;
-        }
-        
-        .mapFoodCuisineCls-5 {
-            fill: #bababa;
-        }
-        
-        .mapFoodCuisineCls-6 {
-            stroke: #d69732;
-            stroke-linecap: round;
-            stroke-linejoin: bevel;
-            stroke-width: 10px;
-        }
-        
-        .mapFoodCuisineCls-7 {
-            fill: #e22929;
-        }
-        
-        .mapFoodCuisineCls-8,
-        .mapFoodCuisineCls-9 {
-            fill: #fff;
-        }
-        
-        .mapFoodCuisineCls-9 {
-            font-size: 72px;
-            font-family: Helvetica Neue;
-            font-weight: 700;
-        }
-        
-        .mapFoodCuisineCls-10 {
-            letter-spacing: -2px;
-        }
-        
-        .mapFoodCuisineCls-11 {
-            letter-spacing: -7px;
-        }
-        
-        .mapFoodCuisineCls-12 {
-            fill: #1082e8;
-        }
-        
-        .mapFoodCuisineCls-13 {
-            stroke: #1082e8;
-            stroke-width: 3px;
-        }
+            .mapFoodCuisineCls-1 {
+                fill: #ede4d6;
+            }
+
+            .mapFoodCuisineCls-2 {
+                fill: #67c5e5;
+            }
+
+            .mapFoodCuisineCls-3 {
+                fill: #adc646;
+            }
+
+            .mapFoodCuisineCls-13,
+            .mapFoodCuisineCls-4,
+            .mapFoodCuisineCls-6 {
+                fill: none;
+            }
+
+            .mapFoodCuisineCls-4 {
+                stroke: #fff;
+                stroke-width: 5px;
+            }
+
+            .mapFoodCuisineCls-13,
+            .mapFoodCuisineCls-4 {
+                stroke-miterlimit: 10;
+            }
+
+            .mapFoodCuisineCls-5 {
+                fill: #bababa;
+            }
+
+            .mapFoodCuisineCls-6 {
+                stroke: #d69732;
+                stroke-linecap: round;
+                stroke-linejoin: bevel;
+                stroke-width: 10px;
+            }
+
+            .mapFoodCuisineCls-7 {
+                fill: #e22929;
+            }
+
+            .mapFoodCuisineCls-8,
+            .mapFoodCuisineCls-9 {
+                fill: #fff;
+            }
+
+            .mapFoodCuisineCls-9 {
+                font-size: 72px;
+                font-family: Helvetica Neue;
+                font-weight: 700;
+            }
+
+            .mapFoodCuisineCls-10 {
+                letter-spacing: -2px;
+            }
+
+            .mapFoodCuisineCls-11 {
+                letter-spacing: -7px;
+            }
+
+            .mapFoodCuisineCls-12 {
+                fill: #1082e8;
+            }
+
+            .mapFoodCuisineCls-13 {
+                stroke: #1082e8;
+                stroke-width: 3px;
+            }
         </style>
     </defs>
     <title>map food numbers and cuisine</title>
     <rect class="mapFoodCuisineCls-1" x="12.65" y="13.75" width="1296.16" height="951.7" rx="33.69" ry="33.69" />
     <path class="mapFoodCuisineCls-2" d="M411.1,25.5s-31.5,25.5-37.5,33c0,0,3,6,0,15s-18,16.5-18,16.5-22.5,24-22.5,39,6,28.5,9,40.5,15,7.5,12,15-9,33-9,33l-12,55.5s-25.5,15-30,36-24,76.5-24,76.5l16.5,58.5,49.5,94.5,18,109.49s37.5,87,36,112.49-3,40.5-21,75-33,81.95-33,81.95l-18,50,24,5,36-116,18-27h21l21,34.5s21,48.4,21,53.45,12,55.05,12,55.05h105s-22.5-65-27-68-30-40.5-30-40.5-12-22.5-9-40.5-6-40.5-6-40.5-18-1.5-18-6-4.5-19.5-4.5-19.5-42-114-39-118.49,7.5-19.5-4.5-28.5-15-15-15-15,10.5-39,10.5-46.5-3-45.87-3-45.87L397.6,465l-4.5-21v-28.5c0-6,10.5-46.5,10.5-46.5s13.5-42,15-46.5,13.5-33,13.5-33,55.5-42,55.5-49.5,6-25.5,6-30-27-45-27-45c7.5-9,24-28.5,24-28.5S504.1,114,504.1,105s-3-19.5-1.5-24l9-27,6-28.5H411.1Z" />
-    <path class="mapFoodCuisineCls-3" d="M463.64,622.47s1.17,14.93-4.64,20.42l44,126,15,6,13,37-5,28,14,30,32.36,34,20.64,56H741l9-42.48L655.89,668.89,613,598.26Z" />
-    <polygon class="mapFoodCuisineCls-3" points="805.73 379.88 970.18 355.88 936.08 237.88 781 265.88 805.73 379.88" />
-    <polygon class="mapFoodCuisineCls-3" points="341 189.88 323 263.88 299 292.06 163.43 292.06 193 240.97 341 189.88" />
-    <polygon class="mapFoodCuisineCls-3" points="1093.59 676.47 1161 823.88 1289.88 779.07 1224.24 650.23 1093.59 676.47" />
+
     <polyline class="mapFoodCuisineCls-4" points="10.86 697.88 341 652.97 375 737.06 375 779.07 301 965.88" />
     <polyline class="mapFoodCuisineCls-4" points="290.88 659.78 327.11 737.06 351.53 838.32" />
     <line class="mapFoodCuisineCls-4" x1="163.43" y1="677.13" x2="273.11" y2="972.46" />
@@ -132,11 +129,18 @@
     <line class="mapFoodCuisineCls-4" x1="757.59" y1="856.46" x2="907.58" y2="803.96" />
     <line class="mapFoodCuisineCls-4" x1="766.59" y1="886.46" x2="919.58" y2="832.46" />
     <line class="mapFoodCuisineCls-4" x1="783.08" y1="928.45" x2="940.58" y2="883.46" />
+
+    <path class="mapFoodCuisineCls-3" d="M463.64,622.47s1.17,14.93-4.64,20.42l44,126,15,6,13,37-5,28,14,30,32.36,34,20.64,56H741l9-42.48L655.89,668.89,613,598.26Z" />
+    <polygon class="mapFoodCuisineCls-3" points="805.73 379.88 970.18 355.88 936.08 237.88 781 265.88 805.73 379.88" />
+    <polygon class="mapFoodCuisineCls-3" points="341 189.88 323 263.88 299 292.06 163.43 292.06 193 240.97 341 189.88" />
+    <polygon class="mapFoodCuisineCls-3" points="1093.59 676.47 1161 823.88 1289.88 779.07 1224.24 650.23 1093.59 676.47" />
+
     <rect class="mapFoodCuisineCls-5" x="294.45" y="520.77" width="29.53" height="94.41" transform="translate(-88.66 58.16) rotate(-9.41)" />
     <rect class="mapFoodCuisineCls-5" x="265.34" y="547.21" width="23.24" height="74.31" transform="translate(-91.77 53.11) rotate(-9.41)" />
     <polygon class="mapFoodCuisineCls-5" points="619 252.88 667 256.88 679 206.88 634 201.88 619 252.88" />
     <polygon class="mapFoodCuisineCls-5" points="798 651.88 812 685.88 842 667.88 827 635.88 798 651.88" />
     <polygon class="mapFoodCuisineCls-5" points="1075 533.22 1209 457.88 1183 417.88 1055 485.88 1075 533.22" />
+
     <polyline class="mapFoodCuisineCls-6" points="-6.35 676.47 492.1 607.47 609.09 586.47 673.59 483.11 618.09 325.48 673.59 285.88 700.59 224.99 843.08 0" />
     <polyline class="mapFoodCuisineCls-6" points="673.59 483.11 955.58 439.48 1198.56 972.46" />
     <polyline class="mapFoodCuisineCls-6" points="655.89 432.84 936.08 388.48 955.58 439.48" />
@@ -146,36 +150,37 @@
     <polyline class="mapFoodCuisineCls-6" points="585.09 590.78 575 373.88 559.62 292.06" />
     <polyline class="mapFoodCuisineCls-6" points="1043 25.5 1217 217.88 1163 361.88 970.18 471.52" />
     <line class="mapFoodCuisineCls-6" x1="163.43" y1="652.97" x2="109" y2="25.5" />
-    <rect class="mapFoodCuisineCls-7" x="977.32" y="67.89" width="331.48" height="85.33" rx="42.67" ry="42.67" />
-    <rect class="mapFoodCuisineCls-7" x="1051.82" y="229.49" width="248.85" height="85.33" rx="42.67" ry="42.67" />
-    <rect class="mapFoodCuisineCls-7" x="842.75" y="601.39" width="338.85" height="85.33" rx="42.67" ry="42.67" />
-    <rect class="mapFoodCuisineCls-7" x="265.65" y="701.38" width="258.85" height="85.33" rx="42.67" ry="42.67" />
+
     <path class="mapFoodCuisineCls-7" d="M213,702.48h0a42.49,42.49,0,0,1,41.35,52.26L213,851.44l-41.35-96.7A42.49,42.49,0,0,1,213,702.48Z" />
     <circle class="mapFoodCuisineCls-8" cx="213" cy="744.29" r="33.82" />
     <path class="mapFoodCuisineCls-7" d="M222.3,719.47a3.87,3.87,0,0,0-3.87,3.87v29.27h2.21v13.26a2.76,2.76,0,0,0,5.52,0V723.34A3.87,3.87,0,0,0,222.3,719.47Z" />
     <path class="mapFoodCuisineCls-7" d="M209.5,719.4a1.2,1.2,0,0,0-1.2,1.2v11.32h-1.47V720.6a1.2,1.2,0,1,0-2.4,0v11.32H203V720.6a1.2,1.2,0,1,0-2.4,0v11.32h-1.46V720.6a1.2,1.2,0,1,0-2.4,0v14.46h0a4.27,4.27,0,0,0,3.12,4v26.3a3.87,3.87,0,0,0,7.73,0V739a4.27,4.27,0,0,0,3.12-4h0V720.6A1.2,1.2,0,0,0,209.5,719.4Z" />
+    <rect class="mapFoodCuisineCls-7" x="265.65" y="701.38" width="258.85" height="85.33" rx="42.67" ry="42.67" />
+    <text class="mapFoodCuisineCls-9" transform="translate(286.23 768.21)">Tacos</text>
+
     <path class="mapFoodCuisineCls-7" d="M789.83,600.4h0a42.49,42.49,0,0,1,41.35,52.26l-41.35,96.7-41.35-96.7A42.49,42.49,0,0,1,789.83,600.4Z" />
     <circle class="mapFoodCuisineCls-8" cx="789.83" cy="642.21" r="33.82" />
     <path class="mapFoodCuisineCls-7" d="M799.13,617.4a3.87,3.87,0,0,0-3.87,3.87v29.27h2.21v13.26a2.76,2.76,0,1,0,5.52,0V621.26A3.87,3.87,0,0,0,799.13,617.4Z" />
     <path class="mapFoodCuisineCls-7" d="M786.33,617.32a1.2,1.2,0,0,0-1.2,1.2v11.32h-1.47V618.52a1.2,1.2,0,1,0-2.4,0v11.32H779.8V618.52a1.2,1.2,0,1,0-2.4,0v11.32h-1.46V618.52a1.2,1.2,0,1,0-2.4,0V633h0a4.27,4.27,0,0,0,3.12,4v26.3a3.87,3.87,0,1,0,7.73,0v-26.3a4.27,4.27,0,0,0,3.12-4h0V618.52A1.2,1.2,0,0,0,786.33,617.32Z" />
+    <rect class="mapFoodCuisineCls-7" x="842.75" y="601.39" width="338.85" height="85.33" rx="42.67" ry="42.67" />
+    <text class="mapFoodCuisineCls-9" transform="translate(870.05 665.89)">Burgers</text>
+
     <path class="mapFoodCuisineCls-7" d="M1002,227.51h0a42.49,42.49,0,0,1,41.35,52.26L1002,376.47l-41.35-96.7A42.49,42.49,0,0,1,1002,227.51Z" />
     <circle class="mapFoodCuisineCls-8" cx="1002" cy="269.31" r="33.82" />
     <path class="mapFoodCuisineCls-7" d="M1011.3,244.5a3.87,3.87,0,0,0-3.87,3.87v29.27h2.21v13.26a2.76,2.76,0,1,0,5.52,0V248.36A3.87,3.87,0,0,0,1011.3,244.5Z" />
     <path class="mapFoodCuisineCls-7" d="M998.5,244.42a1.2,1.2,0,0,0-1.2,1.2v11.32h-1.47V245.62a1.2,1.2,0,1,0-2.4,0v11.32H992V245.62a1.2,1.2,0,1,0-2.4,0v11.32h-1.46V245.62a1.2,1.2,0,1,0-2.4,0v14.46h0a4.27,4.27,0,0,0,3.12,4v26.3a3.87,3.87,0,0,0,7.73,0V264a4.27,4.27,0,0,0,3.12-4h0V245.62A1.2,1.2,0,0,0,998.5,244.42Z" />
+    <rect class="mapFoodCuisineCls-7" x="1051.82" y="229.49" width="248.85" height="85.33" rx="42.67" ry="42.67" />
+    <text class="mapFoodCuisineCls-9" transform="translate(1075.29 295.31)">Pasta</text>
+
     <path class="mapFoodCuisineCls-7" d="M928.58,63.51h0a42.49,42.49,0,0,1,41.35,52.26l-41.35,96.7-41.35-96.7A42.49,42.49,0,0,1,928.58,63.51Z" />
     <circle class="mapFoodCuisineCls-8" cx="928.58" cy="105.32" r="33.82" />
     <path class="mapFoodCuisineCls-7" d="M937.87,80.5A3.87,3.87,0,0,0,934,84.37v29.27h2.21V126.9a2.76,2.76,0,0,0,5.52,0V84.37A3.87,3.87,0,0,0,937.87,80.5Z" />
     <path class="mapFoodCuisineCls-7" d="M925.08,80.43a1.2,1.2,0,0,0-1.2,1.2V92.95h-1.47V81.63a1.2,1.2,0,1,0-2.4,0V92.95h-1.47V81.63a1.2,1.2,0,1,0-2.4,0V92.95h-1.46V81.63a1.2,1.2,0,1,0-2.4,0V96.09h0a4.27,4.27,0,0,0,3.12,4v26.3a3.87,3.87,0,1,0,7.73,0V100a4.27,4.27,0,0,0,3.12-4h0V81.63A1.2,1.2,0,0,0,925.08,80.43Z" />
+    <rect class="mapFoodCuisineCls-7" x="977.32" y="67.89" width="331.48" height="85.33" rx="42.67" ry="42.67" />
     <text class="mapFoodCuisineCls-9" transform="translate(1003.47 133.81)">Seafood</text>
-    <text class="mapFoodCuisineCls-9" transform="translate(1075.29 295.31)">Pasta</text>
-    <text class="mapFoodCuisineCls-9" transform="translate(870.05 665.89)">Bu
-        <tspan class="mapFoodCuisineCls-10" x="93.38" y="0">r</tspan>
-        <tspan x="119.37" y="0">gers</tspan>
-    </text>
-    <text class="mapFoodCuisineCls-9" transform="translate(286.23 768.21)">
-        <tspan class="mapFoodCuisineCls-11" x="0" y="0">T</tspan>
-        <tspan x="36" y="0">acos</tspan>
-    </text>
-    <circle class="mapFoodCuisineCls-12" cx="648.48" cy="592.51" r="20.61" />
-    <circle class="mapFoodCuisineCls-13" cx="648.48" cy="592.51" r="25.11" />
+
+    <g id="currentLocation">
+        <circle class="mapFoodCuisineCls-12" cx="648.48" cy="592.51" r="20.61" />
+        <circle class="mapFoodCuisineCls-13" cx="648.48" cy="592.51" r="25.11" />
+    </g>
 </svg>
