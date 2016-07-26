@@ -30,7 +30,7 @@ var Panel = (function() {
     fan: '#fan',
     seek: '#seek'
   };
-  var genres = ['general', 'jazz', 'rock', 'pop'];
+  var genres = ['general', 'classical', 'jazz', 'rock', 'pop'];
   var snapSvgCanvas = Snap.select(idSelectors.svgCanvas);
 
   // Publicly accessible methods defined
