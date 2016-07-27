@@ -156,7 +156,7 @@ if ( cloudantUrl ) {
         var outputText = '';
         if ( row.doc ) {
           var doc = row.doc;
-          if ( doc.request ) {
+          if ( doc.request && doc.request.input ) {
             question = doc.request.input.text;
           }
           if ( doc.response ) {
