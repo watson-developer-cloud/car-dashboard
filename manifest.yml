@@ -1,8 +1,17 @@
+---
+declared-services:
+  conversation-service:
+    label: conversation
+    plan: free
 applications:
-- path: .
+- name: car-dashboard
+  command: npm start
+  path: .
   memory: 256M
   instances: 1
-  domain: mybluemix.net
-  #domain: stage1.mybluemix.net
   disk_quota: 1024M
+  services:
+  - conversation-service
+  env:
+    NPM_CONFIG_PRODUCTION: false
 
