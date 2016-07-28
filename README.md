@@ -72,7 +72,7 @@ The status of the deployment is shown. This can take some time.
 
 1 Ensure that you have a [Bluemix account](https://console.ng.bluemix.net/registration/). While you can do part of this deployment locally, you must still use Bluemix.
 
-2 In Bluemix, [create a Conversation Service](http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/conversation/overview.shtml).
+2 In Bluemix, [create a Conversation Service](http://www.ibm.com/watson/developercloud/doc/conversation/convo_getstart.shtml).
 - Copy the Service Credentials for later use.
 - [Import a workspace](#workspace)
 
@@ -86,40 +86,39 @@ To build the application:
 
 3 Navigate to the `car-dashboard` folder
 
-4 Edit the `manifest.yml` file, and change the `<application-name>` to something unique.
-  ```none
-  applications:git 
-  - services:
-    - conversation-service
-    name: <application-name>
-    command: npm start
-    path: .
-    memory: 256M
-  ```
+4 Connect to Bluemix in the command-line tool:
 
-  The name you use determinates your application URL initially, such as `<application-name>.mybluemix.net`.
+ For US Region
 
-5 Connect to Bluemix in the command-line tool:
-  For US Region
-  ```sh
-  $ cf api https://api.ng.bluemix.net
-  ```
+ ```sh
 
-  ```sh
-  $ cf login -u <your user ID>
-  ```
+ $ cf api https://api.ng.bluemix.net
 
-6 Create the Conversation service in Bluemix:
+ ```
 
-  ```sh
-  $ cf create-service conversation free conversation-service
-  ```
+ ```sh
 
-7 Push it live:
+ $ cf login -u <your user ID>
 
-  ```sh
-  $ cf push
-  ```  
+ ```
+
+5 Create the Conversation service in Bluemix:
+
+ ```sh
+
+ $ cf create-service conversation free conversation-service
+
+ ```
+
+6 Push it live:
+
+ ```sh
+
+ $ cf push <application-name>
+
+ ``` 
+ The name you use determinates your application URL initially, such as `<application-name>.mybluemix.net`.
+ 
 ## Running locally
 
   The application uses [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/).
