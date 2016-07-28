@@ -7,7 +7,7 @@
     "start": "node server.js",
     "lint": "eslint .",
     "autofix": "eslint --fix .",
-    "build": "gulp build-html",
+    "postinstall": "gulp build-html",
     "watch": "gulp server:watch"
   },
   "author": "IBM Corp.",
