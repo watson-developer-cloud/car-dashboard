@@ -107,6 +107,7 @@ var Animations = (function() {
     loadSky();
   }
 
+
   // Returns true if the Animations module is fully initialized (including full SVG loading)
   function isInitialized() {
     return initialized;
@@ -205,6 +206,8 @@ var Animations = (function() {
 
   // Repeatedly animate movement of cloud by dx over a specified duration
   function moveCloud(cloud, duration, dx) {
+    var frameSkips = 5; // redraw after 5 frames
+
     // move cloud to starting position
     cloud.attr({opacity: 0, transform: 't' + [0, 0]});
 
@@ -214,8 +217,8 @@ var Animations = (function() {
         function() {
           // Repeat the animation from the top
           moveCloud(cloud, duration, dx);
-        });
-    });
+        }, frameSkips);
+    }, frameSkips);
   }
 
   // Start the clouds animations
@@ -256,7 +259,7 @@ var Animations = (function() {
 
       // Repeat animation
       animateTrees();
-    });
+    }, 5);
   }
 
   // Create rain objects and then hide the objects (waiting for rain to be toggled on)
@@ -331,6 +334,9 @@ var Animations = (function() {
     upperDrops.transform('t' + topTransform);
     lowerDrops.transform('t' + topTransform);
 
+    // Redraw the rain drops after every 5 frames
+    var frameSkips = 5;
+
     // Move the group of upper drops downwards
     function animateUpper() {
       // Reset to top of screen
@@ -341,7 +347,7 @@ var Animations = (function() {
       upperDrops.animate({ transform: 't' + [Math.random() * 50,
         topTransform[1] + fallDistance] }, 5000, mina.linear, function() {
           Common.hide(upperDrops.node);
-        });
+        }, frameSkips);
     }
 
     // Begin moving the lower drops downwards then move the upper drops
@@ -368,8 +374,8 @@ var Animations = (function() {
           } else {
             Common.hide(lowerDrops.node);
           }
-        });
-      });
+        }, frameSkips);
+      }, frameSkips);
     }
 
     if (!state.raining) {
@@ -462,11 +468,16 @@ var Animations = (function() {
       hi: 2,
       lo: 1
     };
+
+    // Redraw after every 5 frames
+    var frameSkips = 5;
+
     state.wipingAnim = Snap.animate(from, to, function(val) {
       rWiper.transform('r' + [val, rWiper.bbox.x + rWiper.bbox.w, rWiper.bbox.y + rWiper.bbox.h]);
       lWiper.transform('r' + [val, lWiper.bbox.x + lWiper.bbox.w, lWiper.bbox.y + lWiper.bbox.h]);
-    }, 2000 / Math.max(speeds[wiperSpeed], speeds.lo), mina.linear, next);
+    }, 2000 / Math.max(speeds[wiperSpeed], speeds.lo), mina.linear, next, frameSkips);
   }
+
 
   // Repeatedly animates movement of the wipers back and fourth
   function moveWipers() {
