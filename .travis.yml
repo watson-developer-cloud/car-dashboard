@@ -3,7 +3,7 @@ sudo: true
 cache:
   directories:
   - node_modules
-node_js: stable
+node_js: 4.4.3
 script:
   - npm run lint
 deploy:
