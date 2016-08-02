@@ -55,8 +55,7 @@ var Animations = (function() {
     revmeter: '#revmeter',
     rightNeedle: '#right_needle',
     leftNeedle: '#left_needle',
-    tree1: '#tree1',
-    tree2: '#tree2',
+    tree: '#tree',
     rightWiper: '#right_wiper',
     leftWiper: '#left_wiper',
     headlights: '#headlights',
@@ -95,9 +94,9 @@ var Animations = (function() {
   function init() {
     state = {
       svg_width: 1154,
-      svg_height: 704,
+      svg_height: 335,
       wiping: false,
-      num_drops: 200,
+      num_drops: 100,
       raining: false
     };
 
@@ -166,8 +165,8 @@ var Animations = (function() {
           setTimeout(function() {
             toggleRain();
             rainLoop();
-          }, 60000);
-        }, 30000);
+          }, 15000);
+        }, 10000);
       })();
 
       // Begin loading the dashboard SVGs
@@ -231,26 +230,19 @@ var Animations = (function() {
 
   // Repeatedly animates the trees to pass by on the right and left
   function animateTrees() {
-    // Randomly move trees to left or right side of road
-    var trees = [idSelectors.tree1, idSelectors.tree2];
+    var t = Snap.select(idSelectors.tree);
 
-    // Relect a random tree to work with
-    var t = Snap.select(trees[Math.floor(Math.random() * trees.length)]);
-
-    // Move to original position
+    // Move to original position and make tree visible
     t.transform('t0,0');
-
-    // Make tree visible
     t.attr( {display: ''});
 
+    // Randomly chose to move tree on left or right side of the road
     var leftXtransform = [-130, 10];
     var rightXtransform = [120, 10];
-
-    // Randomly chose to move tree on left or right side of the road
     var translate = (Math.random() > 0.5 ? leftXtransform : rightXtransform);
 
     // Start transforming the trees slowly then faster as the car gets closer
-    mina.easeInExpo = function(n) {
+    var easeInExpo = function(n) {
       return ( n === 0 ) ? 0 : Math.pow( 2, 10 * ( n - 1 ) );
     };
 
@@ -258,7 +250,7 @@ var Animations = (function() {
     var endScene = 's20,20,' + 't' + translate;
 
     // Animate tree to the end scene in 4.5s
-    t.animate({transform: endScene}, 4500, mina.easeInExpo, function() {
+    t.animate({transform: endScene}, 4500, easeInExpo, function() {
       // Hide tree once the animation is complete
       t.attr( {display: 'none'});
 
@@ -270,7 +262,8 @@ var Animations = (function() {
   // Create rain objects and then hide the objects (waiting for rain to be toggled on)
   function initiateRaining() {
     makeRain();
-    Common.listForEach(document.getElementsByClassName(classes.drop), Common.hide);
+    Common.hide(document.getElementById(ids.lowerDrops));
+    Common.hide(document.getElementById(ids.upperDrops));
   }
 
   // Create the raindrop objects
@@ -292,12 +285,12 @@ var Animations = (function() {
     for (var i =  0; i < count; i++) {
       var x = Math.random() * state.svg_width;
       var y = Math.random() * state.svg_height;
-      group.append(newDropline(x, y, classes.drop));
+      group.append(newDropline(x, y));
     }
   }
 
   // Function to help in the creation of raindrop objects
-  function newDropline(x, y, cls) {
+  function newDropline(x, y) {
     // randomize sizes of drops
     var scale = 0.1 + 0.3 * Math.random();
 
@@ -317,8 +310,8 @@ var Animations = (function() {
     var rel = Snap.path.toRelative(dropPath);
     var drop = snapSvgCanvas.path(rel);
 
+    drop.addClass(classes.drop);
     drop.attr({
-      class: cls,
       fill: '#ceeaf4'   // give drops the blue color
     });
     return drop;
@@ -329,8 +322,8 @@ var Animations = (function() {
     // darken the sky
     toggleDarkenSky();
 
-    var topTransform = [0, -700];
-    var fallDistance = 1000;
+    var topTransform = [-20, -300];
+    var fallDistance = 650;
     var upperDrops = Snap.select(idSelectors.upperDrops);
     var lowerDrops = Snap.select(idSelectors.lowerDrops);
 
@@ -342,36 +335,46 @@ var Animations = (function() {
     function animateUpper() {
       // Reset to top of screen
       upperDrops.transform('t' + topTransform);
+      Common.show(upperDrops.node);
 
       // Animate falling movement to bottom of screen
       upperDrops.animate({ transform: 't' + [Math.random() * 50,
-        topTransform[1] + fallDistance] }, 5000, mina.linear);
+        topTransform[1] + fallDistance] }, 5000, mina.linear, function() {
+          Common.hide(upperDrops.node);
+        });
     }
 
     // Begin moving the lower drops downwards then move the upper drops
     function animateDrops() {
       // Reset to top of screen
       lowerDrops.transform('t' + topTransform);
+      Common.show(lowerDrops.node);
 
       // Animate falling of lower drops
-      lowerDrops.animate({ transform: 't' + [Math.random() * 50,
-        topTransform[1] + fallDistance / 2.0] }, 2500, mina.linear, function() {
-          // begin animation of upper drops half way through the animation
+      lowerDrops.animate({
+        transform: 't' + [Math.random() * 50,
+          topTransform[1] + fallDistance / 2.0]
+      }, 2500, mina.linear, function() {
+        // begin animation of upper drops half way through the animation
+        if (state.raining) {
           animateUpper();
-          lowerDrops.animate({ transform: 't' + [Math.random() * 50,
-          topTransform[1] + fallDistance] }, 2500, mina.linear, animateDrops);
+        }
+        lowerDrops.animate({
+          transform: 't' + [Math.random() * 50,
+            topTransform[1] + fallDistance]
+        }, 2500, mina.linear, function() {
+          if (state.raining) {
+            animateDrops();
+          } else {
+            Common.hide(lowerDrops.node);
+          }
         });
+      });
     }
 
-    var drop = document.getElementsByClassName(classes.drop);
     if (!state.raining) {
       // start animating the drops
       animateDrops();
-      Common.listForEach(drop, Common.show);
-    } else {
-      Common.listForEach(drop, Common.hide);
-      upperDrops.stop();
-      lowerDrops.stop();
     }
     state.raining = !state.raining;
   }
@@ -400,11 +403,11 @@ var Animations = (function() {
 
     // Animate the needles around the center of the dials in a range
     // of 10-110 randomly
-    leftNeedle.animate({transform: 'r' + ((100 * Math.random()) + 10) + ','
-    + revmeter.getBBox().cx + ',' + revmeter.getBBox().cy}, 9000, mina.linear);
-    rightNeedle.animate({transform: 'r' + ((100 * Math.random()) + 10) +  ', '
+    leftNeedle.animate({transform: 'r' + ((30 * Math.random()) - 30) + ','
+    + revmeter.getBBox().cx + ',' + revmeter.getBBox().cy}, 9000, mina.easeinout);
+    rightNeedle.animate({transform: 'r' + ((45 * Math.random()) - 30) +  ', '
     + speedometer.getBBox().cx + ',' + speedometer.getBBox().cy},
-      9000 * Math.random(), mina.linear, function() {
+      9000 * Math.random(), mina.easeinout, function() {
         // Repeat the animation
         animateNeedles();
       });
