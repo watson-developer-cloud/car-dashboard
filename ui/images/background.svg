@@ -307,41 +307,7 @@
        x="-107.89342"
        class="backgroundCls-5" />
     <g
-       id="tree1"
-       style="display:none">
-      <ellipse
-         id="ellipse57"
-         ry="3.6299372"
-         rx="9.6770382"
-         cy="2088.9082"
-         cx="2451.0171"
-         class="backgroundCls-7"
-         style="fill:#739e57;" />
-      <path
-         style="fill:#c5db8f"
-         inkscape:connector-curvature="0"
-         class="backgroundCls-6"
-         d="m 2455.6755,2077.5231 -8.7358,0 c -5.3548,0 -8.9596,-5.4813 -6.8383,-10.3978 l 11.2058,-20.1989 11.2058,20.1989 c 2.1213,4.9165 -1.4835,10.3978 -6.8375,10.3978 z"
-         id="path55" />
-      <rect
-         style="fill:#63504b"
-         class="backgroundCls-8"
-         x="2448.2439"
-         y="2065.2832"
-         width="5.5299759"
-         height="24.884892"
-         rx="2.5143874"
-         ry="2.5143874"
-         id="rect59" />
-      <path
-         style="fill:#739e57"
-         inkscape:connector-curvature="0"
-         class="backgroundCls-7"
-         d="m 2453.9733,2074.3257 -5.3314,0 c -3.2687,0 -5.4679,-3.345 -4.173,-6.3455 l 6.8391,-12.3289 6.8392,12.3289 c 1.2932,3.0005 -0.906,6.3455 -4.1739,6.3455 z"
-         id="path61" />
-    </g>
-    <g
-       id="tree2"
+       id="tree"
        style="display:none">
       <ellipse
          id="ellipse57"

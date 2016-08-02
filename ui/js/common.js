@@ -34,6 +34,7 @@ var Common = (function() {
     wait: wait,
     fireEvent: fireEvent,
     listForEach: listForEach,
+    partial: partial,
     hide: hide,
     show: show,
     toggle: toggle,
@@ -130,6 +131,14 @@ var Common = (function() {
     for (var i = 0; i < list.length; i++) {
       callback.call(null, list[i]);
     }
+  }
+
+  function partial(func /* , any number of bound args...*/) {
+    var sliceFunc = Array.prototype.slice;
+    var args = sliceFunc.call(arguments, 1);
+    return function() {
+      return func.apply(this, args.concat(sliceFunc.call(arguments, 0)));
+    };
   }
 
   // Adds the 'hide' class to a given element, giving it a CSS display value of 'none'

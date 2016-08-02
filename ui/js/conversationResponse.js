@@ -19,7 +19,7 @@
 /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "^ConversationResponse$" }] */
 /* global Animations: true, Api: true, Panel: true */
 
-var  ConversationResponse = (function() {
+var ConversationResponse = (function() {
   'use strict';
   var responseFunctions;
 
@@ -116,10 +116,43 @@ var  ConversationResponse = (function() {
       }
 
       var primaryIntent = data.intents[0];
-      var primaryEntity = data.entities[0];
       if (primaryIntent) {
-        callResponseFunction(primaryIntent, primaryEntity);
+        handleBasicCase(primaryIntent, data.entities);
       }
+    }
+  }
+
+  // Handles the case where there is valid intent and entities
+  function handleBasicCase(primaryIntent, entities) {
+    var genreFound = null;
+    // If multiple entities appear (with the exception of music),
+    // do not perform any actions
+    if (entities.length > 1) {
+      var invalidMultipleEntities = true;
+      switch (primaryIntent.intent) {
+      case 'turn_on':
+      case 'turn_off':
+      case 'turn_up':
+      case 'turn_down':
+        entities.forEach(function(currentEntity) {
+          var entityType = currentEntity.entity;
+          if (entityType === 'genre') {
+            invalidMultipleEntities = false;
+            genreFound = currentEntity;
+          }
+        });
+        break;
+      default:
+        invalidMultipleEntities = false;
+        break;
+      }
+    }
+
+    // Otherwise, just take the first one (or the genre if one was found) and
+    // look for the correct function to run
+    if  (!invalidMultipleEntities) {
+      var primaryEntity = (genreFound || entities[0]);
+      callResponseFunction(primaryIntent, primaryEntity);
     }
   }
 
