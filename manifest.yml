@@ -3,6 +3,9 @@ declared-services:
   conversation-service:
     label: conversation
     plan: free
+  speech-to-text-service:
+    label: speech_to_text
+    plan: standard
 applications:
 - name: car-dashboard
   command: npm start
@@ -12,6 +15,7 @@ applications:
   disk_quota: 1024M
   services:
   - conversation-service
+  - speech-to-text-service
   env:
     NPM_CONFIG_PRODUCTION: false
 
