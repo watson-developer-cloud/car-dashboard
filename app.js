@@ -135,14 +135,18 @@ if ( cloudantUrl ) {
 
   //Endpoint which allows conversation logs to be fetched
   app.get ( '/chats', auth, function (req, res) {
-    logs.list ( {include_docs: true, "descending": true}, function (err, body) {
+    logs.view ( 'chats_view', 'chats_view', function (err, body) {
+      if(err){
+        console.error(err);
+        return res;
+      }
       //download as CSV
       var csv = [];
       csv.push ( ['Question', 'Intent', 'Confidence', 'Entity', 'Output', 'Time'] );
       body.rows.sort ( function (a, b) {
-        if ( a && b && a.doc && b.doc ) {
-          var date1 = new Date ( a.doc.time );
-          var date2 = new Date ( b.doc.time );
+        if ( a && b && a.value && b.value ) {
+          var date1 = new Date ( a.value[5] );
+          var date2 = new Date ( b.value[5] );
           var aGreaterThanB = date1.getTime () > date2.getTime ();
           return aGreaterThanB ? 1 : ((date1.getTime () === date2.getTime ()) ? 0 : -1);
         }
@@ -154,27 +158,26 @@ if ( cloudantUrl ) {
         var time = '';
         var entity = '';
         var outputText = '';
-        if ( row.doc ) {
-          var doc = row.doc;
-          if ( doc.request && doc.request.input ) {
-            question = doc.request.input.text;
-          }
-          if ( doc.response ) {
+        if ( row.value ) {
+          var doc = row.value;
+          if ( doc ) {
+            question = doc[0];
+
             intent = '<no intent>';
-            if ( doc.response.intents && doc.response.intents.length > 0 ) {
-              intent = doc.response.intents[0].intent;
-              confidence = doc.response.intents[0].confidence;
+            if ( doc[1] ) {
+              intent = doc[1];
+              confidence = doc[2];
             }
             entity = '<no entity>';
-            if ( doc.response.entities && doc.response.entities.length > 0 ) {
-              entity = doc.response.entities[0].entity + ' : ' + doc.response.entities[0].value;
+            if ( doc[3] ) {
+              entity = doc[3];
             }
             outputText = '<no dialog>';
-            if ( doc.response.output && doc.response.output.text ) {
-              outputText = doc.response.output.text.join ( ' ' );
+            if ( doc[4] ) {
+              outputText = doc[4];
             }
           }
-          time = new Date ( doc.time ).toLocaleString ();
+          time = new Date ( doc[5] ).toLocaleString ();
         }
         csv.push ( [question, intent, confidence, entity, outputText, time] );
 
