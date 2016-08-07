@@ -64,12 +64,12 @@ var tests = (function() {
     doTest(function() { Animations.lightsOff();}, 2, 'light off');
     doTest(function() { Animations.lightsOn();}, 2, 'light on');
     doTest(function() { Animations.wipersOff();}, 3, 'wipers off');
-    doTest(function() { Animations.wipersOn();}, 4, 'wipers on');
+    doTest(function() { Animations.wipersOn('lo');}, 4, 'wipers on lo');
     doTest(function() { Animations.wipersOff();}, 4, 'wipers off');
-    doTest(function() { Animations.wipersOn();}, 4, 'wipers on');
+    doTest(function() { Animations.wipersOn('hi');}, 4, 'wipers on hi');
     doTest(function() { Animations.wipersOff();}, 4, 'wipers off');
     doTest(function() { Animations.toggleRain();}, 2, 'toggle rain');
-    doTest(function() { Animations.wipersOn();}, 2, 'wipers on');
+    doTest(function() { Animations.wipersOn('lo');}, 2, 'wipers on lo');
     doTest(function() { Animations.toggleRain();}, 1, 'toggle rain');
     doTest(function() { Animations.wipersOff();}, 2, 'wipers off');
     doTest(function() { Animations.lightsOff();}, 2, 'lights off');
