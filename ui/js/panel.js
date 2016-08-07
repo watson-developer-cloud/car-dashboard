@@ -33,7 +33,7 @@ var Panel = (function() {
   var genres = ['general', 'classical', 'jazz', 'rock', 'pop'];
   var snapSvgCanvas = Snap.select(idSelectors.svgCanvas);
 
-  var frameSkips = 5;  // redraw after 5 frames
+  var frameSkipRate = 5;  // redraw after 5 frames
   var currentAnimations = [];
 
   // Publicly accessible methods defined
@@ -90,7 +90,7 @@ var Panel = (function() {
 
       // Fade in the SVG group
       svgGroup.attr({opacity: 0});
-      var fadeAnimation = svgGroup.animate({opacity: 1}, 700, mina.linear, function() {}, frameSkips);
+      var fadeAnimation = svgGroup.animate({opacity: 1}, 700, mina.linear, function() {}, frameSkipRate);
       currentAnimations.push(fadeAnimation);
       // Execute callback if provided
       if (next) {
@@ -120,7 +120,7 @@ var Panel = (function() {
         if (!doneFade) {
           var fadeAnim = svgGroup.animate({opacity: 0}, 500, mina.linear, function() {
             svgGroup.remove();
-          }, frameSkips);
+          }, frameSkipRate);
           doneFade = true;
           currentAnimations.push(fadeAnim);
         }
@@ -128,7 +128,7 @@ var Panel = (function() {
       // Rotate the fan around its center (bbox.cx, bbox.cy) at the speed given
       var localMat = fan.transform().localMatrix;
       fan.transform( localMat.rotate(speed, bbox.cx, bbox.cy) );
-    }, 30000, mina.linear, function() {}, frameSkips);
+    }, 30000, mina.linear, function() {}, frameSkipRate);
     currentAnimations.push(rotateAnim);
   }
 
@@ -149,9 +149,9 @@ var Panel = (function() {
         // After the seek position has reached the end fade out the SVG group
         var fadeAnimation = svgGroup.animate({opacity: 0}, 500, mina.linear, function() {
           svgGroup.remove();
-        }, frameSkips);
+        }, frameSkipRate);
         currentAnimations.push(fadeAnimation);
-      }, frameSkips);
+      }, frameSkipRate);
       currentAnimations.push(seekAnimation);
     }
 

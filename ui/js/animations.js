@@ -27,6 +27,9 @@ var Animations = (function() {
   var initialized = false;
   var wiperSpeed;
 
+  // Redraw after every 5 frames.
+  var frameSkipRate = 5;
+
   var classes = {
     drop: 'drop',
 
@@ -206,8 +209,6 @@ var Animations = (function() {
 
   // Repeatedly animate movement of cloud by dx over a specified duration
   function moveCloud(cloud, duration, dx) {
-    var frameSkips = 5; // redraw after 5 frames
-
     // move cloud to starting position
     cloud.attr({opacity: 0, transform: 't' + [0, 0]});
 
@@ -218,8 +219,8 @@ var Animations = (function() {
           // Repeat the animation from the top
           cloud.stop();
           moveCloud(cloud, duration, dx);
-        }, frameSkips);
-    }, frameSkips);
+        }, frameSkipRate);
+    }, frameSkipRate);
   }
 
   // Start the clouds animations
@@ -262,7 +263,7 @@ var Animations = (function() {
 
       // Repeat animation
       animateTrees();
-    }, 5);
+    }, frameSkipRate);
   }
 
   // Create rain objects and then hide the objects (waiting for rain to be toggled on)
@@ -337,9 +338,6 @@ var Animations = (function() {
     upperDrops.transform('t' + topTransform);
     lowerDrops.transform('t' + topTransform);
 
-    // Redraw the rain drops after every 5 frames
-    var frameSkips = 5;
-
     // Move the group of upper drops downwards
     function animateUpper() {
       // Reset to top of screen
@@ -351,7 +349,7 @@ var Animations = (function() {
       upperDrops.animate({ transform: 't' + [Math.random() * 50,
         topTransform[1] + fallDistance] }, 5000, mina.linear, function() {
           Common.hide(upperDrops.node);
-        }, frameSkips);
+        }, frameSkipRate);
     }
 
     // Begin moving the lower drops downwards then move the upper drops
@@ -379,8 +377,8 @@ var Animations = (function() {
           } else {
             Common.hide(lowerDrops.node);
           }
-        }, frameSkips);
-      }, frameSkips);
+        }, frameSkipRate);
+      }, frameSkipRate);
     }
 
     if (!state.raining) {
@@ -422,19 +420,16 @@ var Animations = (function() {
     rightNeedle.stop();
     leftNeedle.stop();
 
-    // Draw after every 5 frames
-    var frameSkips = 5;
-
     // Animate the needles around the center of the dials in a range
     // of 10-110 randomly
     leftNeedle.animate({transform: 'r' + ((30 * Math.random()) - 30) + ','
-    + revmeter.getBBox().cx + ',' + revmeter.getBBox().cy}, 9000, mina.easeinout, function() {}, frameSkips);
+    + revmeter.getBBox().cx + ',' + revmeter.getBBox().cy}, 9000, mina.easeinout, function() {}, frameSkipRate);
     rightNeedle.animate({transform: 'r' + ((45 * Math.random()) - 30) +  ', '
     + speedometer.getBBox().cx + ',' + speedometer.getBBox().cy},
       9000 * Math.random(), mina.easeinout, function() {
         // Repeat the animation
         animateNeedles();
-      }, frameSkips);
+      }, frameSkipRate);
   }
 
   // Turn headlights on
@@ -487,9 +482,6 @@ var Animations = (function() {
       lo: 1
     };
 
-    // Redraw after every 5 frames
-    var frameSkips = 5;
-
     // Stop any running animation first
     if (state.wipingAnim) {
       state.wipingAnim.stop();
@@ -499,9 +491,8 @@ var Animations = (function() {
     state.wipingAnim = Snap.animate(from, to, function(val) {
       rWiper.transform('r' + [val, rWiper.bbox.x + rWiper.bbox.w, rWiper.bbox.y + rWiper.bbox.h]);
       lWiper.transform('r' + [val, lWiper.bbox.x + lWiper.bbox.w, lWiper.bbox.y + lWiper.bbox.h]);
-    }, 2000 / Math.max(speeds[wiperSpeed], speeds.lo), mina.linear, next, frameSkips);
+    }, 2000 / Math.max(speeds[wiperSpeed], speeds.lo), mina.linear, next, frameSkipRate);
   }
-
 
   // Repeatedly animates movement of the wipers back and fourth
   function moveWipers() {
