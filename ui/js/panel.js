@@ -127,7 +127,7 @@ var Panel = (function() {
       }
       // Rotate the fan around its center (bbox.cx, bbox.cy) at the speed given
       var localMat = fan.transform().localMatrix;
-      // fan.transform( localMat.rotate(speed, bbox.cx, bbox.cy) );
+      fan.transform( localMat.rotate(speed, bbox.cx, bbox.cy) );
     }, 30000, mina.linear, function() {}, frameSkips);
     currentAnimations.push(rotateAnim)
   }
