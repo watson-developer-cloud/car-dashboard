@@ -33,6 +33,9 @@ var Panel = (function() {
   var genres = ['general', 'classical', 'jazz', 'rock', 'pop'];
   var snapSvgCanvas = Snap.select(idSelectors.svgCanvas);
 
+  var frameSkips = 5;  // redraw after 5 frames
+  var currentAnimations = [];
+
   // Publicly accessible methods defined
   return {
     playMusic: playMusic,
@@ -49,6 +52,13 @@ var Panel = (function() {
 
   // clear everything on the panel until only the Watson logo is left
   function clearToDefault(panel) {
+    // Stop all animations first
+    Common.listForEach(currentAnimations, function(element) {
+      element.stop();
+    })
+    currentAnimations = [];
+
+    // Clear to default Watson logo
     Common.listForEach(panel.node.childNodes, function(element) {
       if (element.id !== ids.defaultScreen) {
         panel.node.removeChild(element);
@@ -80,8 +90,8 @@ var Panel = (function() {
 
       // Fade in the SVG group
       svgGroup.attr({opacity: 0});
-      svgGroup.animate({opacity: 1}, 700, mina.linear);
-
+      var fadeAnimation = svgGroup.animate({opacity: 1}, 700, mina.linear, function() {}, frameSkips);
+      currentAnimations.push(fadeAnimation)
       // Execute callback if provided
       if (next) {
         next(svgFragment, svgGroup);
@@ -103,21 +113,23 @@ var Panel = (function() {
     }[level];
 
     var doneFade = false;
-    Snap.animate(0, 100, function(val) {
+    var rotateAnim = Snap.animate(0, 100, function(val) {
       // At 90% of the animation apply the fade animation once to
       // Begin fading out the SVG group from the panel display
       if (val > 90) {
         if (!doneFade) {
-          svgGroup.animate({opacity: 0}, 500, mina.linear, function() {
+          var fadeAnim = svgGroup.animate({opacity: 0}, 500, mina.linear, function() {
             svgGroup.remove();
-          });
+          }, frameSkips);
           doneFade = true;
+          currentAnimations.push(fadeAnim)
         }
       }
       // Rotate the fan around its center (bbox.cx, bbox.cy) at the speed given
       var localMat = fan.transform().localMatrix;
-      fan.transform( localMat.rotate(speed, bbox.cx, bbox.cy) );
-    }, 30000, mina.linear);
+      // fan.transform( localMat.rotate(speed, bbox.cx, bbox.cy) );
+    }, 30000, mina.linear, function() {}, frameSkips);
+    currentAnimations.push(rotateAnim)
   }
 
   // Show that music of the given genre is playing
@@ -133,12 +145,14 @@ var Panel = (function() {
       var localMat = seek.transform().localMatrix;
 
       // Animate moving the seek position
-      seek.animate({transform: localMat.translate(1050, 0)}, 30000, mina.linear, function() {
+      var seekAnimation = seek.animate({transform: localMat.translate(1050, 0)}, 30000, mina.linear, function() {
         // After the seek position has reached the end fade out the SVG group
-        svgGroup.animate({opacity: 0}, 500, mina.linear, function() {
+        var fadeAnimation = svgGroup.animate({opacity: 0}, 500, mina.linear, function() {
           svgGroup.remove();
-        });
-      });
+        }, frameSkips);
+        currentAnimations.push(fadeAnimation)
+      }, frameSkips);
+      currentAnimations.push(seekAnimation)
     }
 
     var genreStr = genre;
