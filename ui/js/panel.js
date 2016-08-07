@@ -55,7 +55,7 @@ var Panel = (function() {
     // Stop all animations first
     Common.listForEach(currentAnimations, function(element) {
       element.stop();
-    })
+    });
     currentAnimations = [];
 
     // Clear to default Watson logo
@@ -91,7 +91,7 @@ var Panel = (function() {
       // Fade in the SVG group
       svgGroup.attr({opacity: 0});
       var fadeAnimation = svgGroup.animate({opacity: 1}, 700, mina.linear, function() {}, frameSkips);
-      currentAnimations.push(fadeAnimation)
+      currentAnimations.push(fadeAnimation);
       // Execute callback if provided
       if (next) {
         next(svgFragment, svgGroup);
@@ -122,14 +122,14 @@ var Panel = (function() {
             svgGroup.remove();
           }, frameSkips);
           doneFade = true;
-          currentAnimations.push(fadeAnim)
+          currentAnimations.push(fadeAnim);
         }
       }
       // Rotate the fan around its center (bbox.cx, bbox.cy) at the speed given
       var localMat = fan.transform().localMatrix;
       fan.transform( localMat.rotate(speed, bbox.cx, bbox.cy) );
     }, 30000, mina.linear, function() {}, frameSkips);
-    currentAnimations.push(rotateAnim)
+    currentAnimations.push(rotateAnim);
   }
 
   // Show that music of the given genre is playing
@@ -150,9 +150,9 @@ var Panel = (function() {
         var fadeAnimation = svgGroup.animate({opacity: 0}, 500, mina.linear, function() {
           svgGroup.remove();
         }, frameSkips);
-        currentAnimations.push(fadeAnimation)
+        currentAnimations.push(fadeAnimation);
       }, frameSkips);
-      currentAnimations.push(seekAnimation)
+      currentAnimations.push(seekAnimation);
     }
 
     var genreStr = genre;

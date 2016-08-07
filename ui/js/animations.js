@@ -386,11 +386,11 @@ var Animations = (function() {
     if (!state.raining) {
       // start animating the drops
       animateDrops();
-    } else{
+    } else {
       // stop the raining
-      upperDrops.stop()
+      upperDrops.stop();
       Common.hide(upperDrops.node);
-      lowerDrops.stop()
+      lowerDrops.stop();
       Common.hide(lowerDrops.node);
     }
     state.raining = !state.raining;
@@ -423,12 +423,12 @@ var Animations = (function() {
     leftNeedle.stop();
 
     // Draw after every 5 frames
-    var frameSkips = 5
+    var frameSkips = 5;
 
     // Animate the needles around the center of the dials in a range
     // of 10-110 randomly
     leftNeedle.animate({transform: 'r' + ((30 * Math.random()) - 30) + ','
-    + revmeter.getBBox().cx + ',' + revmeter.getBBox().cy}, 9000, mina.easeinout, function(){}, frameSkips);
+    + revmeter.getBBox().cx + ',' + revmeter.getBBox().cy}, 9000, mina.easeinout, function() {}, frameSkips);
     rightNeedle.animate({transform: 'r' + ((45 * Math.random()) - 30) +  ', '
     + speedometer.getBBox().cx + ',' + speedometer.getBBox().cy},
       9000 * Math.random(), mina.easeinout, function() {
@@ -492,7 +492,7 @@ var Animations = (function() {
 
     // Stop any running animation first
     if (state.wipingAnim) {
-      state.wipingAnim.stop()
+      state.wipingAnim.stop();
     }
 
     // Begin the wiping animation
