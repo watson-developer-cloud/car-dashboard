@@ -92,7 +92,10 @@ var Conversation = (function() {
   function setupInputBox() {
     var input = document.getElementById(ids.userInput);
     var dummy = document.getElementById(ids.userInputDummy);
-    var padding = 8;
+    var minFontSize = 9;
+    var maxFontSize = 16;
+    var minPadding = 5;
+    var maxPadding = 9;
 
     // If no dummy input box exists, create one
     if (dummy === null) {
@@ -108,28 +111,42 @@ var Conversation = (function() {
       document.body.appendChild(dummy);
     }
 
-    // Any time the input changes,
-    input.addEventListener('input', function() {
-      if (this.value === '') {
+    function adjustInput() {
+      if (input.value === '') {
         // If the input box is empty, remove the underline
-        Common.removeClass(this, 'underline');
-        this.setAttribute('style', 'width:' + '100%');
-        this.style.width = '100%';
+        Common.removeClass(input, 'underline');
+        input.setAttribute('style', 'width:' + '100%');
+        input.style.width = '100%';
       } else {
         // otherwise, adjust the dummy text to match, and then set the width of
         // the visible input box to match it (thus extending the underline)
-        Common.addClass(this, classes.underline);
-        var txtNode = document.createTextNode(this.value);
+        Common.addClass(input, classes.underline);
+        var txtNode = document.createTextNode(input.value);
         ['font-size', 'font-style', 'font-weight', 'font-family', 'line-height',
           'text-transform', 'letter-spacing'].forEach(function(index) {
-            dummy.style[index] = window.getComputedStyle( input, null ).getPropertyValue( index );
+            dummy.style[index] = window.getComputedStyle(input, null).getPropertyValue(index);
           });
         dummy.textContent = txtNode.textContent;
+
+        var padding = 0;
+        var htmlElem = document.getElementsByTagName('html')[0];
+        var currentFontSize = parseInt(window.getComputedStyle(htmlElem, null).getPropertyValue('font-size'), 10);
+        if (currentFontSize) {
+          padding = Math.floor((currentFontSize - minFontSize) / (maxFontSize - minFontSize)
+            * (maxPadding - minPadding) + minPadding);
+        } else {
+          padding = maxPadding;
+        }
+
         var widthValue = ( dummy.offsetWidth + padding) + 'px';
-        this.setAttribute('style', 'width:' + widthValue);
-        this.style.width = widthValue;
+        input.setAttribute('style', 'width:' + widthValue);
+        input.style.width = widthValue;
       }
-    });
+    }
+
+    // Any time the input changes, or the window resizes, adjust the size of the input box
+    input.addEventListener('input', adjustInput);
+    window.addEventListener('resize', adjustInput);
 
     // Trigger the input event once to set up the input box and dummy element
     Common.fireEvent(input, 'input');
