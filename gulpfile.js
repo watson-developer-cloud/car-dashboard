@@ -47,10 +47,11 @@
             .pipe(assets) //node_modules dir is in the current dir, search there for dependencies!
             .pipe($.sourcemaps.init({ 'identityMap': true, 'debug': true }))
             .pipe($.useref())
-            // TODO re-add with caching
+            // TODO re-add with caching 
             //.pipe(sourcemaps.write('./maps'))
-            .pipe($.if('*.js', $.if('**/dashboard.min.js', $.uglify({mangle: false, preserveComments: 'license'}), $.uglify())))
-            .pipe($.if('*.css', $.cleanCss()))
+            // Commenting out lines that don't work with latest version of Node
+            // .pipe($.if('*.js', $.if('**/dashboard.min.js', $.uglify({mangle: false, preserveComments: 'license'}), $.uglify())))
+            // .pipe($.if('*.css', $.cleanCss()))
             .pipe(gulp.dest(appProd))
             .pipe($.size({ 'title': 'html' }));
     });
