@@ -27,6 +27,9 @@ var Animations = (function() {
   var initialized = false;
   var wiperSpeed;
 
+  // Redraw after every 5 frames.
+  var frameSkipRate = 5;
+
   var classes = {
     drop: 'drop',
 
@@ -106,6 +109,7 @@ var Animations = (function() {
     // Loads sky, then background, then dashboard, using callbacks
     loadSky();
   }
+
 
   // Returns true if the Animations module is fully initialized (including full SVG loading)
   function isInitialized() {
@@ -213,9 +217,10 @@ var Animations = (function() {
       cloud.animate({opacity: 0.5, transform: 't' + [dx, 0]}, 0.9 * duration, mina.linear,
         function() {
           // Repeat the animation from the top
+          cloud.stop();
           moveCloud(cloud, duration, dx);
-        });
-    });
+        }, frameSkipRate);
+    }, frameSkipRate);
   }
 
   // Start the clouds animations
@@ -234,6 +239,7 @@ var Animations = (function() {
 
     // Move to original position and make tree visible
     t.transform('t0,0');
+    t.stop();
     t.attr( {display: ''});
 
     // Randomly chose to move tree on left or right side of the road
@@ -253,10 +259,11 @@ var Animations = (function() {
     t.animate({transform: endScene}, 4500, easeInExpo, function() {
       // Hide tree once the animation is complete
       t.attr( {display: 'none'});
+      t.stop();
 
       // Repeat animation
       animateTrees();
-    });
+    }, frameSkipRate);
   }
 
   // Create rain objects and then hide the objects (waiting for rain to be toggled on)
@@ -335,19 +342,21 @@ var Animations = (function() {
     function animateUpper() {
       // Reset to top of screen
       upperDrops.transform('t' + topTransform);
+      upperDrops.stop();
       Common.show(upperDrops.node);
 
       // Animate falling movement to bottom of screen
       upperDrops.animate({ transform: 't' + [Math.random() * 50,
         topTransform[1] + fallDistance] }, 5000, mina.linear, function() {
           Common.hide(upperDrops.node);
-        });
+        }, frameSkipRate);
     }
 
     // Begin moving the lower drops downwards then move the upper drops
     function animateDrops() {
       // Reset to top of screen
       lowerDrops.transform('t' + topTransform);
+      lowerDrops.stop();
       Common.show(lowerDrops.node);
 
       // Animate falling of lower drops
@@ -368,13 +377,19 @@ var Animations = (function() {
           } else {
             Common.hide(lowerDrops.node);
           }
-        });
-      });
+        }, frameSkipRate);
+      }, frameSkipRate);
     }
 
     if (!state.raining) {
       // start animating the drops
       animateDrops();
+    } else {
+      // stop the raining
+      upperDrops.stop();
+      Common.hide(upperDrops.node);
+      lowerDrops.stop();
+      Common.hide(lowerDrops.node);
     }
     state.raining = !state.raining;
   }
@@ -401,16 +416,20 @@ var Animations = (function() {
     var rightNeedle = Snap.select(idSelectors.rightNeedle);
     var leftNeedle = Snap.select(idSelectors.leftNeedle);
 
+    // Stop any running animations
+    rightNeedle.stop();
+    leftNeedle.stop();
+
     // Animate the needles around the center of the dials in a range
     // of 10-110 randomly
     leftNeedle.animate({transform: 'r' + ((30 * Math.random()) - 30) + ','
-    + revmeter.getBBox().cx + ',' + revmeter.getBBox().cy}, 9000, mina.easeinout);
+    + revmeter.getBBox().cx + ',' + revmeter.getBBox().cy}, 9000, mina.easeinout, function() {}, frameSkipRate);
     rightNeedle.animate({transform: 'r' + ((45 * Math.random()) - 30) +  ', '
     + speedometer.getBBox().cx + ',' + speedometer.getBBox().cy},
       9000 * Math.random(), mina.easeinout, function() {
         // Repeat the animation
         animateNeedles();
-      });
+      }, frameSkipRate);
   }
 
   // Turn headlights on
@@ -462,10 +481,17 @@ var Animations = (function() {
       hi: 2,
       lo: 1
     };
+
+    // Stop any running animation first
+    if (state.wipingAnim) {
+      state.wipingAnim.stop();
+    }
+
+    // Begin the wiping animation
     state.wipingAnim = Snap.animate(from, to, function(val) {
       rWiper.transform('r' + [val, rWiper.bbox.x + rWiper.bbox.w, rWiper.bbox.y + rWiper.bbox.h]);
       lWiper.transform('r' + [val, lWiper.bbox.x + lWiper.bbox.w, lWiper.bbox.y + lWiper.bbox.h]);
-    }, 2000 / Math.max(speeds[wiperSpeed], speeds.lo), mina.linear, next);
+    }, 2000 / Math.max(speeds[wiperSpeed], speeds.lo), mina.linear, next, frameSkipRate);
   }
 
   // Repeatedly animates movement of the wipers back and fourth
