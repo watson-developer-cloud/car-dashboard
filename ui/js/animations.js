@@ -169,8 +169,8 @@ var Animations = (function() {
           setTimeout(function() {
             toggleRain();
             rainLoop();
-          }, 15000);
-        }, 10000);
+          }, 60000);
+        }, 30000);
       })();
 
       // Begin loading the dashboard SVGs
