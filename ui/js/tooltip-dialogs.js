@@ -81,6 +81,7 @@ var TooltipDialogs = (function() {
   // Initilialize the TooltipDialogs module
   function init() {
     populateDialogList();
+    // TTSModule.checkBrowsers();
   }
 
   // Populate the tooltip dialog boxes
@@ -161,6 +162,7 @@ var TooltipDialogs = (function() {
         Common.removeClass(toReset, classes.betweenOverlays);
       }
     }
+    Api.initConversation(); // Load initial Watson greeting after overlays are gone.
     hideOverlays();
     Conversation.focusInput();
   }

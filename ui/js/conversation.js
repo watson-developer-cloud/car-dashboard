@@ -53,7 +53,6 @@ var Conversation = (function() {
     chatSetup();
     initEnterSubmit();
     setupInputBox();
-    Api.initConversation();
   }
 
   // Hide chat box until there are messages,
