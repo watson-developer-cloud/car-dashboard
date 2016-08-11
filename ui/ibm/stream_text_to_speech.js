@@ -13,14 +13,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/* global TooltipDialogs: true, Api: true, WatsonSpeech: true */
+/* global WatsonSpeech: true, Api: true Common: true, STTModule: true */
 /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "^TTSModule$" }] */
 
 var TTSModule = (function() {
   'use strict';
   var audio = null; // Initialize audio to null
-  var button = document.getElementById("output-audio");
-  button.value = "ON"; // TTS is default - not mute
+  var button = document.getElementById('output-audio');
+  button.value = 'ON'; // TTS is default - not mute
   Common.hide(button); // In case user is using invalid browsers
 
   return {
@@ -38,7 +38,7 @@ var TTSModule = (function() {
     var currentResponsePayloadSetter = Api.setWatsonPayload;
     Api.setWatsonPayload = function(payload) {
       currentResponsePayloadSetter.call(Api, payload);
-      if (button.value === "ON"){
+      if (button.value === 'ON') {
         playCurrentAudio(payload.output); // Plays audio using output text
       }
     };
@@ -53,16 +53,15 @@ var TTSModule = (function() {
   }
 
   // Toggle TTS/Mute button
-  function toggle(){
-    if(button.value === "OFF") {
-     button.value = "ON";
-     button.setAttribute('class', 'audio-on');
+  function toggle() {
+    if (button.value === 'OFF') {
+      button.value = 'ON';
+      button.setAttribute('class', 'audio-on');
+    } else {
+      audio.pause(); // Pause the current audio if the toggle is turned OFF
+      button.value = 'OFF';
+      button.setAttribute('class', 'audio-off');
     }
-    else {
-     audio.pause(); // Pause the current audio if the toggle is turned OFF
-     button.value = "OFF";
-     button.setAttribute('class', 'audio-off');
-   }
   }
 
   // Stops the audio for an older message and plays audio for current message
@@ -75,7 +74,7 @@ var TTSModule = (function() {
         if (audio !== null && !audio.ended) {
           audio.pause();
         }
-        
+
         // Takes text, voice, and token and returns speech
         audio = WatsonSpeech.TextToSpeech.synthesize({
           text: payload.text, // Output text/response
@@ -86,10 +85,10 @@ var TTSModule = (function() {
 
         // When the audio stops playing
         audio.onended = function() {
-          if (payload.ref === "STT") {
-            STTModule.STTstream();
+          if (payload.ref === 'STT') {
+            STTModule.speechToText();
           }
-        }
+        };
       });
   }
 })();

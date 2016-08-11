@@ -16,8 +16,7 @@
  */
 /* global WatsonSpeech: true, Conversation: true, Api: true Common: true*/
 
-var STTModule = (function(){
-
+var STTModule = (function() {
   'use strict';
   var mic        = document.getElementById('input-mic');
   var recording  = false;
@@ -26,13 +25,13 @@ var STTModule = (function(){
 
   return {
     micON: micON,
-    STTstream: STTstream,
+    speechToText: speechToText,
     init: init
   };
 
-  function init (){
+  function init() {
     checkBrowsers();
-  };
+  }
 
   function checkBrowsers() {
     // Check if browser supports speech
@@ -45,20 +44,18 @@ var STTModule = (function(){
   function micON() { // When the microphone button is clicked
     if (recording === false) {
       if (records === 0) {
-        Api.setWatsonPayload({output: {text: ['Accept the microphone prompt in your browser. Watson will listen soon.'], ref: "STT"}}); // Dialog box output to let the user know we're recording
+        Api.setWatsonPayload({output: {text: ['Accept the microphone prompt in your browser. Watson will listen soon.'], ref: 'STT'}}); // Dialog box output to let the user know we're recording
         records++;
+      } else {
+        Api.setWatsonPayload({output: {text: ['Listening soon!'], ref: 'STT'}}); // Dialog box output to let the user know we're recording
       }
-      else {
-        Api.setWatsonPayload({output: {text: ['Listening soon!'], ref: "STT"}}); // Dialog box output to let the user know we're recording
-      }
-    }
-    else {
+    } else {
       recording = false;
       stream.stop();
     }
   }
 
-  function STTstream() {
+  function speechToText() {
     mic.setAttribute('class', 'active-mic');  // Set CSS class of mic to indicate that we're currently listening to user input
     recording = true;                         // We'll be recording very shortly
     fetch('/api/speech-to-text/token')        // Fetch authorization token for Watson Speech-To-Text
@@ -76,8 +73,7 @@ var STTModule = (function(){
         });
 
         stream.promise()                                // Once all data has been processed...
-          .then(function(data, error) {                        // ...put all of it into a single array
-            console.log(data, "data");
+          .then(function(data) {                        // ...put all of it into a single array
             mic.setAttribute('class', 'inactive-mic');  // Reset our microphone button to visually indicate we aren't listening to user anymore
             recording = false;                          // We aren't recording anymore
             if (data.length !== 0) {                    // If data is not empty (the user said something)

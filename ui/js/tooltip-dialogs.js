@@ -19,7 +19,7 @@
  */
 
 /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "^TooltipDialogs$" }] */
-/* global Common: true, Conversation: true */
+/* global Common: true, Conversation: true, Api: true */
 
 var TooltipDialogs = (function() {
   'use strict';
