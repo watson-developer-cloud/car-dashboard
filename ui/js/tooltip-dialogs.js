@@ -81,7 +81,6 @@ var TooltipDialogs = (function() {
   // Initilialize the TooltipDialogs module
   function init() {
     populateDialogList();
-    // TTSModule.checkBrowsers();
   }
 
   // Populate the tooltip dialog boxes

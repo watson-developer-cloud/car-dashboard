@@ -12,8 +12,8 @@ var express = require('express'),
 var ttsConfig = extend({
   version: 'v1',
   url: 'https://stream.watsonplatform.net/text-to-speech/api',
-  username: process.env.TTS_USERNAME || '<username>',
-  password: process.env.TTS_PASSWORD || '<password>'
+  username: process.env.TEXT_TO_SPEECH_USERNAME || '<username>',
+  password: process.env.TEXT_TO_SPEECH_PASSWORD || '<password>'
 }, vcapServices.getCredentials('text_to_speech'));
 
 var ttsAuthService = watson.authorization(ttsConfig);
