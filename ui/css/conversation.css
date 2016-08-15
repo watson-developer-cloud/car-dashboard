@@ -53,6 +53,29 @@
   border: 0.25rem solid #01745E;
 }
 
+#output-audio.audio-on {
+  background-image: url("../images/audio-on.svg");
+}
+
+#output-audio.audio-off {
+  background-image: url("../images/audio-off.svg");
+}
+
+#output-audio {
+    position: absolute;
+    z-index: 10;
+    left: 2rem;
+    top: 1rem;
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 1.75rem;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 100%;
+}
+
+
 /*
 #input-mic.active-mic {
     animation: mic-pulse 1s;

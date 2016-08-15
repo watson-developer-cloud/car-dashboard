@@ -16,37 +16,60 @@
  */
 /* global WatsonSpeech: true, Conversation: true, Api: true Common: true*/
 
-'use strict';
-var mic        = document.getElementById('input-mic');
-var recording  = false;
-var stream;
+var STTModule = (function() {
+  'use strict';
+  var mic        = document.getElementById('input-mic');
+  var recording  = false;
+  var stream;
+  var records    = 0;
 
-(function() {
-  // Check if browser supports speech
-  if (!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
-            navigator.mozGetUserMedia || navigator.msGetUserMedia)) {
-    Common.hide(mic);
+  return {
+    micON: micON,
+    speechToText: speechToText,
+    init: init
+  };
+
+  function init() {
+    checkBrowsers();
   }
-})();
 
+  function checkBrowsers() {
+    // Check if browser supports speech
+    if (!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
+              navigator.mozGetUserMedia || navigator.msGetUserMedia)) {
+      Common.hide(mic);
+    }
+  }
 
-mic.onclick = function() {              // When the microphone button is clicked
-  if (recording === false) {            // If we're not currently recording anything
-    recording = true;                   // We'll be recording very shortly
-    fetch('/api/speech-to-text/token')  // Fetch authorization token for Watson Speech-To-Text
+  function micON() { // When the microphone button is clicked
+    if (recording === false) {
+      if (records === 0) {
+        Api.setWatsonPayload({output: {text: ['Accept the microphone prompt in your browser. Watson will listen soon.'], ref: 'STT'}}); // Dialog box output to let the user know we're recording
+        records++;
+      } else {
+        Api.setWatsonPayload({output: {text: ['Listening soon!'], ref: 'STT'}}); // Dialog box output to let the user know we're recording
+      }
+    } else {
+      recording = false;
+      stream.stop();
+    }
+  }
+
+  function speechToText() {
+    mic.setAttribute('class', 'active-mic');  // Set CSS class of mic to indicate that we're currently listening to user input
+    recording = true;                         // We'll be recording very shortly
+    fetch('/api/speech-to-text/token')        // Fetch authorization token for Watson Speech-To-Text
       .then(function(response) {
         return response.text();
       })
-      .then(function(token) {                     // Pass token to Watson Speech-To-Text service
-        mic.setAttribute('class', 'active-mic');  // Set CSS class of mic to indicate that we're currently listening to user input
-        Api.setWatsonPayload({output: {text: ['Watson is listening to you! Please accept the microphone prompt in your browser if you have not already done so.']}}); // Dialog box output to let the user know we're recording
+      .then(function(token) {                 // Pass token to Watson Speech-To-Text service
         stream = WatsonSpeech.SpeechToText.recognizeMicrophone({
-          token: token,                 // Authorization token to use this service, configured from /speech/stt-token.js file
-          continuous: false,            // False = automatically stop transcription the first time a pause is detected
-          outputElement: '#user-input', // CSS selector or DOM Element
-          inactivity_timeout: 5,        // Number of seconds to wait before closing input stream
-          format: false,                // Inhibits errors
-          keepMicrophone: true          // Avoids repeated permissions prompts in FireFox
+          token: token,                       // Authorization token to use this service, configured from /speech/stt-token.js file
+          continuous: false,                  // False = automatically stop transcription the first time a pause is detected
+          outputElement: '#user-input',       // CSS selector or DOM Element
+          inactivity_timeout: 5,              // Number of seconds to wait before closing input stream
+          format: false,                      // Inhibits errors
+          keepMicrophone: true                // Avoids repeated permissions prompts in FireFox
         });
 
         stream.promise()                                // Once all data has been processed...
@@ -73,8 +96,7 @@ mic.onclick = function() {              // When the microphone button is clicked
       .catch(function(error) { // Catch any other errors and log them
         console.log(error);
       });
-  } else {
-    recording = false;  // We aren't recording anymore
-    stream.stop();      // Stop the stream
   }
-};
+})();
+
+STTModule.init(); // Runs Speech to Text Module

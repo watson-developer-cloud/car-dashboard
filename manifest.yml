@@ -6,6 +6,9 @@ declared-services:
   speech-to-text-service:
     label: speech_to_text
     plan: standard
+  text-to-speech-service:
+    label: text_to_speech
+    plan: standard
 applications:
 - name: car-dashboard
   command: npm start
@@ -16,6 +19,6 @@ applications:
   services:
   - conversation-service
   - speech-to-text-service
+  - text-to-speech-service
   env:
     NPM_CONFIG_PRODUCTION: false
-

@@ -19,7 +19,7 @@
  */
 
 /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "^TooltipDialogs$" }] */
-/* global Common: true, Conversation: true */
+/* global Common: true, Conversation: true, Api: true */
 
 var TooltipDialogs = (function() {
   'use strict';
@@ -161,6 +161,7 @@ var TooltipDialogs = (function() {
         Common.removeClass(toReset, classes.betweenOverlays);
       }
     }
+    Api.initConversation(); // Load initial Watson greeting after overlays are gone.
     hideOverlays();
     Conversation.focusInput();
   }

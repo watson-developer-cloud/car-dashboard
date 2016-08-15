@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="66px" height="66px" viewBox="0 0 66 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>audio on</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="32" cy="32" r="32"></circle>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="64" height="64" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Pieces" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="audio-on">
+            <g transform="translate(1.000000, 1.000000)">
+                <use id="Oval-1" stroke="#01745E" mask="url(#mask-2)" stroke-width="8" fill="#32D0B6" xlink:href="#path-1"></use>
+                <g id="mute-icon" transform="translate(15.000000, 10.000000)" fill="#01745E">
+                    <path d="M23.1999638,0.00011 L10.1499638,13.20011 L-3.625e-05,13.20011 L-3.625e-05,30.80011 L10.1499638,30.80011 L23.1999638,44.00011 L23.1999638,0.00011 Z M1.44996375,29.33381 L8.70032625,29.33381 L8.70032625,14.6667767 L1.44996375,14.6667767 L1.44996375,29.33381 Z" id="Fill-1"></path>
+                    <path d="M24.65,17.6 L24.65,26.4 C27.0486625,26.4 29,24.4262333 29,22 C29,19.5737667 27.0486625,17.6 24.65,17.6" id="Fill-2"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
