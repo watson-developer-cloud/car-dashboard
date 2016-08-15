@@ -41,7 +41,7 @@ understands that in both cases your intent is the same and responds accordingly.
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services.PNG)
 
 ## Deploy the App
-1 Select Deploy to Bluemix.
+1 Click this button to Deploy to Bluemix.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/car-dashboard)
 
@@ -53,6 +53,7 @@ understands that in both cases your intent is the same and responds accordingly.
 * This performs multiple actions:
   - Creates the app
   - Creates a Conversation service instance that the user needs for workspace creation
+  - Creates instances for a Speech To Text service and Text To Speech service
 
 * The status of the deployment is shown. This can take some time.
 
@@ -121,38 +122,45 @@ To build the application:
 - Copy the Service Credentials for later use.
 - [Import a workspace](#workspace)
 
+3 **OPTIONAL**: If you want to use **Text To Speech** and/or **Speech To Text** in your locally runnning app, create a `text-to-speech` service and/or a `speech-to-text` service like you did in step 2.
+- Copy the Service Credentials for later use.
+
 ## Running locally
 
   The application uses [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/).
 
-1 Copy the credentials from your `conversation-service` service in Bluemix to a `.env` file in the root.
+1 Copy the credentials from your `conversation-service` service in Bluemix to a `.env` file in the root. 
+- Look at `.env.example` as an example to create your `.env` file.
 
-2 Use the Conversation tooling app to create a workspace, as described above, and add the workspace ID environment variable to the `.env` file. For details about obtaining the workspace ID, see Step 6 - 7 in the previous section.
+2 **OPTIONAL**: If you want to use Text To Speech and/or Speech To Text in your locally runnning app, copy the credentials from your `text-to-speech` service and/or `speech-to-text` service in Bluemix to a `.env` file in the root.
+- Look at `.env.example` as an example to add to your `.env` file.
 
-3 Install [Node.js](http://nodejs.org/).
+3 Use the Conversation tooling app to create a workspace, as described above, and add the workspace ID environment variable to the `.env` file. For details about obtaining the workspace ID, see Step 6 - 7 in the previous section.
 
-4 Open the terminal, go to the project folder, and run this command:
+4 Install [Node.js](http://nodejs.org/).
+
+5 Open the terminal, go to the project folder, and run this command:
 ```sh
 
 npm install
 
 ```
 
-5  Build the UI by running this command:
+6  Build the UI by running this command:
 ```sh
     
-npm run-script build
+npm run-script postinstall
     
 ```
 
-6  Start the application by running this command:
+7  Start the application by running this command:
 ```sh
     
 npm start
     
 ```
 
-6 Open `http://localhost:3000` in a browser.
+8 Open `http://localhost:3000` in a browser.
 
 _Note: If you are interested in deploying you local application or the changes you have made locally to Bluemix, go to [this section](#usingCloudfoundry)_
 
@@ -200,7 +208,19 @@ For more information on workspaces, see the full  [Conversation service  documen
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/env.PNG)
 
-5 Restart your application.
+5 Add credentials as enivronment variables just like you did for **WORKSPACE_ID**. Copy the credentials from your `conversation-service`, `text-to-speech-service`, and `speech-to-text-service`.
+
+* Mandatory credentials:
+  - **CONVERSATION_USERNAME**
+  - **CONVERSATION_PASSWORD**
+
+* Optional credentials:
+  - **TEXT_TO_SPEECH_USERNAME**
+  - **TEXT_TO_SPEECH_PASSWORD**
+  - **SPEECH_TO_TEXT_USERNAME**
+  - **SPEECH_TO_TEXT_PASSWORD**
+
+6 Restart your application.
 
 
 # Troubleshooting in Bluemix
