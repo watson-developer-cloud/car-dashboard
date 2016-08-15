@@ -208,19 +208,7 @@ For more information on workspaces, see the full  [Conversation service  documen
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/env.PNG)
 
-5 Add credentials as enivronment variables just like you did for **WORKSPACE_ID**. Copy the credentials from your `conversation-service`, `text-to-speech-service`, and `speech-to-text-service`.
-
-* Mandatory credentials:
-  - **CONVERSATION_USERNAME**
-  - **CONVERSATION_PASSWORD**
-
-* Optional credentials:
-  - **TEXT_TO_SPEECH_USERNAME**
-  - **TEXT_TO_SPEECH_PASSWORD**
-  - **SPEECH_TO_TEXT_USERNAME**
-  - **SPEECH_TO_TEXT_PASSWORD**
-
-6 Restart your application.
+5 Restart your application.
 
 
 # Troubleshooting in Bluemix
