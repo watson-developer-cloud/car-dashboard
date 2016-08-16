@@ -37,7 +37,7 @@ var ConversationResponse = (function() {
     responseFunctions = {
       turn_on: {
         appliance: {
-          ac: function() { Panel.ac('lo'); },
+          AC: function() { Panel.ac('lo'); },
           fan: function() { Panel.ac('lo'); },
           heater: function() { Panel.heat('lo'); },
           lights: function() { Animations.lightsOn(); },
@@ -53,7 +53,7 @@ var ConversationResponse = (function() {
       },
       turn_up: {
         appliance: {
-          ac: function() { Panel.ac('hi'); },
+          AC: function() { Panel.ac('hi'); },
           fan: function() { Panel.ac('hi'); },
           heater: function() { Panel.heat('hi'); },
           music: function() { Panel.playMusic('general'); },
@@ -63,7 +63,7 @@ var ConversationResponse = (function() {
       },
       turn_down: {
         appliance: {
-          ac: function() { Panel.ac('lo'); },
+          AC: function() { Panel.ac('lo'); },
           fan: function() { Panel.ac('lo'); },
           heater: function() { Panel.heat('lo'); },
           music: function() { Panel.playMusic('general'); },
