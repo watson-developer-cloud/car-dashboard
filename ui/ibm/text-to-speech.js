@@ -68,7 +68,7 @@ var TTSModule = (function() {
       .then(function(response) {
         return response.text();
       }).then(function(token) {
-        if (button.value === 'ON'){
+        if (button.value === 'ON') {
           // Pauses the audio for older message if there is a more current message
           if (audio !== null && !audio.ended) {
             audio.pause();
@@ -86,7 +86,6 @@ var TTSModule = (function() {
           audio.onended = function() {
             allowSTT(payload);
           };
-
         } else {
           allowSTT(payload);
         }
@@ -99,7 +98,5 @@ var TTSModule = (function() {
       STTModule.speechToText();
     }
   }
-
 })();
-
 TTSModule.init(); // Runs Text to Speech Module
