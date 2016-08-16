@@ -28,7 +28,7 @@ var Animations = (function() {
   var wiperSpeed;
 
   // Redraw after every 5 frames.
-  var frameSkipRate = 5;
+  var frameSkipRate = 3;
 
   var classes = {
     drop: 'drop',

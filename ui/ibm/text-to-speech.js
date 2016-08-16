@@ -38,9 +38,7 @@ var TTSModule = (function() {
     var currentResponsePayloadSetter = Api.setWatsonPayload;
     Api.setWatsonPayload = function(payload) {
       currentResponsePayloadSetter.call(Api, payload);
-      if (button.value === 'ON') {
-        playCurrentAudio(payload.output); // Plays audio using output text
-      }
+      playCurrentAudio(payload.output); // Plays audio using output text
     };
   }
 
@@ -70,27 +68,38 @@ var TTSModule = (function() {
       .then(function(response) {
         return response.text();
       }).then(function(token) {
-        // Pauses the audio for older message if there is a more current message
-        if (audio !== null && !audio.ended) {
-          audio.pause();
-        }
-
-        // Takes text, voice, and token and returns speech
-        audio = WatsonSpeech.TextToSpeech.synthesize({
-          text: payload.text, // Output text/response
-          voice: 'en-US_MichaelVoice', // Default Watson voice
-          autoPlay: true, // Automatically plays audio
-          token: token
-        });
-
-        // When the audio stops playing
-        audio.onended = function() {
-          if (payload.ref === 'STT') {
-            STTModule.speechToText();
+        if (button.value === 'ON'){
+          // Pauses the audio for older message if there is a more current message
+          if (audio !== null && !audio.ended) {
+            audio.pause();
           }
-        };
+
+          // Takes text, voice, and token and returns speech
+          audio = WatsonSpeech.TextToSpeech.synthesize({
+            text: payload.text, // Output text/response
+            voice: 'en-US_MichaelVoice', // Default Watson voice
+            autoPlay: true, // Automatically plays audio
+            token: token
+          });
+
+          // When the audio stops playing
+          audio.onended = function() {
+            allowSTT(payload);
+          };
+
+        } else {
+          allowSTT(payload);
+        }
       });
   }
+
+  // Check ref for 'STT' and allow STT
+  function allowSTT(payload) {
+    if (payload.ref === 'STT') {
+      STTModule.speechToText();
+    }
+  }
+
 })();
 
 TTSModule.init(); // Runs Text to Speech Module
