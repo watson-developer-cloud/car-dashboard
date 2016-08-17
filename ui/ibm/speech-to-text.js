@@ -43,11 +43,11 @@ var STTModule = (function() {
 
   function micON() { // When the microphone button is clicked
     if (recording === false) {
-      if (records === 0) {
+      if (records === 0) { // The first time the mic is clicked - inform user
         Api.setWatsonPayload({output: {text: ['Accept the microphone prompt in your browser. Watson will listen soon.'], ref: 'STT'}}); // Dialog box output to let the user know we're recording
         records++;
       } else {
-        Api.setWatsonPayload({output: {text: ['Listening soon!'], ref: 'STT'}}); // Dialog box output to let the user know we're recording
+        Api.setWatsonPayload({output: {ref: 'STT'}}); // Let the user record right away
       }
     } else {
       recording = false;
