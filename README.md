@@ -59,7 +59,7 @@ understands that in both cases your intent is the same and responds accordingly.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/createproject.PNG)
 
-5 Once your app has deployed, select VIEW YOUR APP.
+5 Once your app has deployed, select VIEW YOUR APP. If you are using speech to text, change the protocol to https. Otherwise, your browser might confuse the microphone with an attack.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/viewyourapp.PNG)
 
