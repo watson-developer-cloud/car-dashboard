@@ -81,15 +81,15 @@ var ConversationResponse = (function() {
         cuisine: function() { Panel.mapFoodNumbers(); },
         func: function() { Panel.mapGeneral(); }
       },
-      off_topic: {
-        amenity: {
-          gas: function() { Panel.mapGas(); },
-          restaurant: function() { Panel.mapFoodCuisine(); },
-          restroom: function() { Panel.mapRestrooms(); }
-        },
-        cuisine: function() { Panel.mapFoodNumbers(); },
-        genre: function(value) { Panel.playMusic(value); }
-      }
+      off_topic: {
+        amenity: {
+          gas: function() { Panel.mapGas(); },
+          restaurant: function() { Panel.mapFoodCuisine(); },
+          restroom: function() { Panel.mapRestrooms(); }
+        },
+        cuisine: function() { Panel.mapFoodNumbers(); },
+        genre: function(value) { Panel.playMusic(value); }
+      }
     };
   }
 
