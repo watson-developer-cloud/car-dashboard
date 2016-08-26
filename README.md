@@ -5,7 +5,7 @@
 
 This application demonstrates how the Conversation service uses intent capabilities in an animated car dashboard UI.
 
-For more information about Conversation, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/overview.shtml).
+For more information about Conversation, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/index.shtml).
 
 [See the demo](http://conversation-demo.mybluemix.net/).
 
