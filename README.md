@@ -101,7 +101,13 @@ To build the application:
 
  ```
 
-6 Push it live:
+6 Create the Tone Analyzer Service in Bluemix
+
+  ```sh
+  $ cf create-service tone_analyzer standard tone-analyzer-standard
+  ```
+
+7 Push it live:
 
  ```sh
 
@@ -129,7 +135,7 @@ To build the application:
 
   The application uses [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/).
 
-1 Copy the credentials from your `conversation-service` service in Bluemix to a `.env` file in the root. 
+1 Copy the credentials from your `conversation-service` and `tone-analyzer` service in Bluemix to a `.env` file in the root. 
 - Look at `.env.example` as an example to create your `.env` file.
 
 2 **OPTIONAL**: If you want to use Text To Speech and/or Speech To Text in your locally runnning app, copy the credentials from your `text-to-speech` service and/or `speech-to-text` service in Bluemix to a `.env` file in the root.

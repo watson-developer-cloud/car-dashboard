@@ -57,6 +57,20 @@ var conversation = watson.conversation ( {
   version: 'v1'
 } );
 
+/**
+ * Instantiate the Watson Tone Analyzer Service
+ */
+var tone_detection = require("./addons/tone_detection.js"); //required for tone detection
+var maintainToneHistory = false;
+var Promise = require('bluebird'); //required for es6 promises
+var moment = require('moment'); //required for timestamps
+var tone_analyzer = new watson.tone_analyzer({
+  username: process.env.TONE_ANALYZER_USERNAME || '<tone_analyzer_username>',
+  password: process.env.TONE_ANALYZER_PASSWORD || '<tone_analyzer_password>',
+  version_date: '2016-05-19',
+  version: 'v3'
+});
+
 
 // Endpoint to be call from the client side
 app.post ( '/api/message', function (req, res) {
@@ -73,7 +87,8 @@ app.post ( '/api/message', function (req, res) {
   }
   var payload = {
     workspace_id: workspace_id,
-    context: {}
+    context: {},
+    input: {}
   };
   if ( req.body ) {
     if ( req.body.input ) {
@@ -83,25 +98,13 @@ app.post ( '/api/message', function (req, res) {
       // The client must maintain context/state
       payload.context = req.body.context;
     }
+    else{
+      payload.context = tone_detection.initUser();
+    }
   }
-  // Send the input to the conversation service
-  conversation.message ( payload, function (err, data) {
-    if ( err ) {
-      console.error ( JSON.stringify ( err ) );
-      return res.status ( err.code || 500 ).json ( err );
-    }
-    if ( logs ) {
-      //If the logs db is set, then we want to record all input and responses
-      var id = uuid.v4 ();
-      logs.insert ( {'_id': id, 'request': payload, 'response': data, 'time': new Date ()}, function (err, data) {
 
-      } );
-    }
-    return res.json ( data );
+  invokeToneConversation(payload, res);
   } );
-} );
-
-
 if ( cloudantUrl ) {
   //If logging has been enabled (as signalled by the presence of the cloudantUrl) then the
   //app developer must also specify a LOG_USER and LOG_PASS env vars.
@@ -184,6 +187,39 @@ if ( cloudantUrl ) {
       } );
       res.csv ( csv );
     } );
+  } );
+}
+
+/**
+ * @author April Webster
+ * invokeToneConversation calls the invokeToneAsync function to get the tone information for the user's
+ * input text (input.text in the payload json object), adds/updates the user's tone in the payload's context,
+ * and sends the payload to the conversation service to get a response which is printed to screen.
+ * @param payload a json object containing the basic information needed to converse with the Conversation Service's
+ *        message endpoint.
+ *
+ * Note: as indicated below, the console.log statements can be replaced with application-specific code to process
+ *               the err or data object returned by the Conversation Service.
+ */
+function invokeToneConversation(payload, res)
+{
+  tone_detection.invokeToneAsync(payload,tone_analyzer)
+  .then( (tone) => {
+    tone_detection.updateUserTone(payload, tone, maintainToneHistory);
+    conversation.message(payload, function(err, data) {
+    if ( err ) {
+      console.error ( JSON.stringify ( err ) );
+      return res.status ( err.code || 500 ).json ( err );
+    }
+    if ( logs ) {
+      //If the logs db is set, then we want to record all input and responses
+      var id = uuid.v4 ();
+      logs.insert ( {'_id': id, 'request': payload, 'response': data, 'time': new Date ()}, function (err, data) {
+
+      } );
+    }
+    return res.json ( data );
+   } );
   } );
 }
 
