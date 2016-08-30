@@ -101,7 +101,7 @@ To build the application:
 
  ```
 
-6 Create the Tone Analyzer Service in Bluemix
+6 Create the Tone Analyzer Service in Bluemix. This is optional step. Do this only if you want integration with tone. 
 
   ```sh
   $ cf create-service tone_analyzer standard tone-analyzer-standard

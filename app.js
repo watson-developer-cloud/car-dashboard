@@ -60,11 +60,19 @@ var conversation = watson.conversation ( {
 /**
  * Instantiate the Watson Tone Analyzer Service
  */
+
+var toneAddon = false;
+
+if(process.env.TONE_ANALYZER_USERNAME) toneAddon = true;
+
 var tone_detection = require("./addons/tone_detection.js"); //required for tone detection
 var maintainToneHistory = false;
 var Promise = require('bluebird'); //required for es6 promises
 var moment = require('moment'); //required for timestamps
-var tone_analyzer = new watson.tone_analyzer({
+var tone_analyzer = null;
+
+if(toneAddon)
+  tone_analyzer = new watson.tone_analyzer({
   username: process.env.TONE_ANALYZER_USERNAME || '<tone_analyzer_username>',
   password: process.env.TONE_ANALYZER_PASSWORD || '<tone_analyzer_password>',
   version_date: '2016-05-19',
@@ -99,11 +107,13 @@ app.post ( '/api/message', function (req, res) {
       payload.context = req.body.context;
     }
     else{
-      payload.context = tone_detection.initUser();
+      if(toneAddon) payload.context = tone_detection.initUser();
     }
   }
 
-  invokeToneConversation(payload, res);
+  if(toneAddon)
+   invokeToneConversation(payload, res);
+  else invokeConversation(payload, res);
   } );
 if ( cloudantUrl ) {
   //If logging has been enabled (as signalled by the presence of the cloudantUrl) then the
@@ -206,6 +216,12 @@ function invokeToneConversation(payload, res)
   tone_detection.invokeToneAsync(payload,tone_analyzer)
   .then( (tone) => {
     tone_detection.updateUserTone(payload, tone, maintainToneHistory);
+    return invokeConversation(payload, res);
+  } );
+}
+
+function invokeConversation(payload,res)
+{
     conversation.message(payload, function(err, data) {
     if ( err ) {
       console.error ( JSON.stringify ( err ) );
@@ -220,7 +236,6 @@ function invokeToneConversation(payload, res)
     }
     return res.json ( data );
    } );
-  } );
 }
 
 app.use ( '/api/speech-to-text/', require ( './speech/stt-token.js' ) );
