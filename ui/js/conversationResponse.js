@@ -116,10 +116,9 @@ var ConversationResponse = (function() {
       }
 
       var primaryIntent = data.intents[0];
-       if(data.context.genreToPlay && data.context.genreToPlay !== '') {
-         return ((responseFunctions["off_topic"]["genre"])(data.context.genreToPlay));
-       }
-       else if (primaryIntent) {
+      if (data.context.genreToPlay && data.context.genreToPlay !== '') {
+        return ((responseFunctions.off_topic.genre)(data.context.genreToPlay));
+      } else if (primaryIntent) {
         handleBasicCase(primaryIntent, data.entities);
       }
     }

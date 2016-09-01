@@ -22,7 +22,7 @@
     "moment": "2.14.1",
     "request": "^2.72.0",
     "vcap_services": "^0.2.0",
-    "watson-developer-cloud": "^1.12.2",
+    "watson-developer-cloud": "^2.2.0",
     "watson-speech": "^0.19.1",
     "cloudant": "1.4.1",
     "express-csv": "0.6.0",
