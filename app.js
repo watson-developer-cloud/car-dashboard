@@ -72,7 +72,7 @@ var moment = require('moment'); //required for timestamps
 var tone_analyzer = null;
 
 if(toneAddon)
-  tone_analyzer = new watson.tone_analyzer({
+  tone_analyzer = watson.tone_analyzer({
   username: process.env.TONE_ANALYZER_USERNAME || '<tone_analyzer_username>',
   password: process.env.TONE_ANALYZER_PASSWORD || '<tone_analyzer_password>',
   version_date: '2016-05-19',
@@ -107,7 +107,7 @@ app.post ( '/api/message', function (req, res) {
       payload.context = req.body.context;
     }
     else{
-      if(toneAddon) payload.context = tone_detection.initUser();
+      if(toneAddon) payload.context.user = tone_detection.initUser();
     }
   }
 
