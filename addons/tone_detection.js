@@ -91,7 +91,6 @@ function updateUserTone(conversationPayload, toneAnalyzerPayload, maintainHistor
   if (!conversationPayload.context.user) {
     conversationPayload.context.user = initUser();
   }
-   
   conversationPayload.context.genreToPlay = '';
 
   // For convenience sake, define a variable for the user object
