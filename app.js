@@ -50,11 +50,8 @@ app.use ( bodyParser.json () );
 app.use ( express.static ( __dirname + "/dist" ) );
 
 // Create the service wrapper
-var conversation = watson.conversation ( {
-  username: process.env.CONVERSATION_USERNAME || '<username>',
-  password: process.env.CONVERSATION_PASSWORD || '<password>',
-  version_date: '2016-07-11',
-  version: 'v1'
+var conversation = new watson.ConversationV1 ( {
+  version_date: '2016-07-11'
 } );
 
 /**
@@ -72,11 +69,8 @@ var moment = require('moment'); //required for timestamps
 var tone_analyzer = null;
 
 if(toneAddon)
-  tone_analyzer = watson.tone_analyzer({
-  username: process.env.TONE_ANALYZER_USERNAME || '<tone_analyzer_username>',
-  password: process.env.TONE_ANALYZER_PASSWORD || '<tone_analyzer_password>',
-  version_date: '2016-05-19',
-  version: 'v3'
+  tone_analyzer = new watson.ToneAnalyzerV3({
+  version_date: '2016-05-19'
 });
 
 
