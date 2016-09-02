@@ -9,6 +9,9 @@ declared-services:
   text-to-speech-service:
     label: text_to_speech
     plan: standard
+  tone-analyzer-standard:
+    label: tone_analyzer
+    plan: standard
 applications:
 - name: car-dashboard
   command: npm start
@@ -20,5 +23,6 @@ applications:
   - conversation-service
   - speech-to-text-service
   - text-to-speech-service
+  - tone-analyzer-standard
   env:
     NPM_CONFIG_PRODUCTION: false
