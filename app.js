@@ -58,9 +58,7 @@ var conversation = new watson.ConversationV1 ( {
  * Instantiate the Watson Tone Analyzer Service
  */
 
-var toneAddon = false;
-
-if(process.env.TONE_ANALYZER_USERNAME) toneAddon = true;
+var toneAddon = true;
 
 var tone_detection = require("./addons/tone_detection.js"); //required for tone detection
 var maintainToneHistory = false;
