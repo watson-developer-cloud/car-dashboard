@@ -12,6 +12,7 @@
   },
   "author": "IBM Corp.",
   "dependencies": {
+    "bluebird": "^3.4.1"
     "body-parser": "1.15.1",
     "basic-auth-connect": "1.0.0",
     "chai": "^3.5.0",
