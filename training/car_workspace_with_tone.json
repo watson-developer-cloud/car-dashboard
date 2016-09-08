@@ -1,5 +1,5 @@
 {
-	"name": "Car_Dashboard_with_tone",
+	"name": "Car_Dashboard_tone_analyzer",
 	"created": "2016-08-31T20:51:54.492Z",
 	"intents": [{
 		"intent": "capabilities",
@@ -2329,7 +2329,7 @@
 	}],
 	"language": "en",
 	"metadata": null,
-	"modified": "2016-08-31T23:30:00.560Z",
+	"modified": "2016-09-06T23:16:35.468Z",
 	"description": "Cognitive Car Dashboard workspace which allows multi-turn conversations to perform tasks in the car.",
 	"dialog_nodes": [{
 		"go_to": null,
@@ -3305,5 +3305,4 @@
 		"dialog_node": "node_20_1467234565322",
 		"previous_sibling": "node_8_1469824417089"
 	}],
-	"workspace_id": "4021bfb4-6f25-412b-a8b3-340c8bdde3b9"
 }
