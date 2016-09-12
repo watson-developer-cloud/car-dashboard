@@ -60,7 +60,7 @@ var conversation = new watson.ConversationV1 ( {
 
 var toneAddon = true;
 
-var tone_detection = require("./addons/tone_detection.js"); //required for tone detection
+var tone_detection = require('./addons/tone_detection.js'); //required for tone detection
 var maintainToneHistory = false;
 var Promise = require('bluebird'); //required for es6 promises
 var moment = require('moment'); //required for timestamps
