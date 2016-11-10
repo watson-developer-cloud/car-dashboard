@@ -117,13 +117,13 @@ var ConversationResponse = (function() {
 
       var primaryIntent = data.intents[0];
       if (primaryIntent) {
-        handleBasicCase(primaryIntent, data.entities);
+        handleBasicCase(primaryIntent, data.entities, data.context);
       }
     }
   }
 
   // Handles the case where there is valid intent and entities
-  function handleBasicCase(primaryIntent, entities) {
+  function handleBasicCase(primaryIntent, entities, context) {
     var genreFound = null;
     // If multiple entities appear (with the exception of music),
     // do not perform any actions
@@ -152,12 +152,12 @@ var ConversationResponse = (function() {
     // look for the correct function to run
     if  (!invalidMultipleEntities) {
       var primaryEntity = (genreFound || entities[0]);
-      callResponseFunction(primaryIntent, primaryEntity);
+      callResponseFunction(primaryIntent, primaryEntity, context);
     }
   }
 
   // Calls the appropriate response function based on the given intent and entity returned by Watson
-  function callResponseFunction(primaryIntent, primaryEntity) {
+  function callResponseFunction(primaryIntent, primaryEntity, context) {
     var intent = responseFunctions[primaryIntent.intent];
     if (typeof intent === 'function') {
       intent(primaryEntity.entity, primaryEntity.value);
@@ -179,6 +179,17 @@ var ConversationResponse = (function() {
       } else if (typeof intent.func === 'function') {
         intent.func();
       }
+    }
+
+    if (context.genre) {
+      Panel.playMusic(context.genre);
+      delete context.genre;
+    } else if (context.restaurant) {
+      Panel.mapFoodCuisine();
+      delete context.restaurant;
+    } else if (context.cuisine) {
+      Panel.mapFoodNumbers();
+      delete context.cuisine;
     }
   }
 }());
