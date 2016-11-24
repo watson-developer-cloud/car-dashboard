@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha",
     "lint": "eslint .",
     "autofix": "eslint --fix .",
     "postinstall": "gulp build-html",
@@ -13,7 +14,6 @@
   "author": "IBM Corp.",
   "dependencies": {
     "body-parser": "1.15.1",
-    "basic-auth-connect": "1.0.0",
     "chai": "^3.5.0",
     "compression": "1.6.2",
     "dotenv": "^2.0.0",
@@ -23,10 +23,8 @@
     "vcap_services": "^0.2.0",
     "watson-developer-cloud": "^1.12.2",
     "watson-speech": "^0.19.1",
-    "cloudant": "1.4.1",
     "express-csv": "0.6.0",
-    "nano" : "*",
-    "uuid": "2.0.2"
+    "nano" : "*"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",
@@ -34,6 +32,7 @@
     "eslint-config-airbnb-es5": "^1.0.9",
     "eslint-plugin-react": "^5.1.1",
     "gulp": "^3.9.1",
+    "istanbul": "^0.4.2",
     "gulp-clean-css": "2.0.7",
     "gulp-develop-server": "^0.5.1",
     "gulp-fontmin": "^0.7.4 ",
