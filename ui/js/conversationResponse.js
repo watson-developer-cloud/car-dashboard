@@ -161,7 +161,6 @@ var ConversationResponse = (function () {
 
   // Calls the appropriate response function based on the given intent and entity returned by Watson
   function callResponseFunction(primaryIntent, primaryEntity) {
-    console.log("XXXX: " + primaryIntent + " " + primaryEntity);
     var intent = responseFunctions[primaryIntent.intent];
     if (typeof intent === 'function') {
       intent(primaryEntity.entity, primaryEntity.value);
