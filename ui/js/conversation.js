@@ -219,6 +219,14 @@ var Conversation = (function() {
   // Builds the message DOM element (using auxiliary function Common.buildDomElement)
   function buildMessageDomElement(newPayload, isUser) {
     var dataObj = isUser ? newPayload.input : newPayload.output;
+
+    var text = dataObj.text;
+
+    if(!isUser) {
+      text = getOutput(text);
+    }
+
+    console.log("AAA: " + text);
     var messageJson = {
       // <div class='user / watson'>
       'tagName': 'div',
@@ -229,11 +237,24 @@ var Conversation = (function() {
         'classNames': (isUser
           ? [authorTypes.user + '-message']
           : [authorTypes.watson + '-message', classes.preBar]),
-        'html': (isUser ? '<img src=\'/images/head.svg\' />' + dataObj.text : dataObj.text)
+        'html': (isUser ? '<img src=\'/images/head.svg\' />' + text : text)
       }]
     };
 
     return Common.buildDomElement(messageJson);
+  }
+
+  function getOutput(text) {
+    var res = "";
+
+    var resArray = text.split("</wcscmd>");
+
+    if(resArray.length > 1) {
+      res = resArray[1];
+    } else {
+      res = text;
+    }
+    return res;
   }
 
   // Display the chat box if it's currently hidden

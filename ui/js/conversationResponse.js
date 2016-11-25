@@ -33,6 +33,13 @@ var ConversationResponse = (function () {
     setupResponseHandling();
   }
 
+  function commandFunctions(cmdArray) {
+    // output, command, param
+    if(cmdArray[1] === "radio_on") {
+      Panel.playMusic(cmdArray[2]);
+    }
+  }
+
   function setupResponseFunctions() {
     responseFunctions = {
       turn_on: {
@@ -105,6 +112,8 @@ var ConversationResponse = (function () {
     };
   }
 
+
+
   // Called when a Watson response is received, manages the behavior of the app based
   // on the user intent that was determined by Watson
   function responseHandler(data) {
@@ -113,16 +122,49 @@ var ConversationResponse = (function () {
       if (data.context.callRetrieveAndRank && !data.output.text) {
         // TODO add EIR link
         data.output.text = ['I am not able to answer that. You can try asking the'
-          + ' <a href="https://conversation-enhanced.mybluemix.net/" target="_blank">Enhanced Information Retrieval App</a>'];
+        + ' <a href="https://conversation-enhanced.mybluemix.net/" target="_blank">Enhanced Information Retrieval App</a>'];
         Api.setWatsonPayload(data);
         return;
       }
 
-      var primaryIntent = data.intents[0];
-      if (primaryIntent) {
-        handleBasicCase(primaryIntent, data.entities);
+      var resArray = getInputCommands(data);
+      console.log("CCC: " + resArray.length);
+      if (resArray.length == 3) {
+        commandFunctions(resArray);
+      } else {
+        var primaryIntent = data.intents[0];
+        if (primaryIntent) {
+          handleBasicCase(primaryIntent, data.entities);
+        }
       }
     }
+  }
+
+  function getInputCommands(data) {
+
+    // output, command, param
+    var res = [];
+
+    var response = data.output.text;
+
+    var resArray = response.split("</wcscmd>");
+
+    if(resArray.length > 1) {
+      var text = resArray[0];
+      res[0] = resArray[1];
+      resArray = text.split("<wcscmd>");
+      if(resArray.length > 1) {
+        var wcscmd = resArray[1];
+        resArray = wcscmd.split("|");
+        if(resArray.length > 1) {
+          res[1] = resArray[0];
+          res[2] = resArray[1];
+        }
+      }
+    } else {
+      res[0] = response;
+    }
+    return res;
   }
 
   // Handles the case where there is valid intent and entities
@@ -161,7 +203,6 @@ var ConversationResponse = (function () {
 
   // Calls the appropriate response function based on the given intent and entity returned by Watson
   function callResponseFunction(primaryIntent, primaryEntity) {
-    console.log("XXXX: " + primaryIntent + " " + primaryEntity);
     var intent = responseFunctions[primaryIntent.intent];
     if (typeof intent === 'function') {
       intent(primaryEntity.entity, primaryEntity.value);
