@@ -19,7 +19,7 @@
 /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "^ConversationResponse$" }] */
 /* global Animations: true, Api: true, Panel: true */
 
-var ConversationResponse = (function() {
+var ConversationResponse = (function () {
   'use strict';
   var responseFunctions;
 
@@ -37,58 +37,61 @@ var ConversationResponse = (function() {
     responseFunctions = {
       turn_on: {
         appliance: {
-          AC: function() { Panel.ac('lo'); },
-          fan: function() { Panel.ac('lo'); },
-          heater: function() { Panel.heat('lo'); },
-          lights: function() { Animations.lightsOn(); },
-          wipers: function() { Animations.wipersOn('lo'); }
+          AC: function () { Panel.ac('lo'); },
+          fan: function () { Panel.ac('lo'); },
+          heater: function () { Panel.heat('lo'); },
+          lights: function () { Animations.lightsOn(); },
+          wipers: function () { Animations.wipersOn('lo'); }
         },
-        genre: function(value) { Panel.playMusic(value); }
+        genre: function (value) { Panel.playMusic(value); }
       },
       turn_off: {
         appliance: {
-          lights: function() { Animations.lightsOff(); },
-          wipers: function() { Animations.wipersOff(); }
+          lights: function () { Animations.lightsOff(); },
+          wipers: function () { Animations.wipersOff(); }
         }
       },
       turn_up: {
         appliance: {
-          AC: function() { Panel.ac('hi'); },
-          fan: function() { Panel.ac('hi'); },
-          heater: function() { Panel.heat('hi'); },
-          music: function() { Panel.playMusic('general'); },
-          wipers: function() { Animations.wipersOn('hi'); }
+          AC: function () { Panel.ac('hi'); },
+          fan: function () { Panel.ac('hi'); },
+          heater: function () { Panel.heat('hi'); },
+          music: function () { Panel.playMusic('general'); },
+          wipers: function () { Animations.wipersOn('hi'); }
         },
-        genre: function(value) { Panel.playMusic(value); }
+        genre: function (value) { Panel.playMusic(value); }
       },
       turn_down: {
         appliance: {
-          AC: function() { Panel.ac('lo'); },
-          fan: function() { Panel.ac('lo'); },
-          heater: function() { Panel.heat('lo'); },
-          music: function() { Panel.playMusic('general'); },
-          wipers: function() { Animations.wipersOn('lo'); }
+          AC: function () { Panel.ac('lo'); },
+          fan: function () { Panel.ac('lo'); },
+          heater: function () { Panel.heat('lo'); },
+          music: function () { Panel.playMusic('general'); },
+          wipers: function () { Animations.wipersOn('lo'); }
         },
-        genre: function(value) { Panel.playMusic(value); }
+        genre: function (value) { Panel.playMusic(value); }
       },
       locate_amenity: {
         amenity: {
-          gas: function() { Panel.mapGas(); },
-          restaurant: function() { Panel.mapFoodCuisine(); },
-          restroom: function() { Panel.mapRestrooms(); }
+          gas: function () { Panel.mapGas(); },
+          restaurant: function () { Panel.mapFoodCuisine(); },
+          restroom: function () { Panel.mapRestrooms(); }
         },
-        option: function(choice) { Panel.mapNavigation(choice); },
-        cuisine: function() { Panel.mapFoodNumbers(); },
-        func: function() { Panel.mapGeneral(); }
+        option: function (choice) { Panel.mapNavigation(choice); },
+        cuisine: function () { Panel.mapFoodNumbers(); },
+        func: function () { Panel.mapGeneral(); }
       },
       off_topic: {
         amenity: {
-          gas: function() { Panel.mapGas(); },
-          restaurant: function() { Panel.mapFoodCuisine(); },
-          restroom: function() { Panel.mapRestrooms(); }
+          gas: function () { Panel.mapGas(); },
+          restaurant: function () { Panel.mapFoodCuisine(); },
+          restroom: function () { Panel.mapRestrooms(); }
         },
-        cuisine: function() { Panel.mapFoodNumbers(); },
-        genre: function(value) { Panel.playMusic(value); }
+        cuisine: function () { Panel.mapFoodNumbers(); },
+        genre: function (value) { Panel.playMusic(value); }
+      },
+      traffic_update: {
+        genre: function (value) { Panel.playMusic(value); }
       }
     };
   }
@@ -96,7 +99,7 @@ var ConversationResponse = (function() {
   // Create a callback when a new Watson response is received to handle Watson's response
   function setupResponseHandling() {
     var currentResponsePayloadSetter = Api.setWatsonPayload;
-    Api.setWatsonPayload = function(payload) {
+    Api.setWatsonPayload = function (payload) {
       currentResponsePayloadSetter.call(Api, payload);
       responseHandler(payload);
     };
@@ -134,7 +137,7 @@ var ConversationResponse = (function() {
       case 'turn_off':
       case 'turn_up':
       case 'turn_down':
-        entities.forEach(function(currentEntity) {
+        entities.forEach(function (currentEntity) {
           var entityType = currentEntity.entity;
           if (entityType === 'genre') {
             invalidMultipleEntities = false;
@@ -158,6 +161,7 @@ var ConversationResponse = (function() {
 
   // Calls the appropriate response function based on the given intent and entity returned by Watson
   function callResponseFunction(primaryIntent, primaryEntity) {
+    console.log("XXXX: " + primaryIntent + " " + primaryEntity);
     var intent = responseFunctions[primaryIntent.intent];
     if (typeof intent === 'function') {
       intent(primaryEntity.entity, primaryEntity.value);
