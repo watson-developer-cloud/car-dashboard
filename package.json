@@ -14,15 +14,12 @@
   "author": "IBM Corp.",
   "dependencies": {
     "body-parser": "1.15.1",
-    "chai": "^3.5.0",
     "compression": "1.6.2",
     "dotenv": "^2.0.0",
     "express": "4.13.4",
     "mocha": "^2.5.3",
-    "request": "^2.72.0",
     "vcap_services": "^0.2.0",
     "watson-developer-cloud": "^1.12.2",
-    "watson-speech": "^0.19.1",
     "express-csv": "0.6.0"
   },
   "devDependencies": {
@@ -34,20 +31,12 @@
     "istanbul": "^0.4.2",
     "gulp-clean-css": "2.0.7",
     "gulp-develop-server": "^0.5.1",
-    "gulp-fontmin": "^0.7.4 ",
-    "gulp-if": "^1.2.5",
-    "gulp-imagemin": "^2.4.0",
     "gulp-load-plugins": "^0.7.1",
-    "gulp-postcss": "^6.0.1",
-    "gulp-preprocess": "^1.1.1",
     "gulp-size": "^1.1.0",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-uglify": "^1.5.1",
     "gulp-useref": "^3.0.8",
     "mocha": "^2.4.5",
-    "nock": "^7.7.2",
     "supertest": "^1.2.0",
-    "uglifyjs": "^2.4.10",
-    "whatwg-fetch": "^0.11.0"
+    "eve": "^0.3.1"
   }
 }
