@@ -169,13 +169,15 @@ var ConversationResponse = (function () {
         return;
       }
 
-      var action = data.output.action;
+      let action = data.output.action;
 
       if (action) {
-        var actionArray = getActions(action);
+        let actionArray = getActions(action);
         if (actionArray) {
-          for (var i in actionArray) {
-            actionFunctions(actionArray[i]);
+          for (let i in actionArray) {
+            if (actionArray.hasOwnProperty(i)) {
+              actionFunctions(actionArray[i]);
+            }
           }
         }
       }
@@ -183,18 +185,20 @@ var ConversationResponse = (function () {
   }
 
   function getActions(action) {
-    var res = {};
+    let res = {};
 
     console.log("XXXX: " + JSON.stringify(action));
 
-    var cnt = 0;
+    let cnt = 0;
 
-    for (var key in action) {
-      res[cnt] = {
-        cmd : key,
-        arg : action[key]
-      };
-      cnt++;
+    for (let key in action) {
+      if (action.hasOwnProperty(key)) {
+        res[cnt] = {
+          cmd: key,
+          arg: action[key]
+        };
+        cnt++;
+      }
     }
     return res;
   }
