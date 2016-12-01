@@ -29,79 +29,121 @@ var ConversationResponse = (function () {
   };
 
   function init() {
-    setupResponseFunctions();
+    //setupResponseFunctions();
     setupResponseHandling();
   }
 
-  function commandFunctions(cmdArray) {
-    // output, command, param
-    if(cmdArray[1] === "radio_on") {
-      Panel.playMusic(cmdArray[2]);
+  function actionFunctions(action) {
+    console.log("CCCC: " + action.cmd + " " + action.arg);
+    if(action.cmd === 'music_on') {
+      Panel.playMusic(action.arg);
+    } else if(action.cmd === 'wipers_on') {// on commands
+      Animations.wipersOn('lo');
+    } else if(action.cmd === 'lights_on') {
+      Animations.lightsOn();
+    } else if(action.cmd === 'AC_on') {
+      Panel.ac('lo');
+    } else if(action.cmd === 'heater_on') {
+      Panel.heat('lo');
+    } else if(action.cmd === 'fan_on') {
+      Panel.ac('lo');
+    } else if(action.cmd === 'music_off') {//off commands
+      Panel.defaultScreen();
+    } else if(action.cmd === 'wipers_off') {
+      Animations.wipersOff();
+    } else if(action.cmd === 'lights_off') {
+      Animations.lightsOff();
+    } else if(action.cmd === 'AC_off') {
+      Panel.defaultScreen();
+    } else if(action.cmd === 'heater_off') {
+      Panel.defaultScreen();
+    } else if(action.cmd === 'fan_off') {
+      Panel.defaultScreen();
+    } else if(action.cmd === 'music_up') {//turn up commands
+      Panel.playMusic('general');
+    } else if(action.cmd === 'wipers_up') {
+      Animations.wipersOn('hi');
+    }  else if(action.cmd === 'AC_up') {
+      Panel.ac('hi');
+    } else if(action.cmd === 'heater_up') {
+      Panel.heat('hi');
+    } else if(action.cmd === 'fan_up') {
+      Panel.ac('hi');
+    } else if(action.cmd === 'music_down') {//turn down commands
+      Panel.playMusic('general');
+    } else if(action.cmd === 'wipers_down') {
+      Animations.wipersOn('lo');
+    }  else if(action.cmd === 'AC_down') {
+      Panel.ac('lo');
+    } else if(action.cmd === 'heater_down') {
+      Panel.heat('lo');
+    } else if(action.cmd === 'fan_down') {
+      Panel.ac('lo');
     }
   }
 
-  function setupResponseFunctions() {
-    responseFunctions = {
-      turn_on: {
-        appliance: {
-          AC: function () { Panel.ac('lo'); },
-          fan: function () { Panel.ac('lo'); },
-          heater: function () { Panel.heat('lo'); },
-          lights: function () { Animations.lightsOn(); },
-          wipers: function () { Animations.wipersOn('lo'); }
-        },
-        genre: function (value) { Panel.playMusic(value); }
-      },
-      turn_off: {
-        appliance: {
-          lights: function () { Animations.lightsOff(); },
-          wipers: function () { Animations.wipersOff(); }
-        }
-      },
-      turn_up: {
-        appliance: {
-          AC: function () { Panel.ac('hi'); },
-          fan: function () { Panel.ac('hi'); },
-          heater: function () { Panel.heat('hi'); },
-          music: function () { Panel.playMusic('general'); },
-          wipers: function () { Animations.wipersOn('hi'); }
-        },
-        genre: function (value) { Panel.playMusic(value); }
-      },
-      turn_down: {
-        appliance: {
-          AC: function () { Panel.ac('lo'); },
-          fan: function () { Panel.ac('lo'); },
-          heater: function () { Panel.heat('lo'); },
-          music: function () { Panel.playMusic('general'); },
-          wipers: function () { Animations.wipersOn('lo'); }
-        },
-        genre: function (value) { Panel.playMusic(value); }
-      },
-      locate_amenity: {
-        amenity: {
-          gas: function () { Panel.mapGas(); },
-          restaurant: function () { Panel.mapFoodCuisine(); },
-          restroom: function () { Panel.mapRestrooms(); }
-        },
-        option: function (choice) { Panel.mapNavigation(choice); },
-        cuisine: function () { Panel.mapFoodNumbers(); },
-        func: function () { Panel.mapGeneral(); }
-      },
-      off_topic: {
-        amenity: {
-          gas: function () { Panel.mapGas(); },
-          restaurant: function () { Panel.mapFoodCuisine(); },
-          restroom: function () { Panel.mapRestrooms(); }
-        },
-        cuisine: function () { Panel.mapFoodNumbers(); },
-        genre: function (value) { Panel.playMusic(value); }
-      },
-      traffic_update: {
-        genre: function (value) { Panel.playMusic(value); }
-      }
-    };
-  }
+  // function setupResponseFunctions() {
+  //   responseFunctions = {
+  //     turn_on: {
+  //       appliance: {
+  //         AC: function () { Panel.ac('lo'); },
+  //         fan: function () { Panel.ac('lo'); },
+  //         heater: function () { Panel.heat('lo'); }
+  //         lights: function () { Animations.lightsOn(); },
+  //         wipers: function () { Animations.wipersOn('lo'); }
+  //       },
+  //       genre: function (value) { Panel.playMusic(value); }
+  //     },
+  //     turn_off: {
+  //       appliance: {
+  //         lights: function () { Animations.lightsOff(); },
+  //         wipers: function () { Animations.wipersOff(); }
+  //       }
+  //     },
+  //     turn_up: {
+  //       appliance: {
+  //         AC: function () { Panel.ac('hi'); },
+  //         fan: function () { Panel.ac('hi'); },
+  //         heater: function () { Panel.heat('hi'); },
+  //         music: function () { Panel.playMusic('general'); },
+  //         wipers: function () { Animations.wipersOn('hi'); }
+  //       },
+  //       //genre: function (value) { Panel.playMusic(value); }
+  //     },
+  //     turn_down: {
+  //       appliance: {
+  //         AC: function () { Panel.ac('lo'); },
+  //         fan: function () { Panel.ac('lo'); },
+  //         heater: function () { Panel.heat('lo'); },
+  //         music: function () { Panel.playMusic('general'); },
+  //         wipers: function () { Animations.wipersOn('lo'); }
+  //       },
+  //       //genre: function (value) { Panel.playMusic(value); }
+  //     },
+  //     locate_amenity: {
+  //       amenity: {
+  //         gas: function () { Panel.mapGas(); },
+  //         restaurant: function () { Panel.mapFoodCuisine(); },
+  //         restroom: function () { Panel.mapRestrooms(); }
+  //       },
+  //       option: function (choice) { Panel.mapNavigation(choice); },
+  //       cuisine: function () { Panel.mapFoodNumbers(); },
+  //       func: function () { Panel.mapGeneral(); }
+  //     },
+  //     off_topic: {
+  //       amenity: {
+  //         gas: function () { Panel.mapGas(); },
+  //         restaurant: function () { Panel.mapFoodCuisine(); },
+  //         restroom: function () { Panel.mapRestrooms(); }
+  //       },
+  //       cuisine: function () { Panel.mapFoodNumbers(); },
+  //       //genre: function (value) { Panel.playMusic(value); }
+  //     },
+  //     traffic_update: {
+  //       //genre: function (value) { Panel.playMusic(value); }
+  //     }
+  //   };
+  // }
 
   // Create a callback when a new Watson response is received to handle Watson's response
   function setupResponseHandling() {
@@ -117,7 +159,7 @@ var ConversationResponse = (function () {
   // Called when a Watson response is received, manages the behavior of the app based
   // on the user intent that was determined by Watson
   function responseHandler(data) {
-    if (data && data.intents && data.entities && !data.output.error) {
+    if (data && !data.output.error) {
       // Check if message is handled by retrieve and rank and there is no message set
       if (data.context.callRetrieveAndRank && !data.output.text) {
         // TODO add EIR link
@@ -127,42 +169,32 @@ var ConversationResponse = (function () {
         return;
       }
 
-      var resArray = getInputCommands(data);
-      console.log("CCC: " + resArray.length);
-      if (resArray.length == 3) {
-        commandFunctions(resArray);
-      } else {
-        var primaryIntent = data.intents[0];
-        if (primaryIntent) {
-          handleBasicCase(primaryIntent, data.entities);
+      var action = data.output.action;
+
+      if (action) {
+        var actionArray = getActions(action);
+        if (actionArray) {
+          for (var i in actionArray) {
+            actionFunctions(actionArray[i]);
+          }
         }
       }
     }
   }
 
-  function getInputCommands(data) {
+  function getActions(action) {
+    var res = {};
 
-    // output, command, param
-    var res = [];
+    console.log("XXXX: " + JSON.stringify(action));
 
-    var response = data.output.text;
+    var cnt = 0;
 
-    var resArray = response.split("</wcscmd>");
-
-    if(resArray.length > 1) {
-      var text = resArray[0];
-      res[0] = resArray[1];
-      resArray = text.split("<wcscmd>");
-      if(resArray.length > 1) {
-        var wcscmd = resArray[1];
-        resArray = wcscmd.split("|");
-        if(resArray.length > 1) {
-          res[1] = resArray[0];
-          res[2] = resArray[1];
-        }
-      }
-    } else {
-      res[0] = response;
+    for (var key in action) {
+      res[cnt] = {
+        cmd : key,
+        arg : action[key]
+      };
+      cnt++;
     }
     return res;
   }
