@@ -23,8 +23,7 @@
     "vcap_services": "^0.2.0",
     "watson-developer-cloud": "^1.12.2",
     "watson-speech": "^0.19.1",
-    "express-csv": "0.6.0",
-    "nano" : "*"
+    "express-csv": "0.6.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",
