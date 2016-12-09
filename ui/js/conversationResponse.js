@@ -37,7 +37,7 @@ var ConversationResponse = (function () {
     console.log("CCCC: " + action.cmd + " " + action.arg);
     if(action.cmd === 'music_on') {
       Panel.playMusic(action.arg);
-    } else if(action.cmd === 'wipers_on') {// on commands
+    } else if(action.cmd === 'wipers_on') {// turn on commands
       Animations.wipersOn('lo');
     } else if(action.cmd === 'lights_on') {
       Animations.lightsOn();
@@ -47,18 +47,18 @@ var ConversationResponse = (function () {
       Panel.heat('lo');
     } else if(action.cmd === 'fan_on') {
       Panel.ac('lo');
-    } else if(action.cmd === 'music_off') {//off commands
-      Panel.defaultScreen();
+    } else if(action.cmd === 'music_off') {//turn off commands
+      Panel.setWatsonPanelToDefault();
     } else if(action.cmd === 'wipers_off') {
       Animations.wipersOff();
     } else if(action.cmd === 'lights_off') {
       Animations.lightsOff();
     } else if(action.cmd === 'AC_off') {
-      Panel.defaultScreen();
+      Panel.setWatsonPanelToDefault();
     } else if(action.cmd === 'heater_off') {
-      Panel.defaultScreen();
+      Panel.setWatsonPanelToDefault();
     } else if(action.cmd === 'fan_off') {
-      Panel.defaultScreen();
+      Panel.setWatsonPanelToDefault();
     } else if(action.cmd === 'music_up') {//turn up commands
       Panel.playMusic('general');
     } else if(action.cmd === 'wipers_up') {
@@ -79,71 +79,14 @@ var ConversationResponse = (function () {
       Panel.heat('lo');
     } else if(action.cmd === 'fan_down') {
       Panel.ac('lo');
+    } else if(action.cmd === 'gas') {// amenity
+      Panel.mapGas();
+    } else if(action.cmd === 'restaurant') {
+      Panel.mapFoodCuisine();
+    } else if(action.cmd === 'restroom') {
+      Panel.mapRestrooms();
     }
   }
-
-  // function setupResponseFunctions() {
-  //   responseFunctions = {
-  //     turn_on: {
-  //       appliance: {
-  //         AC: function () { Panel.ac('lo'); },
-  //         fan: function () { Panel.ac('lo'); },
-  //         heater: function () { Panel.heat('lo'); }
-  //         lights: function () { Animations.lightsOn(); },
-  //         wipers: function () { Animations.wipersOn('lo'); }
-  //       },
-  //       genre: function (value) { Panel.playMusic(value); }
-  //     },
-  //     turn_off: {
-  //       appliance: {
-  //         lights: function () { Animations.lightsOff(); },
-  //         wipers: function () { Animations.wipersOff(); }
-  //       }
-  //     },
-  //     turn_up: {
-  //       appliance: {
-  //         AC: function () { Panel.ac('hi'); },
-  //         fan: function () { Panel.ac('hi'); },
-  //         heater: function () { Panel.heat('hi'); },
-  //         music: function () { Panel.playMusic('general'); },
-  //         wipers: function () { Animations.wipersOn('hi'); }
-  //       },
-  //       //genre: function (value) { Panel.playMusic(value); }
-  //     },
-  //     turn_down: {
-  //       appliance: {
-  //         AC: function () { Panel.ac('lo'); },
-  //         fan: function () { Panel.ac('lo'); },
-  //         heater: function () { Panel.heat('lo'); },
-  //         music: function () { Panel.playMusic('general'); },
-  //         wipers: function () { Animations.wipersOn('lo'); }
-  //       },
-  //       //genre: function (value) { Panel.playMusic(value); }
-  //     },
-  //     locate_amenity: {
-  //       amenity: {
-  //         gas: function () { Panel.mapGas(); },
-  //         restaurant: function () { Panel.mapFoodCuisine(); },
-  //         restroom: function () { Panel.mapRestrooms(); }
-  //       },
-  //       option: function (choice) { Panel.mapNavigation(choice); },
-  //       cuisine: function () { Panel.mapFoodNumbers(); },
-  //       func: function () { Panel.mapGeneral(); }
-  //     },
-  //     off_topic: {
-  //       amenity: {
-  //         gas: function () { Panel.mapGas(); },
-  //         restaurant: function () { Panel.mapFoodCuisine(); },
-  //         restroom: function () { Panel.mapRestrooms(); }
-  //       },
-  //       cuisine: function () { Panel.mapFoodNumbers(); },
-  //       //genre: function (value) { Panel.playMusic(value); }
-  //     },
-  //     traffic_update: {
-  //       //genre: function (value) { Panel.playMusic(value); }
-  //     }
-  //   };
-  // }
 
   // Create a callback when a new Watson response is received to handle Watson's response
   function setupResponseHandling() {
