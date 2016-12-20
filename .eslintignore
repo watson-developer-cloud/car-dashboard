@@ -1,8 +1,8 @@
-dist/
-node_modules/
-speech/
-training_data/
+dist
+coverage
+node_modules
+speech
+training_data
+ui_config
 ui/ibm/watson-speech.min.js
-ui_config/
-/*.js
 ui/js/libs

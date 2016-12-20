@@ -12,8 +12,8 @@ For more information about Conversation, see the [detailed documentation](http:/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/bluemix.png" width="200"/>](#bluemix)     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/local.png" width="200"/>](#local)
 
 ## How the app works
-The app interface is designed and trained for chatting with a cognitive car. The interface allows the user to enter input either 
-using text, in the edit field at the bottom of the UI or via speech via by pressing the mic button. 
+The app interface is designed and trained for chatting with a cognitive car. The interface allows the user to enter input either
+using text, in the edit field at the bottom of the UI or via speech via by pressing the mic button.
 Your questions and commands are run against a
 small set of sample data trained with intents like these:
 
@@ -29,7 +29,7 @@ understands that in both cases your intent is the same and responds accordingly.
 # Getting Started using Bluemix
 </a>
 
-![](readme_images/Deploy on Bluemix - simple app.png)
+![](readme_images/deploy-on-bluemix-simple-app.png)
 
 ## Before you begin
 1 Ensure that you have a [Bluemix account](https://console.ng.bluemix.net/registration/).
@@ -47,7 +47,7 @@ understands that in both cases your intent is the same and responds accordingly.
 
 2 Log in with an existing Bluemix account or sign up.
 
-3 Name your app and select your REGION, ORGINIZATION, and SPACE. Then select DEPLOY
+3 Name your app and select your REGION, ORGANIZATION, and SPACE. Then select DEPLOY
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/deploy.PNG)
 
 * This performs multiple actions:
@@ -107,7 +107,7 @@ To build the application:
 
  $ cf push <application-name>
 
- ``` 
+ ```
  The name you use determinates your application URL initially, such as `<application-name>.mybluemix.net`.
 
 <a name="local">
@@ -129,7 +129,7 @@ To build the application:
 
   The application uses [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/).
 
-1 Copy the credentials from your `conversation-service` service in Bluemix to a `.env` file in the root. 
+1 Copy the credentials from your `conversation-service` service in Bluemix to a `.env` file in the root.
 - Look at `.env.example` as an example to create your `.env` file.
 
 2 **OPTIONAL**: If you want to use Text To Speech and/or Speech To Text in your locally runnning app, copy the credentials from your `text-to-speech` service and/or `speech-to-text` service in Bluemix to a `.env` file in the root.
@@ -148,16 +148,16 @@ npm install
 
 6  Build the UI by running this command:
 ```sh
-    
-npm run-script postinstall
-    
+
+npm run build
+
 ```
 
 7  Start the application by running this command:
 ```sh
-    
+
 npm start
-    
+
 ```
 
 8 Open `http://localhost:3000` in a browser.
@@ -241,8 +241,10 @@ For more information on workspaces, see the full  [Conversation service  documen
 
 ### With CLI
 
+```
 $ cf logs < application-name > --recent
- 
+```
+
 # License
 
   This sample code is licensed under Apache 2.0.
