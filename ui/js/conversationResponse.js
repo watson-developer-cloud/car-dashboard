@@ -21,7 +21,6 @@
 
 var ConversationResponse = (function () {
   'use strict';
-  var responseFunctions;
 
   return {
     init: init,
@@ -29,12 +28,10 @@ var ConversationResponse = (function () {
   };
 
   function init() {
-    //setupResponseFunctions();
     setupResponseHandling();
   }
 
   function actionFunctions(action) {
-    console.log("CCCC: " + action.cmd + " " + action.arg);
     if(action.cmd === 'music_on') {
       Panel.playMusic(action.arg);
     } else if(action.cmd === 'wipers_on') {// turn on commands
@@ -130,8 +127,6 @@ var ConversationResponse = (function () {
   function getActions(action) {
     let res = {};
 
-    console.log("XXXX: " + JSON.stringify(action));
-
     let cnt = 0;
 
     for (let key in action) {
@@ -144,65 +139,5 @@ var ConversationResponse = (function () {
       }
     }
     return res;
-  }
-
-  // Handles the case where there is valid intent and entities
-  function handleBasicCase(primaryIntent, entities) {
-    var genreFound = null;
-    // If multiple entities appear (with the exception of music),
-    // do not perform any actions
-    if (entities.length > 1) {
-      var invalidMultipleEntities = true;
-      switch (primaryIntent.intent) {
-      case 'turn_on':
-      case 'turn_off':
-      case 'turn_up':
-      case 'turn_down':
-        entities.forEach(function (currentEntity) {
-          var entityType = currentEntity.entity;
-          if (entityType === 'genre') {
-            invalidMultipleEntities = false;
-            genreFound = currentEntity;
-          }
-        });
-        break;
-      default:
-        invalidMultipleEntities = false;
-        break;
-      }
-    }
-
-    // Otherwise, just take the first one (or the genre if one was found) and
-    // look for the correct function to run
-    if  (!invalidMultipleEntities) {
-      var primaryEntity = (genreFound || entities[0]);
-      callResponseFunction(primaryIntent, primaryEntity);
-    }
-  }
-
-  // Calls the appropriate response function based on the given intent and entity returned by Watson
-  function callResponseFunction(primaryIntent, primaryEntity) {
-    var intent = responseFunctions[primaryIntent.intent];
-    if (typeof intent === 'function') {
-      intent(primaryEntity.entity, primaryEntity.value);
-    } else if (intent) {
-      if (primaryEntity) {
-        var entityType = intent[primaryEntity.entity];
-        if (typeof entityType === 'function') {
-          entityType(primaryEntity.value);
-        } else if (entityType) {
-          var entityValue = entityType[primaryEntity.value];
-          if (typeof entityValue === 'function') {
-            entityValue();
-          } else if (entityValue && typeof entityValue.func === 'function') {
-            entityValue.func();
-          } else if (typeof entityType.func === 'function') {
-            entityType.func();
-          }
-        }
-      } else if (typeof intent.func === 'function') {
-        intent.func();
-      }
-    }
   }
 }());

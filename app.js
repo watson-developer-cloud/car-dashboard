@@ -21,9 +21,6 @@ var express = require ( 'express' );
 var compression = require ( 'compression' );
 var bodyParser = require ( 'body-parser' );  // parser for post requests
 var watson = require ( 'watson-developer-cloud' );
-//The following requires are needed for logging purposes
-var csv = require ( 'express-csv' );
-var vcapServices = require ( 'vcap_services' );
 
 
 //The conversation workspace id
@@ -35,7 +32,7 @@ var app = express ();
 app.use ( compression () );
 app.use ( bodyParser.json () );
 //static folder containing UI
-app.use ( express.static ( __dirname + "/dist" ) );
+app.use ( express.static ( __dirname + '/dist' ) );
 
 // Create the service wrapper
 var conversation = watson.conversation ( {
@@ -75,7 +72,7 @@ app.post ( '/api/message', function (req, res) {
   // Send the input to the conversation service
   conversation.message ( payload, function (err, data) {
     if ( err ) {
-      console.error ( JSON.stringify ( err ) );
+      //console.error ( JSON.stringify ( err ) );
       return res.status ( err.code || 500 ).json ( err );
     }
     return res.json ( data );
