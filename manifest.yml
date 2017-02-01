@@ -13,12 +13,4 @@ applications:
 - name: car-dashboard
   command: npm start
   path: .
-  memory: 256M
-  instances: 1
-  disk_quota: 1024M
-  services:
-  - conversation-service
-  - speech-to-text-service
-  - text-to-speech-service
-  env:
-    NPM_CONFIG_PRODUCTION: false
+  memory: 512M

@@ -1,5 +1,5 @@
 /**
- * Copyright 2015 IBM Corp. All Rights Reserved.
+ * Copyright 2016 IBM Corp. All Rights Reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,31 +14,65 @@
  * limitations under the License.
  */
 
-'use strict';
+const assert = require('assert');
+const request = require('supertest');
+const path = require('path');
 
-var app = require('../app');
-var bodyParser = require('body-parser');
-var request = require('supertest');
+// load default variables for testing
+require('dotenv').config({ silent: true, path: path.join(__dirname, '../.env') });
 
-app.use(bodyParser.json());
+if (!process.env.CONVERSATION_USERNAME) {
+  // eslint-disable-next-line
+  console.log('Skipping integration tests because CONVERSATION_USERNAME is null');
+  return;
+}
+
+const app = require('../app');
 
 describe('Basic API tests', function () {
-  it('GET to / should load the home page', function (done) {
-    request(app).get('/').expect(200, done);
+  this.timeout(5000);
+
+  it('Should load the home page', () =>
+    request(app).get('/').expect(200)
+  );
+
+  it('Should generate an Speech to Text token', function () {
+    if (process.env.SPEECH_TO_TEXT_USERNAME) {
+      return request(app)
+      .get('/api/speech-to-text/token')
+      .expect(200)
+      .then((result) => {
+        assert.ok(result.text && result.text.length > 0 );
+      });
+    } else {
+      return this.skip('No credentials');
+    }
   });
 
-//  it('POST to /api/message should return error message', function(done) {
-//    request(app)
-//      .post('/api/message')
-//      .set('Accept', /application\/json/)
-//      .expect('Content-Type', /application\/json/)
-//      .send({'input': {'text': 'Turn on the radio'}})
-//      .expect(function(res) {
-//        if (!res.body) throw new Error('Body was not present in response');
-//        console.log(res.body);
-//        if (!res.body.output) throw new Error('\'Output\' was not present in response');
-//        if (!res.body.output.text) throw new Error('\'text\' was not present in response');
-//      })
-//      .expect(200, done);
-//  });
+  it('Should generate a Text to Speech token', function () {
+    if (process.env.TEXT_TO_SPEECH_USERNAME) {
+      return request(app)
+      .get('/api/text-to-speech/token')
+      .expect(200)
+      .then((result) => {
+        assert.ok(result.text && result.text.length > 0 );
+      });
+    } else {
+      return this.skip('No credentials');
+    }
+  });
+
+  it('Should respond to messages using Conversation', function () {
+    if (process.env.CONVERSATION_USERNAME && process.env.WORKSPACE_ID) {
+      return request(app)
+      .post('/api/message')
+      .expect(200)
+      .then((result) => {
+        assert.ok(result.body && result.body.output.text);
+      });
+    } else {
+      return this.skip('No credentials');
+    }
+  });
+
 });

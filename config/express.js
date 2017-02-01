@@ -14,18 +14,24 @@
  * limitations under the License.
  */
 
+
+// Module dependencies
 const express = require('express');
-const app = express();
+const compression = require('compression');
+const bodyParser = require('body-parser');
+const path = require('path');
 
-// Bootstrap application settings
-require('./config/express')(app);
 
-// Configure the Watson services
-require('./routes/conversation')(app);
-require('./routes/speech-to-text')(app);
-require('./routes/text-to-speech')(app);
+module.exports = function (app) {
+  app.enable('trust proxy');
+  app.use(require('express-status-monitor')());
 
-// error-handler settings
-require('./config/error-handler')(app);
+  // Only loaded when running in Bluemix
+  if (process.env.VCAP_APPLICATION) {
+    require('./security')(app);
+  }
 
-module.exports = app;
+  app.use(compression());
+  app.use(bodyParser.json({ limit: '1mb' }));
+  app.use(express.static(path.join(__dirname, '..', 'dist')));
+};

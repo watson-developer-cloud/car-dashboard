@@ -13,19 +13,24 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+ /* eslint no-unused-vars: "off" */
 
-const express = require('express');
-const app = express();
 
-// Bootstrap application settings
-require('./config/express')(app);
+module.exports = function (app) {
+  // catch 404 and forward to error handler
+  app.use((req, res, next) => {
+    const err = new Error('Not Found');
+    err.code = 404;
+    err.message = 'Not Found';
+    next(err);
+  });
 
-// Configure the Watson services
-require('./routes/conversation')(app);
-require('./routes/speech-to-text')(app);
-require('./routes/text-to-speech')(app);
-
-// error-handler settings
-require('./config/error-handler')(app);
-
-module.exports = app;
+  // error handler
+  app.use((err, req, res, next) => {
+    const error = {
+      code: err.code || 500,
+      error: err.error || err.message
+    };
+    res.status(error.code).json(error);
+  });
+};

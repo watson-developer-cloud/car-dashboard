@@ -14,18 +14,27 @@
  * limitations under the License.
  */
 
-const express = require('express');
-const app = express();
 
-// Bootstrap application settings
-require('./config/express')(app);
+// security.js
+const secure = require('express-secure-only');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
 
-// Configure the Watson services
-require('./routes/conversation')(app);
-require('./routes/speech-to-text')(app);
-require('./routes/text-to-speech')(app);
+module.exports = function (app) {
+  app.use(secure());
+  app.use(helmet({
+    frameguard: false,
+    noCache: false
+  }));
 
-// error-handler settings
-require('./config/error-handler')(app);
-
-module.exports = app;
+  const limiter = rateLimit({
+    windowMs: 60 * 1000, // seconds
+    delayMs: 0,
+    max: 10,
+    message: JSON.stringify({
+      error: 'Too many requests, please try again in 30 seconds.',
+      code: 429
+    })
+  });
+  app.use('/api/', limiter);
+};
