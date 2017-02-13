@@ -15,8 +15,6 @@
  * limitations under the License.
  */
 
-'use strict';
-
 require('dotenv').config({silent: true});
 
 var server = require('./app');

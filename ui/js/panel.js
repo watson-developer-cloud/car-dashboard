@@ -47,7 +47,8 @@ var Panel = (function() {
     mapRestrooms: mapRestrooms,
     mapGeneral: mapGeneral,
     mapNavigation: mapNavigation,
-    init: defaultScreen
+    init: defaultScreen,
+    setWatsonPanelToDefault: setWatsonPanelToDefault
   };
 
   // clear everything on the panel until only the Watson logo is left
@@ -64,6 +65,11 @@ var Panel = (function() {
         panel.node.removeChild(element);
       }
     });
+  }
+
+  function setWatsonPanelToDefault() {
+    var p = Snap.select(idSelectors.panel);
+    clearToDefault(p);
   }
 
   // Auxiliary function for loading an SVG into the panel
@@ -145,9 +151,9 @@ var Panel = (function() {
       var localMat = seek.transform().localMatrix;
 
       // Animate moving the seek position
-      var seekAnimation = seek.animate({transform: localMat.translate(1050, 0)}, 30000, mina.linear, function() {
+      var seekAnimation = seek.animate({transform: localMat.translate(1050, 0)}, 30000, mina.linear, function () {
         // After the seek position has reached the end fade out the SVG group
-        var fadeAnimation = svgGroup.animate({opacity: 0}, 500, mina.linear, function() {
+        var fadeAnimation = svgGroup.animate({opacity: 0}, 500, mina.linear, function () {
           svgGroup.remove();
         }, frameSkipRate);
         currentAnimations.push(fadeAnimation);

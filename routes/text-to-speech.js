@@ -22,7 +22,7 @@ const credentials = Object.assign({
   username: process.env.TEXT_TO_SPEECH_USERNAME || '<username>',
   password: process.env.TEXT_TO_SPEECH_PASSWORD || '<username>',
   url: process.env.TEXT_TO_SPEECH_URL || 'https://stream.watsonplatform.net/text-to-speech/api',
-  version: 'v1',
+  version: 'v1'
 }, vcapServices.getCredentials('text_to_speech'));
 
 const authorizationService = watson.authorization(credentials);

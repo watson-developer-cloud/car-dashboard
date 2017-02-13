@@ -24,7 +24,7 @@ module.exports = function (app) {
   app.use(secure());
   app.use(helmet({
     frameguard: false,
-    noCache: false,
+    noCache: false
   }));
 
   const limiter = rateLimit({
@@ -33,8 +33,8 @@ module.exports = function (app) {
     max: 10,
     message: JSON.stringify({
       error: 'Too many requests, please try again in 30 seconds.',
-      code: 429,
-    }),
+      code: 429
+    })
   });
   app.use('/api/', limiter);
 };
