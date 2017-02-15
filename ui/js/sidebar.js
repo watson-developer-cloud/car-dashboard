@@ -31,7 +31,6 @@ var Sidebar = (function() {
     'Turn on the headlights',
     'Shut off my lights',
     'Play some music',
-    'When will the rain end?',
     'What’s my ETA?',
     'Show me what’s nearby',
     'Find a gas station',

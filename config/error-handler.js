@@ -29,7 +29,7 @@ module.exports = function (app) {
   app.use((err, req, res, next) => {
     const error = {
       code: err.code || 500,
-      error: err.error || err.message,
+      error: err.error || err.message
     };
     res.status(error.code).json(error);
   });

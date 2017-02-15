@@ -5,4 +5,8 @@ speech
 training_data
 ui_config
 ui/ibm/watson-speech.min.js
+<<<<<<< HEAD
 ui/js/libs
+=======
+ui/js/libs
+>>>>>>> master
