@@ -51,7 +51,10 @@ var STTModule = (function() {
       }
     } else {
       recording = false;
-      stream.stop();
+      try {
+        stream.stop();
+      } catch(e){
+      };
     }
   }
 
