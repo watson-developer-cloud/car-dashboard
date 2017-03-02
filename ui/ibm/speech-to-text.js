@@ -54,7 +54,8 @@ var STTModule = (function() {
       try {
         stream.stop();
       } catch(e){
-      };
+        console.log(e);
+      }
     }
   }
 
