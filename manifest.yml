@@ -1,6 +1,6 @@
 ---
 declared-services:
-  conversation-service:
+  my-conversation-service:
     label: conversation
     plan: free
   speech-to-text-service:
