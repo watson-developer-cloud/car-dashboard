@@ -25,9 +25,7 @@ These intents help the system to understand variations of questions and commands
 For example, if you say *"Wipers on"* or *"I want to turn on the windshield wipers"*, the system
 understands that in both cases your intent is the same and responds accordingly.
 
-<a name="bluemix">
-# Getting Started using Bluemix
-</a>
+# <a name="bluemix"></a> Getting Started using Bluemix
 
 ![](readme_images/deploy-on-bluemix-simple-app.png)
 
@@ -65,9 +63,7 @@ understands that in both cases your intent is the same and responds accordingly.
 
 6 Navigate to your Bluemix Dashboard and [import a workspace](#workspace).
 
-<a name="usingCloudfoundry">
-## Using Cloudfoundry CLI tool to deploy your application
-</a>
+## <a name="usingCloudfoundry"></a> Using Cloudfoundry CLI tool to deploy your application
 
 To build the application:
 
@@ -110,9 +106,7 @@ To build the application:
  ```
  The name you use determinates your application URL initially, such as `<application-name>.mybluemix.net`.
 
-<a name="local">
-# Getting Started locally
-</a>
+# <a name="local"></a> Getting Started locally
 
 ## Before you begin
 
@@ -135,7 +129,7 @@ To build the application:
 2 **OPTIONAL**: If you want to use Text To Speech and/or Speech To Text in your locally runnning app, copy the credentials from your `text-to-speech` service and/or `speech-to-text` service in Bluemix to a `.env` file in the root.
 - Look at `.env.example` as an example to add to your `.env` file.
 
-3 Use the Conversation tooling app to create a workspace, as described above, and add the workspace ID environment variable to the `.env` file. For details about obtaining the workspace ID, see Step 6 - 7 in the previous section.
+3 Use the Conversation tooling app to create a workspace, as described above, and add the workspace ID environment variable to the `.env` file. For details about obtaining the workspace ID, see Step 6 - 7 in the next section.
 
 4 Install [Node.js](http://nodejs.org/).
 
@@ -164,9 +158,8 @@ npm start
 
 _Note: If you are interested in deploying you local application or the changes you have made locally to Bluemix, go to [this section](#usingCloudfoundry)_
 
-<a name="workspace">
-# Import a workspace
-</a>
+# <a name="workspace"></a> Import a workspace
+
 1 You need to import the app's workspace. To do that, go to the Bluemix Dashboard and select the Conversation service instance. Once there, select the **Service Credentials** menu item.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/credentials.PNG)
@@ -194,9 +187,7 @@ In the Details UI, copy the 36 character UNID **ID** field. This is the **Worksp
 
 For more information on workspaces, see the full  [Conversation service  documentation](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/conversation/overview.shtml).
 
-<a name="env">
-# Adding environment variables in Bluemix
-</a>
+# <a name="env"></a> Adding environment variables in Bluemix
 
 1 In Bluemix, open the application from the Dashboard. Select **Environment Variables**.
 
