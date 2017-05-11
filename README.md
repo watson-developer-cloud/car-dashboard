@@ -46,7 +46,7 @@ understands that in both cases your intent is the same and responds accordingly.
 
 2 Log in with an existing Bluemix account or sign up.
 
-3 Select your Organization, Toolchain Name, Region, and Space, then click the `Deploy` buton.
+3 Select your Organization, Toolchain Name, Region, and Space, then click the`Deploy`buton.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/deploy.PNG)
 
 * This performs multiple actions:
@@ -54,11 +54,11 @@ understands that in both cases your intent is the same and responds accordingly.
   - Creates a Conversation service instance that the user needs for workspace creation
   - Creates instances for a Speech To Text service and Text To Speech service
 
-* Your `car-dashboard` app is ready now, click `Delevery Pipeline`, to deploy your app.
+* Your`car-dashboard`app is ready now, click`Delevery Pipeline`to deploy your app.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/toolchain-ready.png)
 
-5 Once your app has built and deployed, navagate to your Bluemix Dashboard and [import a workspace](#workspace).
+5 Once your app has been built and deployed, navagate to your Bluemix Dashboard and [import a workspace](#workspace).
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/deploy-finished.png)
 
