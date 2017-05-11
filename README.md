@@ -47,7 +47,8 @@ understands that in both cases your intent is the same and responds accordingly.
 2 Log in with an existing Bluemix account or sign up.
 
 3 Select your Organization, Toolchain Name, Region, and Space, then click the`Deploy`buton.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/deploy.PNG)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/deploy.PNG)
 
 * This performs multiple actions:
   - Creates the app
