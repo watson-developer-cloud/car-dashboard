@@ -35,8 +35,9 @@ understands that in both cases your intent is the same and responds accordingly.
 2 Ensure that you have the necessary space available in your Bluemix account. This action deploys 1 application and 3 services.
    * You can view this on your Bluemix Dashboard. Tiles will show what space you have available.
    * For example, for Services & APIS
-
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services.PNG)
+   
+   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services.PNG)
 
 ## Deploy the App
 1 Click this button to Deploy to Bluemix.
