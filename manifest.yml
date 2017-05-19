@@ -14,3 +14,7 @@ applications:
   command: npm start
   path: .
   memory: 512M
+  services:
+  - my-conversation-service
+  - speech-to-text-service
+  - text-to-speech-service
