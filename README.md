@@ -35,8 +35,9 @@ understands that in both cases your intent is the same and responds accordingly.
 2 Ensure that you have the necessary space available in your Bluemix account. This action deploys 1 application and 3 services.
    * You can view this on your Bluemix Dashboard. Tiles will show what space you have available.
    * For example, for Services & APIS
-
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services.PNG)
+   
+   
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services.PNG)
 
 ## Deploy the App
 1 Click this button to Deploy to Bluemix.
@@ -45,23 +46,22 @@ understands that in both cases your intent is the same and responds accordingly.
 
 2 Log in with an existing Bluemix account or sign up.
 
-3 Name your app and select your REGION, ORGANIZATION, and SPACE. Then select DEPLOY
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/deploy.PNG)
+3 Select your Organization, Toolchain Name, Region, and Space, then click the`Deploy`buton.
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/deploy.PNG)
 
 * This performs multiple actions:
   - Creates the app
   - Creates a Conversation service instance that the user needs for workspace creation
   - Creates instances for a Speech To Text service and Text To Speech service
 
-* The status of the deployment is shown. This can take some time.
+* Your`car-dashboard`app is ready now, click`Delevery Pipeline`to deploy your app.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/createproject.PNG)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/toolchain-ready.png)
 
-5 Once your app has deployed, select VIEW YOUR APP. If you are using speech to text, change the protocol to https. Otherwise, your browser might confuse the microphone with an attack.
+5 Once your app has been built and deployed, navagate to your Bluemix Dashboard and [import a workspace](#workspace).
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/viewyourapp.PNG)
-
-6 Navigate to your Bluemix Dashboard and [import a workspace](#workspace).
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/deploy-finished.png)
 
 ## <a name="usingCloudfoundry"></a> Using Cloudfoundry CLI tool to deploy your application
 
