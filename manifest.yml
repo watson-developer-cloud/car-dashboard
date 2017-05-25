@@ -2,7 +2,7 @@
 declared-services:
   my-conversation-service:
     label: conversation
-    plan: lite
+    plan: Lite
   speech-to-text-service:
     label: speech_to_text
     plan: standard
