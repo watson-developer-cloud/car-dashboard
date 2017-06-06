@@ -189,9 +189,9 @@ For more information on workspaces, see the full  [Conversation service  documen
 
 # <a name="env"></a> Adding environment variables in Bluemix
 
-1 In Bluemix, open the application from the Dashboard. Select **Environment Variables**.
+1 In Bluemix, open the application from the Dashboard. Select **Runtime** on the left side menu.
 
-2 Select **USER-DEFINED**.
+2 Select **ENVIRONMENT VARIABLES** and scroll down to **USER-DEFINED**.
 
 3 Select **ADD**.
 
