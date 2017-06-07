@@ -162,7 +162,7 @@ _Note: If you are interested in deploying you local application or the changes y
 
 1 You need to import the app's workspace. To do that, go to the Bluemix Dashboard and select the Conversation service instance. Once there, select the **Service Credentials** menu item.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/credentials.PNG)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/credentials.png)
 
 2 Select **ADD CREDENTIALS**. Name your credentials then select **ADD**.
 
@@ -189,7 +189,7 @@ For more information on workspaces, see the full  [Conversation service  documen
 
 # <a name="env"></a> Adding environment variables in Bluemix
 
-1 In Bluemix, open the application from the Dashboard. Select **Runtime** on the left side menu.
+1 In Bluemix, open the application from the Dashboard. Select **RUNTIME** on the left side menu.
 
 2 Select **ENVIRONMENT VARIABLES** and scroll down to **USER-DEFINED**.
 
@@ -197,7 +197,7 @@ For more information on workspaces, see the full  [Conversation service  documen
 
 4 Add a variable with the name **WORKSPACE_ID**. For the value, paste in the Workspace ID you [copied earlier](#workspaceID). Select **SAVE**.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/env.PNG)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/env.png)
 
 5 Restart your application.
 
