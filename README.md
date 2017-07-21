@@ -5,7 +5,7 @@
 
 This application demonstrates how the Conversation service uses intent capabilities in an animated car dashboard UI.
 
-For more information about Conversation, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/index.shtml).
+For more information about Conversation, see the [detailed documentation](https://console.bluemix.net/docs/services/conversation/index.html#about).
 
 [See the demo](http://conversation-demo.mybluemix.net/).
 
@@ -112,7 +112,7 @@ To build the application:
 
 1 Ensure that you have a [Bluemix account](https://console.ng.bluemix.net/registration/). While you can do part of this deployment locally, you must still use Bluemix.
 
-2 In Bluemix, [create a Conversation Service](http://www.ibm.com/watson/developercloud/doc/conversation/convo_getstart.shtml).
+2 In Bluemix, [create a Conversation Service](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted).
 - Copy the Service Credentials for later use.
 - [Import a workspace](#workspace)
 
@@ -185,7 +185,7 @@ In the Details UI, copy the 36 character UNID **ID** field. This is the **Worksp
 
 7 Return to your application, either in your local dev environment, or in Bluemix. If running on Bluemix, you need to [add environment variables](#env).
 
-For more information on workspaces, see the full  [Conversation service  documentation](https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/conversation/overview.shtml).
+For more information on workspaces, see the full  [Conversation service documentation](https://console.bluemix.net/docs/services/conversation/configure-workspace.html#configuring-a-conversation-workspace).
 
 # <a name="env"></a> Adding environment variables in Bluemix
 
