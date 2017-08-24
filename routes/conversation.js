@@ -22,7 +22,7 @@ const conversation = watson.conversation({
   // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
   // username: '<username>',
   // password: '<password>',
-  version_date: '2016-10-21',
+  version_date: '2017_05_26',
   version: 'v1'
 });
 
