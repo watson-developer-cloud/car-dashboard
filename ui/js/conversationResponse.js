@@ -78,6 +78,8 @@ var ConversationResponse = (function () {
       Panel.ac('lo');
     } else if(action.cmd === 'gas') {// amenity
       Panel.mapGas();
+    } else if(action.cmd === 'restaurant_locations') {
+      Panel.mapGas();
     } else if(action.cmd === 'restaurant') {
       Panel.mapFoodCuisine();
     } else if(action.cmd === 'restroom') {
