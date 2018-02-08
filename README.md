@@ -25,26 +25,26 @@ These intents help the system to understand variations of questions and commands
 For example, if you say *"Wipers on"* or *"I want to turn on the windshield wipers"*, the system
 understands that in both cases your intent is the same and responds accordingly.
 
-# <a name="bluemix"></a> Getting Started using Bluemix
+# <a name="bluemix"></a> Getting Started using IBM Cloud
 
 ![](readme_images/deploy-on-bluemix-simple-app.png)
 
 ## Before you begin
-1 Ensure that you have a [Bluemix account](https://console.ng.bluemix.net/registration/).
+1 Ensure that you have an [IBM Cloud account](https://console.ng.bluemix.net/registration/).
 
-2 Ensure that you have the necessary space available in your Bluemix account. This action deploys 1 application and 3 services.
-   * You can view this on your Bluemix Dashboard. Tiles will show what space you have available.
+2 Ensure that you have the necessary space available in your IBM Cloud account. This action deploys 1 application and 3 services.
+   * You can view this on your IBM Cloud Dashboard. Tiles will show what space you have available.
    * For example, for Services & APIS
    
    
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services.PNG)
 
 ## Deploy the App
-1 Click this button to Deploy to Bluemix.
+1 Click this button to Deploy to IBM Cloud.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/car-dashboard)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/car-dashboard)
 
-2 Log in with an existing Bluemix account or sign up.
+2 Log in with an existing IBM Cloud account or sign up.
 
 3 Select your Organization, Toolchain Name, Region, and Space, then click the`Deploy`buton.
 
@@ -59,7 +59,7 @@ understands that in both cases your intent is the same and responds accordingly.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/toolchain-ready.png)
 
-5 Once your app has been built and deployed, navagate to your Bluemix Dashboard and [import a workspace](#workspace).
+5 Once your app has been built and deployed, navagate to your IBM Cloud Dashboard and [import a workspace](#workspace).
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/deploy-finished.png)
 
@@ -73,7 +73,7 @@ To build the application:
 
 3 Navigate to the `car-dashboard` folder
 
-4 Connect to Bluemix in the command-line tool:
+4 Connect to IBM Cloud in the command-line tool:
 
  For US Region
 
@@ -89,7 +89,7 @@ To build the application:
 
  ```
 
-5 Create the Conversation service in Bluemix:
+5 Create the Conversation service in IBM Cloud:
 
  ```sh
 
@@ -110,9 +110,9 @@ To build the application:
 
 ## Before you begin
 
-1 Ensure that you have a [Bluemix account](https://console.ng.bluemix.net/registration/). While you can do part of this deployment locally, you must still use Bluemix.
+1 Ensure that you have an [IBM Cloud account](https://console.ng.bluemix.net/registration/). While you can do part of this deployment locally, you must still use Bluemix.
 
-2 In Bluemix, [create a Conversation Service](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted).
+2 In IBM Cloud, [create a Conversation Service](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted).
 - Copy the Service Credentials for later use.
 - [Import a workspace](#workspace)
 
@@ -123,10 +123,10 @@ To build the application:
 
   The application uses [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/).
 
-1 Copy the credentials from your `conversation-service` service in Bluemix to a `.env` file in the root.
+1 Copy the credentials from your `conversation-service` service in IBM Cloud to a `.env` file in the root.
 - Look at `.env.example` as an example to create your `.env` file.
 
-2 **OPTIONAL**: If you want to use Text To Speech and/or Speech To Text in your locally runnning app, copy the credentials from your `text-to-speech` service and/or `speech-to-text` service in Bluemix to a `.env` file in the root.
+2 **OPTIONAL**: If you want to use Text To Speech and/or Speech To Text in your locally runnning app, copy the credentials from your `text-to-speech` service and/or `speech-to-text` service in IBM Cloud to a `.env` file in the root.
 - Look at `.env.example` as an example to add to your `.env` file.
 
 3 Use the Conversation tooling app to create a workspace, as described above, and add the workspace ID environment variable to the `.env` file. For details about obtaining the workspace ID, see Step 6 - 7 in the next section.
@@ -156,17 +156,17 @@ npm start
 
 8 Open `http://localhost:3000` in a browser.
 
-_Note: If you are interested in deploying you local application or the changes you have made locally to Bluemix, go to [this section](#usingCloudfoundry)_
+_Note: If you are interested in deploying you local application or the changes you have made locally to IBM Cloud, go to [this section](#usingCloudfoundry)_
 
 # <a name="workspace"></a> Import a workspace
 
-1 You need to import the app's workspace. To do that, go to the Bluemix Dashboard and select the Conversation service instance. Once there, select the **Service Credentials** menu item.
+1 You need to import the app's workspace. To do that, go to the IBM Cloud Dashboard and select the Conversation service instance. Once there, select the **Service Credentials** menu item.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/credentials.png)
 
 2 Select **ADD CREDENTIALS**. Name your credentials then select **ADD**.
 
-3 Return to the **Manage** menu item and select **Launch Tooling**. This opens a new tab in your browser, where you are prompted to login if you have not done so before. Use your Bluemix credentials.
+3 Return to the **Manage** menu item and select **Launch Tooling**. This opens a new tab in your browser, where you are prompted to login if you have not done so before. Use your IBM Cloud credentials.
 
 4 Download the [exported JSON file](https://raw.githubusercontent.com/watson-developer-cloud/conversation-simple/master/training/car_workspace.json) that contains the Workspace contents.
 
@@ -183,13 +183,13 @@ In the Details UI, copy the 36 character UNID **ID** field. This is the **Worksp
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/workspaceid.PNG)
 
 
-7 Return to your application, either in your local dev environment, or in Bluemix. If running on Bluemix, you need to [add environment variables](#env).
+7 Return to your application, either in your local dev environment, or in IBM Cloud. If running on IBM Cloud, you need to [add environment variables](#env).
 
 For more information on workspaces, see the full  [Conversation service documentation](https://console.bluemix.net/docs/services/conversation/configure-workspace.html#configuring-a-conversation-workspace).
 
-# <a name="env"></a> Adding environment variables in Bluemix
+# <a name="env"></a> Adding environment variables in IBM Cloud
 
-1 In Bluemix, open the application from the Dashboard. Select **RUNTIME** on the left side menu.
+1 In IBM Cloud, open the application from the Dashboard. Select **RUNTIME** on the left side menu.
 
 2 Select **ENVIRONMENT VARIABLES** and scroll down to **USER-DEFINED**.
 
@@ -202,10 +202,10 @@ For more information on workspaces, see the full  [Conversation service document
 5 Restart your application.
 
 
-# Troubleshooting in Bluemix
+# Troubleshooting in IBM Cloud
 
 #### In the Classic Experience:
-- Log in to Bluemix, you'll be taken to the dashboard.
+- Log in to IBM Cloud, you'll be taken to the dashboard.
 - Navigate to the the application you previously created.
 - Select **Logs**.
 
@@ -215,8 +215,8 @@ For more information on workspaces, see the full  [Conversation service document
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/filter.PNG)
 
-#### In the new Bluemix:
-- Log in to Bluemix, you'll be taken to the dashboard.
+#### In the new IBM Cloud:
+- Log in to IBM Cloud, you'll be taken to the dashboard.
 - Select **Compute**
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/compute.PNG)
