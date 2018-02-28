@@ -18,15 +18,15 @@
 const watson = require('watson-developer-cloud');
 
 const authorizationService = new watson.AuthorizationV1({
-  username: process.env.SPEECH_TO_TEXT_USERNAME,
-  password: process.env.SPEECH_TO_TEXT_PASSWORD,
+  username: process.env.SPEECH_TO_TEXT_USERNAME || '<username>',
+  password: process.env.SPEECH_TO_TEXT_PASSWORD || '<password>',
   url: watson.SpeechToTextV1.URL
 });
 
 
 
 // Inform user that TTS is not configured properly or at all
-if (!process.env.SPEECH_TO_TEXT_USERNAME || !process.env.SPEECH_TO_TEXT_PASSWORD) {
+if (!(process.env.SPEECH_TO_TEXT_USERNAME || process.env.SPEECH_TO_TEXT_PASSWORD)) {
   // eslint-disable-next-line
   console.warn('WARNING: The app has not been configured with a SPEECH_TO_TEXT_USERNAME and/or ' +
     'a SPEECH_TO_TEXT_PASSWORD environment variable. If you wish to have text to speech ' +
@@ -38,8 +38,10 @@ if (!process.env.SPEECH_TO_TEXT_USERNAME || !process.env.SPEECH_TO_TEXT_PASSWORD
 module.exports = function initSpeechToText(app) {
   app.get('/api/speech-to-text/token', (req, res, next) =>
     authorizationService.getToken(function (err, token) {
-      if (!token) {
+      if (err) {
         console.log('error:', err);
+        console.log('Please refer to the https://github.com/watson-developer-cloud/car-dashboard\n' +
+          'README documentation on how to set username and password variables.');
       } else {
         res.send(token);
       }

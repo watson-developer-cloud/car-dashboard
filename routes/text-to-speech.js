@@ -27,7 +27,7 @@ const authorizationService = new watson.AuthorizationV1({
 
 
 // Inform user that TTS is not configured properly or at all
-if (!process.env.TEXT_TO_SPEECH_USERNAME || !process.env.TEXT_TO_SPEECH_PASSWORD) {
+if (!(process.env.TEXT_TO_SPEECH_USERNAME || process.env.TEXT_TO_SPEECH_PASSWORD)) {
   // eslint-disable-next-line
   console.warn('WARNING: The app has not been configured with a TEXT_TO_SPEECH_USERNAME and/or ' +
     'a TEXT_TO_SPEECH_PASSWORD environment variable. If you wish to have text to speech ' +
@@ -39,8 +39,10 @@ if (!process.env.TEXT_TO_SPEECH_USERNAME || !process.env.TEXT_TO_SPEECH_PASSWORD
 module.exports = function initTextToSpeech(app) {
   app.get('/api/text-to-speech/token', (req, res, next) =>
     authorizationService.getToken(function (err, token) {
-      if (!token) {
+      if (err) {
         console.log('error:', err);
+        console.log('Please refer to the https://github.com/watson-developer-cloud/car-dashboard\n' +
+          'README documentation on how to set username and password variables.');
       } else {
         res.send(token);
       }
