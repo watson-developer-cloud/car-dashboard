@@ -37,6 +37,7 @@ var STTModule = (function() {
     // Check if browser supports speech
     if (!(navigator.getUserMedia || navigator.webkitGetUserMedia ||
               navigator.mozGetUserMedia || navigator.msGetUserMedia)) {
+
       Common.hide(mic);
     }
   }
@@ -69,11 +70,17 @@ var STTModule = (function() {
       .then(function(token) {                 // Pass token to Watson Speech-To-Text service
         stream = WatsonSpeech.SpeechToText.recognizeMicrophone({
           token: token,                       // Authorization token to use this service, configured from /speech/stt-token.js file
-          continuous: false,                  // False = automatically stop transcription the first time a pause is detected
+          extractResults: true,               // True = automatically pipe results through a ResultStream stream
           outputElement: '#user-input',       // CSS selector or DOM Element
           inactivity_timeout: 5,              // Number of seconds to wait before closing input stream
           format: false,                      // Inhibits errors
           keepMicrophone: true                // Avoids repeated permissions prompts in FireFox
+        });
+
+        stream.on('data', function(data) {
+          if(data.final === true) {
+            stream.stop();
+          }
         });
 
         stream.promise()                                // Once all data has been processed...

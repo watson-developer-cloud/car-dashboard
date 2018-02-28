@@ -66,6 +66,7 @@ var TTSModule = (function() {
   function playCurrentAudio(payload) {
     fetch('/api/text-to-speech/token') // Retrieve TTS token
       .then(function(response) {
+
         return response.text();
       }).then(function(token) {
         if (button.value === 'ON') {

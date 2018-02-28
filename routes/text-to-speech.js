@@ -16,20 +16,18 @@
 
 
 const watson = require('watson-developer-cloud');
-const vcapServices = require('vcap_services');
 
-const credentials = Object.assign({
+const authorizationService = new watson.AuthorizationV1({
   username: process.env.TEXT_TO_SPEECH_USERNAME || '<username>',
-  password: process.env.TEXT_TO_SPEECH_PASSWORD || '<username>',
-  url: process.env.TEXT_TO_SPEECH_URL || 'https://stream.watsonplatform.net/text-to-speech/api',
-  version: 'v1'
-}, vcapServices.getCredentials('text_to_speech'));
+  password: process.env.TEXT_TO_SPEECH_PASSWORD || '<password>',
+  url: watson.TextToSpeechV1.URL
+});
 
-const authorizationService = watson.authorization(credentials);
+//const authorizationService = watson.authorization(credentials);
 
 
 // Inform user that TTS is not configured properly or at all
-if (!credentials || !credentials.username || credentials.username === '<username>') {
+if (!process.env.TEXT_TO_SPEECH_USERNAME || !process.env.TEXT_TO_SPEECH_PASSWORD) {
   // eslint-disable-next-line
   console.warn('WARNING: The app has not been configured with a TEXT_TO_SPEECH_USERNAME and/or ' +
     'a TEXT_TO_SPEECH_PASSWORD environment variable. If you wish to have text to speech ' +
@@ -38,12 +36,11 @@ if (!credentials || !credentials.username || credentials.username === '<username
 }
 
 
-module.exports = function initSpeechToText(app) {
+module.exports = function initTextToSpeech(app) {
   app.get('/api/text-to-speech/token', (req, res, next) =>
-    authorizationService.getToken({ url: credentials.url }, (error, token) => {
-      if (error) {
-        if (error.code !== 401)
-          return next(error);
+    authorizationService.getToken(function (err, token) {
+      if (!token) {
+        console.log('error:', err);
       } else {
         res.send(token);
       }

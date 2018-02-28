@@ -17,13 +17,12 @@
 const watson = require('watson-developer-cloud'); // watson sdk
 
 // Create the service wrapper
-const conversation = watson.conversation({
+const conversation = new watson.ConversationV1({
   // If unspecified here, the CONVERSATION_USERNAME and CONVERSATION_PASSWORD env properties will be checked
   // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
-  // username: '<username>',
-  // password: '<password>',
-  version_date: '2016-10-21',
-  version: 'v1'
+  username: process.env.CONVERSATION_USERNAME || '<username>',
+  password: process.env.CONVERSATION_PASSWORD || '<password>',
+  version_date: '2018-02-16'
 });
 
 /**
