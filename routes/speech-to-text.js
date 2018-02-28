@@ -25,7 +25,7 @@ const authorizationService = new watson.AuthorizationV1({
 
 
 // Inform user that TTS is not configured properly or at all
-if (!(process.env.SPEECH_TO_TEXT_USERNAME || process.env.SPEECH_TO_TEXT_PASSWORD)) {
+if (!(process.env.SPEECH_TO_TEXT_USERNAME && process.env.SPEECH_TO_TEXT_PASSWORD)) {
   // eslint-disable-next-line
   console.warn('WARNING: The app has not been configured with a SPEECH_TO_TEXT_USERNAME and/or ' +
     'a SPEECH_TO_TEXT_PASSWORD environment variable. If you wish to have text to speech ' +
