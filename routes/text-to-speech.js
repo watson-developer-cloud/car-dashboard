@@ -37,7 +37,7 @@ if (!(process.env.TEXT_TO_SPEECH_USERNAME || process.env.TEXT_TO_SPEECH_PASSWORD
 
 
 module.exports = function initTextToSpeech(app) {
-  app.get('/api/text-to-speech/token', (req, res, next) =>
+  app.get('/api/text-to-speech/token', (req, res) =>
     authorizationService.getToken(function (err, token) {
       if (err) {
         console.log('error:', err);

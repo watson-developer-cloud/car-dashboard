@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-
 const watson = require('watson-developer-cloud');
 
 const authorizationService = new watson.AuthorizationV1({
@@ -36,7 +35,7 @@ if (!(process.env.SPEECH_TO_TEXT_USERNAME || process.env.SPEECH_TO_TEXT_PASSWORD
 
 
 module.exports = function initSpeechToText(app) {
-  app.get('/api/speech-to-text/token', (req, res, next) =>
+  app.get('/api/speech-to-text/token', (req, res) =>
     authorizationService.getToken(function (err, token) {
       if (err) {
         console.log('error:', err);
