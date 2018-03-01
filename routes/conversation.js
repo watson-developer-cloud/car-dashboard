@@ -22,6 +22,7 @@ const conversation = new watson.ConversationV1({
   // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
   username: process.env.CONVERSATION_USERNAME || '<username>',
   password: process.env.CONVERSATION_PASSWORD || '<password>',
+  url: 'https://gateway.watsonplatform.net/conversation/api/',
   version_date: '2018-02-16'
 });
 
