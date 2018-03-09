@@ -21,9 +21,9 @@ const path = require('path');
 // load default variables for testing
 require('dotenv').config({ silent: true, path: path.join(__dirname, '../.env') });
 
-if (!process.env.CONVERSATION_USERNAME) {
+if (!process.env.WATSON_ASSISTANT_USERNAME) {
   // eslint-disable-next-line
-  console.log('Skipping integration tests because CONVERSATION_USERNAME is null');
+  console.log('Skipping integration tests because WATSON_ASSISTANT_USERNAME is null');
   return;
 }
 
@@ -63,7 +63,7 @@ describe('Basic API tests', function () {
   });
 
   it('Should respond to messages using Conversation', function () {
-    if (process.env.CONVERSATION_USERNAME && process.env.WORKSPACE_ID) {
+    if (process.env.WATSON_ASSISTANT_USERNAME && process.env.WORKSPACE_ID) {
       return request(app)
       .post('/api/message')
       .expect(200)
