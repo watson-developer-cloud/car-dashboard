@@ -1,6 +1,6 @@
 ---
 declared-services:
-  my-conversation-service:
+  my-watson-assistant-service:
     label: conversation
     plan: free
   speech-to-text-service:
