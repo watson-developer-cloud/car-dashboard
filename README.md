@@ -3,9 +3,9 @@
 [![codecov.io](https://codecov.io/github/watson-developer-cloud/conversation-simple/coverage.svg?branch=master)](https://codecov.io/github/watson-developer-cloud/car-dashboard?branch=master)
 
 
-This application demonstrates how the Conversation service uses intent capabilities in an animated car dashboard UI.
+This application demonstrates how the Watson Assistant service uses intent capabilities in an animated car dashboard UI.
 
-For more information about Conversation, see the [detailed documentation](https://console.bluemix.net/docs/services/conversation/index.html#about).
+For more information about Watson Assistant, see the [detailed documentation](https://console.bluemix.net/docs/services/conversation/index.html#about).
 
 [See the demo](http://conversation-demo.mybluemix.net/).
 
@@ -52,7 +52,7 @@ understands that in both cases your intent is the same and responds accordingly.
 
 * This performs multiple actions:
   - Creates the app
-  - Creates a Conversation service instance that the user needs for workspace creation
+  - Creates a Watson Assistant service instance that the user needs for workspace creation
   - Creates instances for a Speech To Text service and Text To Speech service
 
 * Your`car-dashboard`app is ready now, click`Delevery Pipeline`to deploy your app.
@@ -89,7 +89,7 @@ To build the application:
 
  ```
 
-5 Create the Conversation service in IBM Cloud:
+5 Create the Watson Assistant service in IBM Cloud:
 
  ```sh
 
@@ -112,7 +112,7 @@ To build the application:
 
 1 Ensure that you have an [IBM Cloud account](https://console.ng.bluemix.net/registration/). While you can do part of this deployment locally, you must still use Bluemix.
 
-2 In IBM Cloud, [create a Conversation Service](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted).
+2 In IBM Cloud, [create a Watson Assistant Service](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted).
 - Copy the Service Credentials for later use.
 - [Import a workspace](#workspace)
 
@@ -129,7 +129,7 @@ To build the application:
 2 **OPTIONAL**: If you want to use Text To Speech and/or Speech To Text in your locally runnning app, copy the credentials from your `text-to-speech` service and/or `speech-to-text` service in IBM Cloud to a `.env` file in the root.
 - Look at `.env.example` as an example to add to your `.env` file.
 
-3 Use the Conversation tooling app to create a workspace, as described above, and add the workspace ID environment variable to the `.env` file. For details about obtaining the workspace ID, see Step 6 - 7 in the next section.
+3 Use the Watson Assistant tooling app to create a workspace, as described above, and add the workspace ID environment variable to the `.env` file. For details about obtaining the workspace ID, see Step 6 - 7 in the next section.
 
 4 Install [Node.js](http://nodejs.org/).
 
@@ -160,7 +160,7 @@ _Note: If you are interested in deploying you local application or the changes y
 
 # <a name="workspace"></a> Import a workspace
 
-1 You need to import the app's workspace. To do that, go to the IBM Cloud Dashboard and select the Conversation service instance. Once there, select the **Service Credentials** menu item.
+1 You need to import the app's workspace. To do that, go to the IBM Cloud Dashboard and select the Watson Assistant service instance. Once there, select the **Service Credentials** menu item.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/credentials.png)
 
@@ -185,7 +185,7 @@ In the Details UI, copy the 36 character UNID **ID** field. This is the **Worksp
 
 7 Return to your application, either in your local dev environment, or in IBM Cloud. If running on IBM Cloud, you need to [add environment variables](#env).
 
-For more information on workspaces, see the full  [Conversation service documentation](https://console.bluemix.net/docs/services/conversation/configure-workspace.html#configuring-a-conversation-workspace).
+For more information on workspaces, see the full  [Watson Assistant service documentation](https://console.bluemix.net/docs/services/conversation/configure-workspace.html#configuring-a-conversation-workspace).
 
 # <a name="env"></a> Adding environment variables in IBM Cloud
 

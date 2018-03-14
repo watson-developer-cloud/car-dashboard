@@ -18,10 +18,10 @@ const watson = require('watson-developer-cloud'); // watson sdk
 
 // Create the service wrapper
 const conversation = new watson.ConversationV1({
-  // If unspecified here, the WATSON_ASSISTANT_USERNAME and WATSON_ASSISTANT_PASSWORD env properties will be checked
+  // If unspecified here, the ASSISTANT_USERNAME and ASSISTANT_PASSWORD env properties will be checked
   // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
-  username: process.env.WATSON_ASSISTANT_USERNAME || '<username>',
-  password: process.env.WATSON_ASSISTANT_PASSWORD || '<password>',
+  username: process.env.ASSISTANT_USERNAME || '<username>',
+  password: process.env.ASSISTANT_PASSWORD || '<password>',
   url: 'https://gateway.watsonplatform.net/conversation/api/',
   version_date: '2018-02-16'
 });
