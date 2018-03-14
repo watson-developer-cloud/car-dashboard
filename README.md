@@ -89,7 +89,7 @@ To build the application:
 
  ```
 
-5 Create the Watson Assistant service in IBM Cloud:
+5 Create the Watson Assistant service in IBM Cloud (our CLI is being updated, for now, use the `create-service` conversation command):
 
  ```sh
 
