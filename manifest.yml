@@ -1,6 +1,6 @@
 ---
 declared-services:
-  my-conversation-service:
+  my-watson-assistant-service:
     label: conversation
     plan: free
   speech-to-text-service:
@@ -15,6 +15,6 @@ applications:
   path: .
   memory: 512M
   services:
-  - my-conversation-service
+  - my-watson-assistant-service
   - speech-to-text-service
   - text-to-speech-service

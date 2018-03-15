@@ -1,5 +1,5 @@
 {
-  "name": "conversation-car-dashboard",
+  "name": "watson-assistant-car-dashboard",
   "version": "0.1.0",
   "main": "server.js",
   "scripts": {
