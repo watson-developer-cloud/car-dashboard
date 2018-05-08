@@ -45,6 +45,10 @@ body {
     z-index: 60;
 }
 
+.disclaimer-message .base-h6 {
+    padding: 5px;
+}
+
 .between-overlays {
     z-index: 50 !important;
 }
