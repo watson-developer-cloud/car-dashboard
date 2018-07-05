@@ -30,9 +30,9 @@ understands that in both cases your intent is the same and responds accordingly.
 ![](readme_images/deploy-on-bluemix-simple-app.png)
 
 ## Before you begin
-1 Ensure that you have an [IBM Cloud account](https://console.ng.bluemix.net/registration/).
+1. Ensure that you have an [IBM Cloud account](https://console.ng.bluemix.net/registration/).
 
-2 Ensure that you have the necessary space available in your IBM Cloud account. This action deploys 1 application and 3 services.
+1. Ensure that you have the necessary space available in your IBM Cloud account. This action deploys 1 application and 3 services.
    * You can view this on your IBM Cloud Dashboard. Tiles will show what space you have available.
    * For example, for Services & APIS
    
@@ -40,26 +40,26 @@ understands that in both cases your intent is the same and responds accordingly.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services.PNG)
 
 ## Deploy the App
-1 Click this button to Deploy to IBM Cloud.
+1. Click this button to Deploy to IBM Cloud.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/car-dashboard)
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/car-dashboard)
 
-2 Log in with an existing IBM Cloud account or sign up.
+1. Log in with an existing IBM Cloud account or sign up.
 
-3 Select your Organization, Toolchain Name, Region, and Space, then click the`Deploy`buton.
+1. Select your Organization, Toolchain Name, Region, and Space, then click the `Deploy` buton.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/deploy.PNG)
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/deploy.PNG)
 
-* This performs multiple actions:
-  - Creates the app
-  - Creates a Watson Assistant service instance that the user needs for workspace creation
-  - Creates instances for a Speech To Text service and Text To Speech service
+    * This performs multiple actions:
+    - Creates the app
+    - Creates a Watson Assistant service instance that the user needs for workspace creation
+    - Creates instances for a Speech To Text service and Text To Speech service
 
-* Your`car-dashboard`app is ready now, click`Delevery Pipeline`to deploy your app.
+    * Your `car-dashboard` app is ready now, click `Delevery Pipeline` to deploy your app.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/toolchain-ready.png)
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/toolchain-ready.png)
 
-5 Once your app has been built and deployed, navagate to your IBM Cloud Dashboard and [import a workspace](#workspace).
+1. Once your app has been built and deployed, navagate to your IBM Cloud Dashboard and [import a workspace](#workspace).
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/deploy-finished.png)
 
@@ -67,139 +67,129 @@ understands that in both cases your intent is the same and responds accordingly.
 
 To build the application:
 
-1 Download and install the [Cloudfoundry CLI](https://github.com/cloudfoundry/cli) tool.
+1. Download and install the [Cloudfoundry CLI](https://github.com/cloudfoundry/cli) tool.
 
-2 Git clone the project `https://github.com/watson-developer-cloud/car-dashboard`
+1. Git clone the project `https://github.com/watson-developer-cloud/car-dashboard`
 
-3 Navigate to the `car-dashboard` folder
+1. Navigate to the `car-dashboard` folder
 
-4 Connect to IBM Cloud in the command-line tool:
+1. Connect to IBM Cloud in the command-line tool:
 
- For US Region
+    For US Region
 
- ```sh
+    ```sh
 
- $ cf api https://api.ng.bluemix.net
+    $ cf api https://api.ng.bluemix.net
 
- ```
+     ```
 
- ```sh
+    ```sh
 
- $ cf login -u <your user ID>
+    $ cf login -u <your user ID>
 
- ```
+    ```
 
-5 Create the Watson Assistant service in IBM Cloud (our CLI is being updated, for now, use the `create-service` conversation command):
+1. Create the Watson Assistant service in IBM Cloud (our CLI is being updated, for now, use the `create-service` conversation command):
 
- ```sh
+    ```sh
 
- $ cf create-service conversation free watson-assistant-service
+    $ cf create-service conversation free watson-assistant-service
 
- ```
+    ```
 
-6 Push it live:
+1. Push it live:
 
- ```sh
+    ```sh
 
- $ cf push <application-name>
+    $ cf push <application-name>
 
- ```
+    ```
  The name you use determinates your application URL initially, such as `<application-name>.mybluemix.net`.
 
 # <a name="local"></a> Getting Started locally
 
 ## Before you begin
 
-1 Ensure that you have an [IBM Cloud account](https://console.ng.bluemix.net/registration/). While you can do part of this deployment locally, you must still use Bluemix.
+1. Ensure that you have an [IBM Cloud account](https://console.ng.bluemix.net/registration/). While you can do part of this deployment locally, you must still use Bluemix.
 
-2 In IBM Cloud, [create a Watson Assistant Service](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted).
-- Copy the Service Credentials for later use.
-- [Import a workspace](#workspace)
-
-3 **OPTIONAL**: If you want to use **Text To Speech** and/or **Speech To Text** in your locally runnning app, create a `text-to-speech` service and/or a `speech-to-text` service like you did in step 2.
-- Copy the Service Credentials for later use.
+1. In IBM Cloud, [create a Watson Assistant Service](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted).
+   - Copy the Service Credentials for later use.
+   - [Import a workspace](#workspace)
+1. **OPTIONAL**: If you want to use **Text To Speech** and/or **Speech To Text** in your locally runnning app, create a `text-to-speech` service and/or a `speech-to-text` service like you did in step 2.
+   * Copy the Service Credentials for later use.
 
 ## Running locally
 
   The application uses [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/).
 
-1 Copy the credentials from your `watson-assistant-service` service in IBM Cloud to a `.env` file in the root.
-- Look at `.env.example` as an example to create your `.env` file.
+1. Copy the credentials from your `watson-assistant-service` service in IBM Cloud to a `.env` file in the root.
+    - Look at `.env.example` as an example to create your `.env` file.
 
-2 **OPTIONAL**: If you want to use Text To Speech and/or Speech To Text in your locally runnning app, copy the credentials from your `text-to-speech` service and/or `speech-to-text` service in IBM Cloud to a `.env` file in the root.
-- Look at `.env.example` as an example to add to your `.env` file.
+1. **OPTIONAL**: If you want to use Text To Speech and/or Speech To Text in your locally runnning app, copy the credentials from your `text-to-speech` service and/or `speech-to-text` service in IBM Cloud to a `.env` file in the root.
+    * Look at `.env.example` as an example to add to your `.env` file.
 
-3 Use the Watson Assistant tooling app to create a workspace, as described above, and add the workspace ID environment variable to the `.env` file. For details about obtaining the workspace ID, see Step 6 - 7 in the next section.
+1. Use the Watson Assistant tooling app to create a workspace, as described above, and add the workspace ID environment variable to the `.env` file. For details about obtaining the workspace ID, see Step 6 - 7 in the next section.
 
-4 Install [Node.js](http://nodejs.org/).
+1. Install [Node.js](http://nodejs.org/).
 
-5 Open the terminal, go to the project folder, and run this command:
-```sh
-
-npm install
-
-```
-
-6  Build the UI by running this command:
-```sh
-
-npm run build
-
-```
-
-7  Start the application by running this command:
-```sh
-
-npm start
-
-```
-
-8 Open `http://localhost:3000` in a browser.
+1. Open the terminal, go to the project folder, and run this command:
+    ```sh
+    npm install
+    ```
+1.  Build the UI by running this command:
+    ```sh
+    npm run build
+    ```
+1.  Start the application by running this command:
+    ```sh
+    npm start
+    ```
+1. Open `http://localhost:3000` in a browser.
 
 _Note: If you are interested in deploying you local application or the changes you have made locally to IBM Cloud, go to [this section](#usingCloudfoundry)_
 
 # <a name="workspace"></a> Import a workspace
 
-1 You need to import the app's workspace. To do that, go to the IBM Cloud Dashboard and select the Watson Assistant service instance. Once there, select the **Service Credentials** menu item.
+1. You need to import the app's workspace. To do that, go to the IBM Cloud Dashboard and select the Watson Assistant service instance. Once there, select the **Service Credentials** menu item.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/credentials.png)
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/credentials.png)
 
-2 Select **ADD CREDENTIALS**. Name your credentials then select **ADD**.
+1. Select **ADD CREDENTIALS**. Name your credentials then select **ADD**.
 
-3 Return to the **Manage** menu item and select **Launch Tooling**. This opens a new tab in your browser, where you are prompted to login if you have not done so before. Use your IBM Cloud credentials.
+1. Return to the **Manage** menu item and select **Launch Tooling**. This opens a new tab in your browser, where you are prompted to login if you have not done so before. Use your IBM Cloud credentials.
 
-4 Download the [exported JSON file](https://raw.githubusercontent.com/watson-developer-cloud/conversation-simple/master/training/car_workspace.json) that contains the Workspace contents.
+1. Download the [exported JSON file](https://raw.githubusercontent.com/watson-developer-cloud/conversation-simple/master/training/car_workspace.json) that contains the Workspace contents.
 
-5 Select **Import**. Browse to (or drag and drop) the JSON file that you downloaded in Step 4. Choose to import **Everything(Intents, Entities, and Dialog)**. Then select **Import** to finish importing the workspace.
+1. Select **Import**. Browse to (or drag and drop) the JSON file that you downloaded in Step 4. Choose to import **Everything(Intents, Entities, and Dialog)**. Then select **Import** to finish importing the workspace.
 
-6 Refresh your browser. A new workspace tile is created within the tooling. Select the _menu_ button within the workspace tile, then select **View details**:
+1. Refresh your browser. A new workspace tile is created within the tooling. Select the _menu_ button within the workspace tile, then select **View details**:
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Workpsace Details](readme_images/details.PNG)
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Workpsace Details](readme_images/details.PNG)
 
-<a name="workspaceID">
-In the Details UI, copy the 36 character UNID **ID** field. This is the **Workspace ID**.
-</a>
+    <a name="workspaceID">
+    In the Details UI, copy the 36 character UNID **ID** field. This is the **Workspace ID**.
+    </a>
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/workspaceid.PNG)
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/workspaceid.PNG)
 
 
-7 Return to your application, either in your local dev environment, or in IBM Cloud. If running on IBM Cloud, you need to [add environment variables](#env).
+1. Return to your application, either in your local dev environment, or in IBM Cloud. If running on IBM Cloud, you need to [add environment variables](#env).
 
 For more information on workspaces, see the full  [Watson Assistant service documentation](https://console.bluemix.net/docs/services/conversation/configure-workspace.html#configuring-a-conversation-workspace).
 
 # <a name="env"></a> Adding environment variables in IBM Cloud
 
-1 In IBM Cloud, open the application from the Dashboard. Select **RUNTIME** on the left side menu.
+1. In IBM Cloud, open the application from the Dashboard. Select **RUNTIME** on the left side menu.
 
-2 Select **ENVIRONMENT VARIABLES** and scroll down to **USER-DEFINED**.
+1. Select **ENVIRONMENT VARIABLES** and scroll down to **USER-DEFINED**.
 
-3 Select **ADD**.
+1. Select **ADD**.
 
-4 Add a variable with the name **WORKSPACE_ID**. For the value, paste in the Workspace ID you [copied earlier](#workspaceID). Select **SAVE**.
+1. Add a variable with the name **WORKSPACE_ID**. For the value, paste in the Workspace ID you [copied earlier](#workspaceID). Select **SAVE**.
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/env.png)
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/env.png)
 
-5 Restart your application.
+1. Restart your application.
 
 
 # Troubleshooting in IBM Cloud
