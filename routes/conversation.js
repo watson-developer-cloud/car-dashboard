@@ -14,18 +14,35 @@
  * limitations under the License.
  */
 
-const watson = require('watson-developer-cloud'); // watson sdk
+//const watson = require('watson-developer-cloud'); // watson sdk
+const AssistantV1 = require('watson-developer-cloud/assistant/v1'); // watson sdk
 
+var assistant;
+
+if (process.env.ASSISTANT_IAM_APIKEY !== undefined && process.env.ASSISTANT_IAM_APIKEY.length > 0) {
+  assistant = new AssistantV1({
+    'version': '2018-02-16',
+    'url': process.env.ASSISTANT_IAM_URL || '<url>',
+    'iam_apikey': process.env.ASSISTANT_IAM_APIKEY || '<iam_apikey>',
+    'iam_url': 'https://iam.bluemix.net/identity/token'
+  });
+} else {
+  assistant = new AssistantV1({
+    'version': '2018-02-16',
+    'username': process.env.ASSISTANT_USERNAME || '<username>',
+    'password': process.env.ASSISTANT_PASSWORD || '<password>'
+  });
+}
+
+/*
 // Create the service wrapper
-const conversation = new watson.ConversationV1({
-  // If unspecified here, the ASSISTANT_USERNAME and ASSISTANT_PASSWORD env properties will be checked
-  // After that, the SDK will fall back to the bluemix-provided VCAP_SERVICES environment property
+const assistant = new watson.ConversationV1({
   username: process.env.ASSISTANT_USERNAME || '<username>',
   password: process.env.ASSISTANT_PASSWORD || '<password>',
   url: 'https://gateway.watsonplatform.net/conversation/api/',
   version_date: '2018-02-16'
 });
-
+*/
 /**
  * Updates the response text using the intent confidence
  * @param  {Object} input The request to the Conversation service
@@ -82,7 +99,7 @@ module.exports = function(app) {
     };
 
     // Send the input to the conversation service
-    conversation.message(payload, (error, data) => {
+    assistant.message(payload, (error, data) => {
       if (error) {
         return next(error);
       }

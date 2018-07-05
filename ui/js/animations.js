@@ -422,10 +422,10 @@ var Animations = (function() {
 
     // Animate the needles around the center of the dials in a range
     // of 10-110 randomly
-    leftNeedle.animate({transform: 'r' + ((30 * Math.random()) - 30) + ','
-    + revmeter.getBBox().cx + ',' + revmeter.getBBox().cy}, 9000, mina.easeinout, function() {}, frameSkipRate);
-    rightNeedle.animate({transform: 'r' + ((45 * Math.random()) - 30) +  ', '
-    + speedometer.getBBox().cx + ',' + speedometer.getBBox().cy},
+    leftNeedle.animate({transform: 'r' + ((30 * Math.random()) - 30) + ',' +
+    revmeter.getBBox().cx + ',' + revmeter.getBBox().cy}, 9000, mina.easeinout, function() {}, frameSkipRate);
+    rightNeedle.animate({transform: 'r' + ((45 * Math.random()) - 30) +  ', ' +
+    speedometer.getBBox().cx + ',' + speedometer.getBBox().cy},
       9000 * Math.random(), mina.easeinout, function() {
         // Repeat the animation
         animateNeedles();
