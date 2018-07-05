@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-//const watson = require('watson-developer-cloud'); // watson sdk
 const AssistantV1 = require('watson-developer-cloud/assistant/v1'); // watson sdk
 
 var assistant;
@@ -34,15 +33,6 @@ if (process.env.ASSISTANT_IAM_APIKEY !== undefined && process.env.ASSISTANT_IAM_
   });
 }
 
-/*
-// Create the service wrapper
-const assistant = new watson.ConversationV1({
-  username: process.env.ASSISTANT_USERNAME || '<username>',
-  password: process.env.ASSISTANT_PASSWORD || '<password>',
-  url: 'https://gateway.watsonplatform.net/conversation/api/',
-  version_date: '2018-02-16'
-});
-*/
 /**
  * Updates the response text using the intent confidence
  * @param  {Object} input The request to the Conversation service
