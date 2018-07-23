@@ -126,7 +126,7 @@ Full license text is available in [LICENSE](LICENSE).
 
 ## Contributing
 
-See [CONTRIBUTING](CONTRIBUTING.md).
+See [CONTRIBUTING](CONTRIBUTING.MD).
 
 ## Open Source @ IBM
 
