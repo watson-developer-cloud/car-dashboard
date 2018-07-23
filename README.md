@@ -16,6 +16,8 @@
 
 For more information about Watson Assistant, see the [detailed documentation](https://console.bluemix.net/docs/services/conversation/index.html#about).
 
+![Demo](readme_images/demo.gif)
+
 [See the demo](http://conversation-demo.mybluemix.net/).
 
 [## Prerequisites
