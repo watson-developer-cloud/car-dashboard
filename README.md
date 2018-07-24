@@ -20,7 +20,7 @@ For more information about Watson Assistant, see the [detailed documentation](ht
 
 [See the demo](http://conversation-demo.mybluemix.net/).
 
-[## Prerequisites
+## Prerequisites
 
 1. Sign up for an [IBM Cloud account](https://console.bluemix.net/registration/).
 1. Download the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview).
