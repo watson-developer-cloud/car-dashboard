@@ -1,242 +1,145 @@
-# Watson Assistant (formerly Conversation) Car Dashboard Demo Application
-[![Build Status](https://travis-ci.org/watson-developer-cloud/car-dashboard.svg?branch=master)](http://travis-ci.org/watson-developer-cloud/car-dashboard)
-[![codecov.io](https://codecov.io/github/watson-developer-cloud/conversation-simple/coverage.svg?branch=master)](https://codecov.io/github/watson-developer-cloud/car-dashboard?branch=master)
+<h1 align="center" style="border-bottom: none;">Watson Assistant (formerly Conversation) Car Dashboard Demo Application</h1>
+
+<h3 align="center">This Node.js app demonstrates the Watson Assistant service in an interface simulating a cognitive car dashboard.</h3>
 
 
-This application demonstrates how the Watson Assistant service uses intent capabilities in an animated car dashboard UI.
+<p align="center">
+ <a href="http://travis-ci.org/watson-developer-cloud/car-dashboard">
+     <img alt="Travis" src="https://travis-ci.org/watson-developer-cloud/car-dashboard.svg?branch=master">
+   </a>
+   <a href="#badge">
+     <img alt="semantic-release" src="https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg">
+   </a>
+ </p>
+ </p>
+
 
 For more information about Watson Assistant, see the [detailed documentation](https://console.bluemix.net/docs/services/conversation/index.html#about).
 
+![Demo](readme_images/demo.gif)
+
 [See the demo](http://conversation-demo.mybluemix.net/).
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/bluemix.png" width="200"/>](#bluemix)     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/local.png" width="200"/>](#local)
+## Prerequisites
 
-## How the app works
-The app interface is designed and trained for chatting with a cognitive car. The interface allows the user to enter input either
-using text, in the edit field at the bottom of the UI or via speech via by pressing the mic button.
-Your questions and commands are run against a
-small set of sample data trained with intents like these:
+1. Sign up for an [IBM Cloud account](https://console.bluemix.net/registration/).
+1. Download the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview).
+1. Create an instance of the Watson Assistant service and get your credentials:
+    - Go to the [Watson Assistant](https://console.bluemix.net/catalog/services/conversation) page in the IBM Cloud Catalog.
+    - Log in to your IBM Cloud account.
+    - Click **Create**.
+    - Click **Show** to view the service credentials.
+    - Copy the `apikey` value, or copy the `username` and `password` values if your service instance doesn't provide an `apikey`.
+    - Copy the `url` value.
 
-* `turn_on`
-* `weather`
-* `capabilities`
+## Configuring the application
 
-These intents help the system to understand variations of questions and commands that you might submit.
-For example, if you say *"Wipers on"* or *"I want to turn on the windshield wipers"*, the system
-understands that in both cases your intent is the same and responds accordingly.
+1. In your IBM Cloud console, open the Watson Assistant service instance
 
-# <a name="bluemix"></a> Getting Started using IBM Cloud
+2. Click the **Import workspace** icon in the Watson Assistant service tool. Specify the location of the workspace JSON file in your local copy of the app project:
 
-![](readme_images/deploy-on-bluemix-simple-app.png)
+    `<project_root>/training/car_workspace.json`
 
-## Before you begin
-1. Ensure that you have an [IBM Cloud account](https://console.ng.bluemix.net/registration/).
+3. Select **Everything (Intents, Entities, and Dialog)** and then click **Import**. The car dashboard workspace is created.
 
-1. Ensure that you have the necessary space available in your IBM Cloud account. This action deploys 1 application and 3 services.
-   * You can view this on your IBM Cloud Dashboard. Tiles will show what space you have available.
-   * For example, for Services & APIS
-   
-   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/services.PNG)
+4. Click the menu icon in the upper-right corner of the workspace tile, and then select **View details**.
 
-## Deploy the App
-1. Click this button to Deploy to IBM Cloud.
+5. Click the ![Copy](readme_images/copy_icon.png) icon to copy the workspace ID to the clipboard.
 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [![Deploy to IBM Cloud](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/car-dashboard)
+    ![Steps to get credentials](readme_images/assistant-simple.gif)
 
-1. Log in with an existing IBM Cloud account or sign up.
-
-1. Select your Organization, Toolchain Name, Region, and Space, then click the `Deploy` buton.
-
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/deploy.PNG)
-
-    * This performs multiple actions:
-    - Creates the app
-    - Creates a Watson Assistant service instance that the user needs for workspace creation
-    - Creates instances for a Speech To Text service and Text To Speech service
-
-    * Your `car-dashboard` app is ready now, click `Delevery Pipeline` to deploy your app.
-
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/toolchain-ready.png)
-
-1. Once your app has been built and deployed, navagate to your IBM Cloud Dashboard and [import a workspace](#workspace).
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/deploy-finished.png)
-
-## <a name="usingCloudfoundry"></a> Using Cloudfoundry CLI tool to deploy your application
-
-To build the application:
-
-1. Download and install the [Cloudfoundry CLI](https://github.com/cloudfoundry/cli) tool.
-
-1. Git clone the project `https://github.com/watson-developer-cloud/car-dashboard`
-
-1. Navigate to the `car-dashboard` folder
-
-1. Connect to IBM Cloud in the command-line tool:
-
-    For US Region
-
-    ```sh
-
-    $ cf api https://api.ng.bluemix.net
-
-     ```
-
-    ```sh
-
-    $ cf login -u <your user ID>
+6. In the application folder, copy the *.env.example* file and create a file called *.env*
 
     ```
-
-1. Create the Watson Assistant service in IBM Cloud (our CLI is being updated, for now, use the `create-service` conversation command):
-
-    ```sh
-
-    $ cf create-service conversation free watson-assistant-service
-
+    cp .env.example .env
     ```
 
-1. Push it live:
+7. Open the *.env* file and add the service credentials that you obtained in the previous step. The Watson SDK automaticaly locates the correct enviromental variables for either `username`, `password`, and `url` or the `apikey` and `url` credentials found in the *.env* file.
 
-    ```sh
-
-    $ cf push <application-name>
+    Example *.env* file that configures the `apikey` and `url` for a Watson Assistant service instance hosted in the US East region:
 
     ```
- The name you use determinates your application URL initially, such as `<application-name>.mybluemix.net`.
+    ASSISTANT_IAM_APIKEY=X4rbi8vwZmKpXfowaS3GAsA7vdy17Qh7km5D6EzKLHL2
+    ASSISTANT_URL=https://gateway-wdc.watsonplatform.net/assistant/api
+    ```
 
-# <a name="local"></a> Getting Started locally
+    - If your service instance uses `username` and `password` credentials, add the `ASSISTANT_USERNAME` and `ASSISTANT_PASSWORD` variables to the *.env* file.
 
-## Before you begin
+    Example *.env* file that configures the `username`, `password`, and `url` for a Watson Assistant service instance hosted in the US South region:
 
-1. Ensure that you have an [IBM Cloud account](https://console.ng.bluemix.net/registration/). While you can do part of this deployment locally, you must still use Bluemix.
+    ```
+    ASSISTANT_USERNAME=522be-7b41-ab44-dec3-g1eab2ha73c6
+    ASSISTANT_PASSWORD=A4Z5BdGENrwu8
+    ASSISTANT_URL=https://gateway.watsonplatform.net/assistant/api
+    ```
 
-1. In IBM Cloud, [create a Watson Assistant Service](https://console.bluemix.net/docs/services/conversation/getting-started.html#gettingstarted).
-   - Copy the Service Credentials for later use.
-   - [Import a workspace](#workspace)
-1. **OPTIONAL**: If you want to use **Text To Speech** and/or **Speech To Text** in your locally runnning app, create a `text-to-speech` service and/or a `speech-to-text` service like you did in step 2.
-   * Copy the Service Credentials for later use.
+8. Add the `WORKSPACE_ID` to the previous properties
+
+    ```
+    WORKSPACE_ID=522be-7b41-ab44-dec3-g1eab2ha73c6
+    ```
 
 ## Running locally
 
-  The application uses [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/).
+1. Install the dependencies
 
-1. Copy the credentials from your `watson-assistant-service` service in IBM Cloud to a `.env` file in the root.
-    - Look at `.env.example` as an example to create your `.env` file.
-
-1. **OPTIONAL**: If you want to use Text To Speech and/or Speech To Text in your locally runnning app, copy the credentials from your `text-to-speech` service and/or `speech-to-text` service in IBM Cloud to a `.env` file in the root.
-    * Look at `.env.example` as an example to add to your `.env` file.
-
-1. Use the Watson Assistant tooling app to create a workspace, as described above, and add the workspace ID environment variable to the `.env` file. For details about obtaining the workspace ID, see Step 6 - 7 in the next section.
-
-1. Install [Node.js](http://nodejs.org/).
-
-1. Open the terminal, go to the project folder, and run this command:
-    ```sh
+    ```
     npm install
     ```
-1.  Build the UI by running this command:
-    ```sh
-    npm run build
+
+1. Run the application
+
     ```
-1.  Start the application by running this command:
-    ```sh
     npm start
     ```
-1. Open `http://localhost:3000` in a browser.
 
-_Note: If you are interested in deploying you local application or the changes you have made locally to IBM Cloud, go to [this section](#usingCloudfoundry)_
+1. View the application in a browser at `localhost:3000`
 
-# <a name="workspace"></a> Import a workspace
+## Deploying to IBM Cloud as a Cloud Foundry Application
 
-1. You need to import the app's workspace. To do that, go to the IBM Cloud Dashboard and select the Watson Assistant service instance. Once there, select the **Service Credentials** menu item.
+1. Login to IBM Cloud with the [IBM Cloud CLI](https://console.bluemix.net/docs/cli/index.html#overview)
 
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/credentials.png)
+    ```
+    ibmcloud login
+    ```
 
-1. Select **ADD CREDENTIALS**. Name your credentials then select **ADD**.
+1. Target a Cloud Foundry organization and space.
 
-1. Return to the **Manage** menu item and select **Launch Tooling**. This opens a new tab in your browser, where you are prompted to login if you have not done so before. Use your IBM Cloud credentials.
+    ```
+    ibmcloud target --cf
+    ```
 
-1. Download the [exported JSON file](https://raw.githubusercontent.com/watson-developer-cloud/conversation-simple/master/training/car_workspace.json) that contains the Workspace contents.
+1. Edit the *manifest.yml* file. Change the **name** field to something unique.  
+  For example, `- name: my-app-name`.
+1. Deploy the application
 
-1. Select **Import**. Browse to (or drag and drop) the JSON file that you downloaded in Step 4. Choose to import **Everything(Intents, Entities, and Dialog)**. Then select **Import** to finish importing the workspace.
+    ```
+    ibmcloud app push
+    ```
 
-1. Refresh your browser. A new workspace tile is created within the tooling. Select the _menu_ button within the workspace tile, then select **View details**:
-
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![Workpsace Details](readme_images/details.PNG)
-
-    <a name="workspaceID">
-    In the Details UI, copy the 36 character UNID **ID** field. This is the **Workspace ID**.
-    </a>
-
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ![](readme_images/workspaceid.PNG)
-
-
-1. Return to your application, either in your local dev environment, or in IBM Cloud. If running on IBM Cloud, you need to [add environment variables](#env).
-
-For more information on workspaces, see the full  [Watson Assistant service documentation](https://console.bluemix.net/docs/services/conversation/configure-workspace.html#configuring-a-conversation-workspace).
-
-# <a name="env"></a> Adding environment variables in IBM Cloud
-
-1. In IBM Cloud, open the application from the Dashboard. Select **RUNTIME** on the left side menu.
-
-1. Select **ENVIRONMENT VARIABLES** and scroll down to **USER-DEFINED**.
-
-1. Select **ADD**.
-
-1. Add a variable with the name **WORKSPACE_ID**. For the value, paste in the Workspace ID you [copied earlier](#workspaceID). Select **SAVE**.
-
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/env.png)
-
-1. Restart your application.
+1. View the application online at the app URL.  
+For example: https://my-app-name.mybluemix.net
 
 
-# Troubleshooting in IBM Cloud
+## License
 
-#### In the Classic Experience:
-- Log in to IBM Cloud, you'll be taken to the dashboard.
-- Navigate to the the application you previously created.
-- Select **Logs**.
+This sample code is licensed under Apache 2.0.  
+Full license text is available in [LICENSE](LICENSE).
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/logs.PNG)
+## Contributing
 
-- If you want, filter the LOG TYPE by "APP".
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/filter.PNG)
-
-#### In the new IBM Cloud:
-- Log in to IBM Cloud, you'll be taken to the dashboard.
-- Select **Compute**
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/compute.PNG)
-
-- Select the application you previously created.
-- Select **Logs**.
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/logs1.PNG)
-
-- If you want, filter the Log Type by selecting the drop-down and selecting **Application(APP)**.
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![](readme_images/filter1.PNG)
-
-### With CLI
-
-```
-$ cf logs < application-name > --recent
-```
-
-# License
-
-  This sample code is licensed under Apache 2.0.
-  Full license text is available in [LICENSE](LICENSE).
-
-# Contributing
-
-  See [CONTRIBUTING](CONTRIBUTING.md).
-
+See [CONTRIBUTING](CONTRIBUTING.MD).
 
 ## Open Source @ IBM
 
-  Find more open source projects on the
-  [IBM Github Page](http://ibm.github.io/).
+Find more open source projects on the
+[IBM Github Page](http://ibm.github.io/).
+
+
+[demo_url]: http://conversation-simple.ng.bluemix.net/
+[doc_intents]: (https://console.bluemix.net/docs/services/conversation/intents-entities.html#planning-your-entities)
+[docs]: https://console.bluemix.net/docs/services/conversation/index.html
+[docs_landing]: (https://console.bluemix.net/docs/services/conversation/index.html)
+[node_link]: (http://nodejs.org/)
+[npm_link]: (https://www.npmjs.com/)
+[sign_up]: bluemix.net/registration

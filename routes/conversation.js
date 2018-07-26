@@ -16,22 +16,14 @@
 
 const AssistantV1 = require('watson-developer-cloud/assistant/v1'); // watson sdk
 
-var assistant;
 
-if (process.env.ASSISTANT_IAM_APIKEY !== undefined && process.env.ASSISTANT_IAM_APIKEY.length > 0) {
-  assistant = new AssistantV1({
-    'version': '2018-02-16',
-    'url': process.env.ASSISTANT_IAM_URL || '<url>',
-    'iam_apikey': process.env.ASSISTANT_IAM_APIKEY || '<iam_apikey>',
-    'iam_url': 'https://iam.bluemix.net/identity/token'
-  });
-} else {
-  assistant = new AssistantV1({
-    'version': '2018-02-16',
-    'username': process.env.ASSISTANT_USERNAME || '<username>',
-    'password': process.env.ASSISTANT_PASSWORD || '<password>'
-  });
-}
+/**
+ * Watson SDK automaticly search for the correct enviromental variables in the .env
+ * file i.e. username and password or IAM credentials 
+ */
+var assistant = new AssistantV1({
+  version: '2018-02-16'
+});
 
 /**
  * Updates the response text using the intent confidence
@@ -66,7 +58,7 @@ const updateMessage = (input, response) => {
 };
 
 
-module.exports = function(app) {
+module.exports = function (app) {
 
   app.post('/api/message', (req, res, next) => {
     const workspace = process.env.WORKSPACE_ID || '<workspace-id>';
