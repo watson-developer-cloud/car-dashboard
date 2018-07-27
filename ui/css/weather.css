@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- 
+
 .darkGrayCloud , .lightCloud.darkGrayCloud, .darkCloud.darkGrayCloud {
     fill: #848484;
     transition: fill 10.5s ease;

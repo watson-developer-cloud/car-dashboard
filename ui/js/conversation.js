@@ -76,12 +76,12 @@ var Conversation = (function() {
   // Set up the input box to submit a message when enter is pressed
   function initEnterSubmit() {
     document.getElementById(ids.userInput)
-        .addEventListener('keypress', function(event) {
-          if (event.keyCode === 13) {
-            sendMessage();
-            event.preventDefault();
-          }
-        }, false);
+      .addEventListener('keypress', function(event) {
+        if (event.keyCode === 13) {
+          sendMessage();
+          event.preventDefault();
+        }
+      }, false);
   }
 
   // Set up the input box to underline text as it is typed
@@ -123,8 +123,8 @@ var Conversation = (function() {
         var txtNode = document.createTextNode(input.value);
         ['font-size', 'font-style', 'font-weight', 'font-family', 'line-height',
           'text-transform', 'letter-spacing'].forEach(function(index) {
-            dummy.style[index] = window.getComputedStyle(input, null).getPropertyValue(index);
-          });
+          dummy.style[index] = window.getComputedStyle(input, null).getPropertyValue(index);
+        });
         dummy.textContent = txtNode.textContent;
 
         var padding = 0;

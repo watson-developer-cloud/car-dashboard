@@ -19,7 +19,7 @@ const $ = require('gulp-load-plugins')({
   pattern: [
     'gulp-*', 'gulp.*'
   ],
-  replaceString: /\bgulp[\-.]/
+  replaceString: /\bgulp[-.]/
 });
 const appDev = './ui/';
 const appProd = './dist/';
