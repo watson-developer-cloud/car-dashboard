@@ -168,7 +168,6 @@ var Conversation = (function () {
 
   // Send the message from the input box
   function sendMessage(newText) {
-    console.log('sendMessage: ' + newText);
     var text;
     if (newText) {
       text = newText;

@@ -87,7 +87,7 @@ module.exports = function (app) {
       }
 
       // This is a fix for now, as since Assistant version 2018-07-10,
-      // output text can now be in output.generic.txt
+      // output text can now be in output.generic.text
       if (data.output.text.length === 0) {
         if (data.output.generic !== undefined) {
           if (data.output.generic[0].text !== undefined) {
