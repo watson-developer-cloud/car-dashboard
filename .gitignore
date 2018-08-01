@@ -7,3 +7,4 @@ coverage
 npm-debug.log
 .idea/
 dist/
+.ibm-project
