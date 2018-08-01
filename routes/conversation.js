@@ -85,7 +85,6 @@ module.exports = function (app) {
       if (error) {
         return next(error);
       }
-      console.log(JSON.stringify(data, null, 2));
 
       // This is a fix for now, as since Assistant version 2018-07-10,
       // output text can now be in output.generic.txt
