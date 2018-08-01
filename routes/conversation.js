@@ -22,7 +22,7 @@ const AssistantV1 = require('watson-developer-cloud/assistant/v1'); // watson sd
  * file i.e. username and password or IAM credentials 
  */
 var assistant = new AssistantV1({
-  version: '2018-02-16'
+  version: '2018-07-10'
 });
 
 /**
@@ -85,6 +85,20 @@ module.exports = function (app) {
       if (error) {
         return next(error);
       }
+      console.log(JSON.stringify(data, null, 2));
+
+      // This is a fix for now, as since Assistant version 2018-07-10,
+      // output text can now be in output.generic.txt
+      if (data.output.text.length === 0) {
+        if (data.output.generic !== undefined) {
+          if (data.output.generic[0].text !== undefined) {
+            data.output.text = data.output.generic[0].text;
+          } else if (data.output.generic[0].title !== undefined) {
+            data.output.text = data.output.generic[0].title;
+          }
+        }
+      }
+
       return res.json(updateMessage(payload, data));
     });
   });

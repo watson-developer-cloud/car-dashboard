@@ -102,15 +102,14 @@ var ConversationResponse = (function () {
   // on the user intent that was determined by Watson
   function responseHandler(data) {
 
-    let action = data.output.action;
-
+    let action = data.output.ui_action || data.output.action;
 
     if (data && !data.output.error) {
       // Check if message is handled by retrieve and rank and there is no message set
       if (action && !data.output.text) {
         // TODO add EIR link
-        data.output.text = ['I am not able to answer that. You can try asking the'
-        + ' <a href="https://conversation-with-discovery.mybluemix.net/" target="_blank">Information Retrieval with Discovery App</a>'];
+        data.output.text = ['I am not able to answer that. You can try asking the' +
+        ' <a href="https://conversation-with-discovery.mybluemix.net/" target="_blank">Information Retrieval with Discovery App</a>'];
 
         Api.setWatsonPayload(data);
         return;
