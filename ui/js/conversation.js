@@ -22,7 +22,7 @@
 /* global Api: true, Common: true */
 
 
-var Conversation = (function() {
+var Conversation = (function () {
   'use strict';
   var ids = {
     userInput: 'user-input',
@@ -61,13 +61,13 @@ var Conversation = (function() {
     document.getElementById(ids.chatScrollWrapper).style.display = 'none';
 
     var currentRequestPayloadSetter = Api.setUserPayload;
-    Api.setUserPayload = function(payload) {
+    Api.setUserPayload = function (payload) {
       currentRequestPayloadSetter.call(Api, payload);
       displayMessage(payload, authorTypes.user);
     };
 
     var currentResponsePayloadSetter = Api.setWatsonPayload;
-    Api.setWatsonPayload = function(payload) {
+    Api.setWatsonPayload = function (payload) {
       currentResponsePayloadSetter.call(Api, payload);
       displayMessage(payload, authorTypes.watson);
     };
@@ -76,7 +76,7 @@ var Conversation = (function() {
   // Set up the input box to submit a message when enter is pressed
   function initEnterSubmit() {
     document.getElementById(ids.userInput)
-      .addEventListener('keypress', function(event) {
+      .addEventListener('keypress', function (event) {
         if (event.keyCode === 13) {
           sendMessage();
           event.preventDefault();
@@ -122,7 +122,8 @@ var Conversation = (function() {
         Common.addClass(input, classes.underline);
         var txtNode = document.createTextNode(input.value);
         ['font-size', 'font-style', 'font-weight', 'font-family', 'line-height',
-          'text-transform', 'letter-spacing'].forEach(function(index) {
+          'text-transform', 'letter-spacing'
+        ].forEach(function (index) {
           dummy.style[index] = window.getComputedStyle(input, null).getPropertyValue(index);
         });
         dummy.textContent = txtNode.textContent;
@@ -131,13 +132,13 @@ var Conversation = (function() {
         var htmlElem = document.getElementsByTagName('html')[0];
         var currentFontSize = parseInt(window.getComputedStyle(htmlElem, null).getPropertyValue('font-size'), 10);
         if (currentFontSize) {
-          padding = Math.floor((currentFontSize - minFontSize) / (maxFontSize - minFontSize)
-            * (maxPadding - minPadding) + minPadding);
+          padding = Math.floor((currentFontSize - minFontSize) / (maxFontSize - minFontSize) *
+            (maxPadding - minPadding) + minPadding);
         } else {
           padding = maxPadding;
         }
 
-        var widthValue = ( dummy.offsetWidth + padding) + 'px';
+        var widthValue = (dummy.offsetWidth + padding) + 'px';
         input.setAttribute('style', 'width:' + widthValue);
         input.style.width = widthValue;
       }
@@ -183,12 +184,13 @@ var Conversation = (function() {
 
   // Display a message, given a message payload and a message type (user or Watson)
   function displayMessage(newPayload, typeValue) {
+    //console.log('SSSS: ' + JSON.stringify(newPayload, null, 2));
     var isUser = isUserMessage(typeValue);
-    var textExists = (newPayload.input && newPayload.input.text)
-      || (newPayload.output && newPayload.output.text);
+    var textExists = (newPayload.input && newPayload.input.text) ||
+      (newPayload.output && newPayload.output.text);
     if (isUser !== null && textExists) {
-      if (newPayload.output && Object.prototype.toString.call( newPayload.output.text ) === '[object Array]') {
-        newPayload.output.text = newPayload.output.text.filter(function(item) {
+      if (newPayload.output && Object.prototype.toString.call(newPayload.output.text) === '[object Array]') {
+        newPayload.output.text = newPayload.output.text.filter(function (item) {
           return item && item.length > 0;
         }).join(' ');
       }
@@ -218,7 +220,48 @@ var Conversation = (function() {
 
   // Builds the message DOM element (using auxiliary function Common.buildDomElement)
   function buildMessageDomElement(newPayload, isUser) {
+
     var dataObj = isUser ? newPayload.input : newPayload.output;
+    let outMsg = dataObj.text;
+    if (newPayload.output !== undefined) {
+      if (newPayload.output.generic !== undefined) {
+        let options = null;
+
+        let preference = 'text';
+
+        for (var i = 0; i < newPayload.output.generic.length; i++) {
+          if (newPayload.output.generic[i].options !== undefined) {
+            options = newPayload.output.generic[i].options;
+          }
+
+          if (newPayload.output.generic[i].preference !== undefined) {
+            preference = newPayload.output.generic[i].preference;
+          }
+        }
+
+        if (options !== null) {
+          if (preference === 'text') {
+
+            outMsg += '<ul>';
+
+            for (let i = 0; i < options.length; i++) {
+              if (options[i].value) {
+                outMsg += '<li>' + options[i].label + '</li>';
+              }
+            }
+            outMsg += '</ul>';
+          } else if (preference === 'button') {
+            outMsg += '<br>';
+
+            for (let i = 0; i < options.length; i++) {
+              if (options[i].value) {
+                outMsg += '<p class="option-buttons" onclick="Conversation.sendMessage(\''  + options[i].value.input.text + '\');" >' + options[i].label + '</p> ';
+              }
+            }
+          }
+        }
+      }
+    }
     var messageJson = {
       // <div class='user / watson'>
       'tagName': 'div',
@@ -226,10 +269,8 @@ var Conversation = (function() {
       'children': [{
         // <p class='user-message / watson-message'>
         'tagName': 'p',
-        'classNames': (isUser
-          ? [authorTypes.user + '-message']
-          : [authorTypes.watson + '-message', classes.preBar]),
-        'html': (isUser ? '<img src=\'/images/head.svg\' />' + dataObj.text : dataObj.text)
+        'classNames': (isUser ? [authorTypes.user + '-message'] : [authorTypes.watson + '-message', classes.preBar]),
+        'html': (isUser ? '<img src=\'/images/head.svg\' />' + dataObj.text : outMsg)
       }]
     };
 
@@ -239,6 +280,7 @@ var Conversation = (function() {
   // Display the chat box if it's currently hidden
   // (i.e. if this is the first message), scroll to the bottom of the chat
   function updateChat() {
+    //console.log('oooo');
     document.getElementById(ids.chatScrollWrapper).style.display = '';
     var messages = document.getElementById(ids.chatFlow).getElementsByClassName(classes.messageWrapper);
     document.getElementById(ids.chatFlow).scrollTop = messages[messages.length - 1].offsetTop;
