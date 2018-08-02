@@ -8,3 +8,4 @@ npm-debug.log
 .idea/
 dist/
 .ibm-project
+.jshintrc

@@ -348,8 +348,8 @@ var Animations = (function() {
       // Animate falling movement to bottom of screen
       upperDrops.animate({ transform: 't' + [Math.random() * 50,
         topTransform[1] + fallDistance] }, 5000, mina.linear, function() {
-          Common.hide(upperDrops.node);
-        }, frameSkipRate);
+        Common.hide(upperDrops.node);
+      }, frameSkipRate);
     }
 
     // Begin moving the lower drops downwards then move the upper drops
@@ -426,10 +426,10 @@ var Animations = (function() {
     revmeter.getBBox().cx + ',' + revmeter.getBBox().cy}, 9000, mina.easeinout, function() {}, frameSkipRate);
     rightNeedle.animate({transform: 'r' + ((45 * Math.random()) - 30) +  ', ' +
     speedometer.getBBox().cx + ',' + speedometer.getBBox().cy},
-      9000 * Math.random(), mina.easeinout, function() {
-        // Repeat the animation
-        animateNeedles();
-      }, frameSkipRate);
+    9000 * Math.random(), mina.easeinout, function() {
+      // Repeat the animation
+      animateNeedles();
+    }, frameSkipRate);
   }
 
   // Turn headlights on

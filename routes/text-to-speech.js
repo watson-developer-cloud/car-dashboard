@@ -15,22 +15,30 @@
  */
 
 
-const watson = require('watson-developer-cloud');
+const AuthorizationV1 = require('watson-developer-cloud/authorization/v1');
+const IamTokenManagerV1 = require('watson-developer-cloud/iam-token-manager/v1');
 
-const authorizationService = new watson.AuthorizationV1({
-  username: process.env.TEXT_TO_SPEECH_USERNAME || '<username>',
-  password: process.env.TEXT_TO_SPEECH_PASSWORD || '<password>',
-  url: watson.TextToSpeechV1.URL
-});
+// Create the token manager
+let tokenManager;
+const serviceUrl = process.env.TEXT_TO_SPEECH_URL || 'https://stream.watsonplatform.net/text-to-speech/api';
 
-//const authorizationService = watson.authorization(credentials);
-
-
+if (process.env.TEXT_TO_SPEECH_IAM_APIKEY && process.env.TEXT_TO_SPEECH_IAM_APIKEY !== '') {
+  tokenManager = new IamTokenManagerV1.IamTokenManagerV1({
+    iamApikey: process.env.TEXT_TO_SPEECH_IAM_APIKEY || '<iam_apikey>',
+    iamUrl: process.env.TEXT_TO_SPEECH_IAM_URL || 'https://iam.bluemix.net/identity/token',
+  });
+} else {
+  tokenManager = new AuthorizationV1({
+    username: process.env.TEXT_TO_SPEECH_USERNAME || '<username>',
+    password: process.env.TEXT_TO_SPEECH_PASSWORD || '<password>',
+    url: serviceUrl,
+  });
+}
 // Inform user that TTS is not configured properly or at all
-if (!(process.env.TEXT_TO_SPEECH_USERNAME && process.env.TEXT_TO_SPEECH_PASSWORD)) {
+if (!process.env.TEXT_TO_SPEECH_USERNAME && !process.env.TEXT_TO_SPEECH_IAM_APIKEY) {
   // eslint-disable-next-line
   console.warn('WARNING: The app has not been configured with a TEXT_TO_SPEECH_USERNAME and/or ' +
-    'a TEXT_TO_SPEECH_PASSWORD environment variable. If you wish to have text to speech ' +
+    'a TEXT_TO_SPEECH_IAM_APIKEY environment variable. If you wish to have text to speech ' +
     'in your working application, please refer to the https://github.com/watson-developer-cloud/car-dashboard ' +
     'README documentation on how to set these variables.');
 }
@@ -38,7 +46,7 @@ if (!(process.env.TEXT_TO_SPEECH_USERNAME && process.env.TEXT_TO_SPEECH_PASSWORD
 
 module.exports = function initTextToSpeech(app) {
   app.get('/api/text-to-speech/token', (req, res) =>
-    authorizationService.getToken(function (err, token) {
+    tokenManager.getToken(function (err, token) {
       if (err) {
         console.log('error:', err);
         console.log('Please refer to the https://github.com/watson-developer-cloud/car-dashboard\n' +

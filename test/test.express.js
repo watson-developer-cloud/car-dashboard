@@ -39,11 +39,11 @@ describe('Basic API tests', function () {
   it('Should generate an Speech to Text token', function () {
     if (process.env.SPEECH_TO_TEXT_USERNAME) {
       return request(app)
-      .get('/api/speech-to-text/token')
-      .expect(200)
-      .then((result) => {
-        assert.ok(result.text && result.text.length > 0 );
-      });
+        .get('/api/speech-to-text/token')
+        .expect(200)
+        .then((result) => {
+          assert.ok(result.text && result.text.length > 0 );
+        });
     } else {
       return this.skip('No credentials');
     }
@@ -52,11 +52,11 @@ describe('Basic API tests', function () {
   it('Should generate a Text to Speech token', function () {
     if (process.env.TEXT_TO_SPEECH_USERNAME) {
       return request(app)
-      .get('/api/text-to-speech/token')
-      .expect(200)
-      .then((result) => {
-        assert.ok(result.text && result.text.length > 0 );
-      });
+        .get('/api/text-to-speech/token')
+        .expect(200)
+        .then((result) => {
+          assert.ok(result.text && result.text.length > 0 );
+        });
     } else {
       return this.skip('No credentials');
     }
@@ -65,11 +65,11 @@ describe('Basic API tests', function () {
   it('Should respond to messages using Conversation', function () {
     if (process.env.ASSISTANT_USERNAME && process.env.WORKSPACE_ID) {
       return request(app)
-      .post('/api/message')
-      .expect(200)
-      .then((result) => {
-        assert.ok(result.body && result.body.output.text);
-      });
+        .post('/api/message')
+        .expect(200)
+        .then((result) => {
+          assert.ok(result.body && result.body.output.text);
+        });
     } else {
       return this.skip('No credentials');
     }
