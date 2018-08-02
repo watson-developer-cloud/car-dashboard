@@ -1,7 +1,8 @@
 {
-  "name": "watson-assistant-car-dashboard",
+  "name": "@ibm-watson/car-dashboard",
   "version": "0.1.0",
   "main": "server.js",
+  "private": true,
   "scripts": {
     "start": "node server.js",
     "test": "npm run lint && npm run test-unit",
@@ -20,34 +21,37 @@
   "license": "Apache-2.0",
   "author": "IBM Corp.",
   "dependencies": {
-    "body-parser": "1.15.2",
-    "compression": "1.6.2",
-    "dotenv": "^2.0.0",
-    "express": "4.14.0",
-    "express-rate-limit": "^2.6.0",
+    "body-parser": "1.18.3",
+    "compression": "1.7.3",
+    "dotenv": "^6.0.0",
+    "express": "4.16.3",
+    "express-rate-limit": "^2.11.0",
     "express-secure-only": "^0.2.1",
-    "express-status-monitor": "^0.1.7",
+    "express-status-monitor": "^1.1.5",
     "gulp": "^3.9.1",
-    "gulp-clean-css": "2.3.2",
-    "gulp-develop-server": "^0.5.1",
-    "gulp-load-plugins": "^1.4.0",
-    "gulp-size": "^2.1.0",
-    "gulp-sourcemaps": "^1.6.0",
-    "gulp-useref": "^3.0.8",
-    "helmet": "^3.1.0",
-    "vcap_services": "^0.2.0",
-    "watson-developer-cloud": "^3.7.0",
-    "whatwg-fetch": "^2.0.1"
+    "gulp-clean-css": "3.9.4",
+    "gulp-develop-server": "^0.5.2",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-size": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-useref": "^3.1.5",
+    "helmet": "^3.13.0",
+    "vcap_services": "^0.4.0",
+    "watson-developer-cloud": "^3.7.1",
+    "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
-    "eslint": "^3.12.2",
-    "eve": "^0.5.0",
-    "istanbul": "^0.4.2",
-    "mocha": "^3.2.0",
-    "supertest": "^2.0.1"
+    "eslint": "^5.2.0",
+    "eve": "^0.5.4",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.2.0",
+    "supertest": "^3.1.0"
   },
   "engine": {
-    "node": ">= 6.9.x",
-    "npm": ">=3.9.x"
+    "node": ">= 8.x"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }

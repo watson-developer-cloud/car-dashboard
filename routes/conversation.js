@@ -19,7 +19,7 @@ const AssistantV1 = require('watson-developer-cloud/assistant/v1'); // watson sd
 
 /**
  * Watson SDK automaticly search for the correct enviromental variables in the .env
- * file i.e. username and password or IAM credentials 
+ * file i.e. username and password or IAM credentials
  */
 var assistant = new AssistantV1({
   version: '2018-02-16'
