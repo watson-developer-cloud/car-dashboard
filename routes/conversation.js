@@ -86,18 +86,6 @@ module.exports = function (app) {
         return next(error);
       }
 
-      // This is a fix for now, as since Assistant version 2018-07-10,
-      // output text can now be in output.generic.text
-      if (data.output.text.length === 0) {
-        if (data.output.generic !== undefined) {
-          if (data.output.generic[0].text !== undefined) {
-            data.output.text = data.output.generic[0].text;
-          } else if (data.output.generic[0].title !== undefined) {
-            data.output.text = data.output.generic[0].title;
-          }
-        }
-      }
-
       return res.json(updateMessage(payload, data));
     });
   });
