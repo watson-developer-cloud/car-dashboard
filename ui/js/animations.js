@@ -427,10 +427,10 @@ var Animations = (function () {
       transform: 'r' + ((45 * Math.random()) - 30) + ', ' +
         speedometer.getBBox().cx + ',' + speedometer.getBBox().cy
     },
-      9000 * Math.random(), mina.easeinout, function () {
-        // Repeat the animation
-        animateNeedles();
-      }, frameSkipRate);
+    9000 * Math.random(), mina.easeinout, function () {
+      // Repeat the animation
+      animateNeedles();
+    }, frameSkipRate);
   }
 
   // Turn headlights on
