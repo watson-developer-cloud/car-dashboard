@@ -9,3 +9,4 @@ npm-debug.log
 dist/
 .ibm-project
 .jshintrc
+.DS_Store
