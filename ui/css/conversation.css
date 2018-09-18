@@ -112,6 +112,15 @@
     overflow: hidden;
 }
 
+.user-typing {
+  border: none;
+  color: #ffffff;
+  height: 30px;
+  margin: 0.75rem;
+  font-size: 15;
+  font-family: Helvetica Neue for IBM, Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
 #user-input {
     width: 100%;
     max-width: 90%;

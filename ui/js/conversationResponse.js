@@ -79,7 +79,7 @@ var ConversationResponse = (function () {
     } else if(action.cmd === 'gas') {// amenity
       Panel.mapGas();
     } else if(action.cmd === 'restaurant_locations') {
-      Panel.mapGas();
+      Panel.mapFoodNumbers();
     } else if(action.cmd === 'restaurant') {
       Panel.mapFoodCuisine();
     } else if(action.cmd === 'restroom') {
