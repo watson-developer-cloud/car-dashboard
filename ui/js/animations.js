@@ -19,7 +19,7 @@
 /* eslint no-unused-vars: ["error", { "varsIgnorePattern": "^Animations$" }] */
 /* global Common: true, Snap: true, mina: true, Panel: true */
 
-var Animations = (function() {
+var Animations = (function () {
   'use strict';
 
   var snapSvgCanvas;
@@ -120,7 +120,7 @@ var Animations = (function() {
   function loadDashboard() {
     // Create SVG group to hold the SVG loaded from file
     var dash = snapSvgCanvas.group();
-    Snap.load(svgUrls.dashboard, function(svgFragment) {
+    Snap.load(svgUrls.dashboard, function (svgFragment) {
       svgFragment.select('title').remove();   // Remove the tooltip from the SVG
       // Append the loaded fragment from file to the SVG group
       dash.append(svgFragment);
@@ -149,7 +149,7 @@ var Animations = (function() {
   function loadBackground() {
     // Create SVG group to hold the SVG loaded from file
     var background = snapSvgCanvas.group();
-    Snap.load(svgUrls.background, function(svgFragment) {
+    Snap.load(svgUrls.background, function (svgFragment) {
       svgFragment.select('title').remove();   // Remove the tooltip from the SVG
       // Append the loaded fragment from file to the SVG group
       background.append(svgFragment);
@@ -164,9 +164,9 @@ var Animations = (function() {
 
       // Setup a loop to call toggle rain every 30s
       (function rainLoop() {
-        setTimeout(function() {
+        setTimeout(function () {
           toggleRain();
-          setTimeout(function() {
+          setTimeout(function () {
             toggleRain();
             rainLoop();
           }, 60000);
@@ -182,7 +182,7 @@ var Animations = (function() {
   function loadSky() {
     // Create SVG group to hold the SVG loaded from file
     var sky = snapSvgCanvas.group();
-    Snap.load(svgUrls.sky, function(svgFragment) {
+    Snap.load(svgUrls.sky, function (svgFragment) {
       svgFragment.select('title').remove();   // Remove the tooltip from the SVG
 
       // Append the loaded fragment from file to the SVG group
@@ -201,7 +201,7 @@ var Animations = (function() {
     // Ever 120ms alternate the positioning of the dotted line
     // To create illusion of a moving road by alternating visibility
     // of sections
-    setInterval(function() {
+    setInterval(function () {
       Common.toggle(document.getElementById(ids.stripes1));
       Common.toggle(document.getElementById(ids.stripes2));
     }, 120);
@@ -210,12 +210,12 @@ var Animations = (function() {
   // Repeatedly animate movement of cloud by dx over a specified duration
   function moveCloud(cloud, duration, dx) {
     // move cloud to starting position
-    cloud.attr({opacity: 0, transform: 't' + [0, 0]});
+    cloud.attr({ opacity: 0, transform: 't' + [0, 0] });
 
     // In 1 tenth of the duration bring opacity to 1 then in the rest move the cloud
-    cloud.animate({opacity: 1}, 0.1 * duration, mina.linear, function() {
-      cloud.animate({opacity: 0.5, transform: 't' + [dx, 0]}, 0.9 * duration, mina.linear,
-        function() {
+    cloud.animate({ opacity: 1 }, 0.1 * duration, mina.linear, function () {
+      cloud.animate({ opacity: 0.5, transform: 't' + [dx, 0] }, 0.9 * duration, mina.linear,
+        function () {
           // Repeat the animation from the top
           cloud.stop();
           moveCloud(cloud, duration, dx);
@@ -240,7 +240,7 @@ var Animations = (function() {
     // Move to original position and make tree visible
     t.transform('t0,0');
     t.stop();
-    t.attr( {display: ''});
+    t.attr({ display: '' });
 
     // Randomly chose to move tree on left or right side of the road
     var leftXtransform = [-130, 10];
@@ -248,17 +248,17 @@ var Animations = (function() {
     var translate = (Math.random() > 0.5 ? leftXtransform : rightXtransform);
 
     // Start transforming the trees slowly then faster as the car gets closer
-    var easeInExpo = function(n) {
-      return ( n === 0 ) ? 0 : Math.pow( 2, 10 * ( n - 1 ) );
+    var easeInExpo = function (n) {
+      return (n === 0) ? 0 : Math.pow(2, 10 * (n - 1));
     };
 
     // Final transform should be scaled 20x and translated
     var endScene = 's20,20,' + 't' + translate;
 
     // Animate tree to the end scene in 4.5s
-    t.animate({transform: endScene}, 4500, easeInExpo, function() {
+    t.animate({ transform: endScene }, 4500, easeInExpo, function () {
       // Hide tree once the animation is complete
-      t.attr( {display: 'none'});
+      t.attr({ display: 'none' });
       t.stop();
 
       // Repeat animation
@@ -289,7 +289,7 @@ var Animations = (function() {
 
   // Draw count randomly positioned drops and add them to the SVG group
   function addDropsToGroup(count, group) {
-    for (var i =  0; i < count; i++) {
+    for (var i = 0; i < count; i++) {
       var x = Math.random() * state.svg_width;
       var y = Math.random() * state.svg_height;
       group.append(newDropline(x, y));
@@ -305,12 +305,10 @@ var Animations = (function() {
     var dropPath =
       'm,' + [x, y] +
       ',l,' + [0, 0] +
-      ' ,c,' + [-3.4105934 * scale, -3.41062 * scale, -3.013645 * scale,
-        -9.00921 * scale, 3.810723 * scale, -14.7348 * scale] +
+      ' ,c,' + [-3.4105934 * scale, -3.41062 * scale, -3.013645 * scale, -9.00921 * scale, 3.810723 * scale, -14.7348 * scale] +
       ',l,' + [68.031 * scale, -57.107 * scale] +
       ',l,' + [-57.107 * scale, 68.034 * scale] +
-      ',c,' + [-5.725604 * scale, 6.8212 * scale, -11.324178 * scale,
-        7.22133 * scale, -14.734769 * scale, 3.80759 * scale] +
+      ',c,' + [-5.725604 * scale, 6.8212 * scale, -11.324178 * scale, 7.22133 * scale, -14.734769 * scale, 3.80759 * scale] +
       ',z';
 
     // Make sure the path dims are relative
@@ -346,8 +344,9 @@ var Animations = (function() {
       Common.show(upperDrops.node);
 
       // Animate falling movement to bottom of screen
-      upperDrops.animate({ transform: 't' + [Math.random() * 50,
-        topTransform[1] + fallDistance] }, 5000, mina.linear, function() {
+      upperDrops.animate({
+        transform: 't' + [Math.random() * 50, topTransform[1] + fallDistance]
+      }, 5000, mina.linear, function () {
         Common.hide(upperDrops.node);
       }, frameSkipRate);
     }
@@ -361,17 +360,15 @@ var Animations = (function() {
 
       // Animate falling of lower drops
       lowerDrops.animate({
-        transform: 't' + [Math.random() * 50,
-          topTransform[1] + fallDistance / 2.0]
-      }, 2500, mina.linear, function() {
+        transform: 't' + [Math.random() * 50, topTransform[1] + fallDistance / 2.0]
+      }, 2500, mina.linear, function () {
         // begin animation of upper drops half way through the animation
         if (state.raining) {
           animateUpper();
         }
         lowerDrops.animate({
-          transform: 't' + [Math.random() * 50,
-            topTransform[1] + fallDistance]
-        }, 2500, mina.linear, function() {
+          transform: 't' + [Math.random() * 50, topTransform[1] + fallDistance]
+        }, 2500, mina.linear, function () {
           if (state.raining) {
             animateDrops();
           } else {
@@ -398,11 +395,11 @@ var Animations = (function() {
   function toggleDarkenSky() {
     // hide the sun and make the clouds darker
     Common.listForEach(document.getElementsByClassName(classes.darkCloud),
-      function(currentElement) {
+      function (currentElement) {
         Common.toggleClass(currentElement, classes.lightGrayCloud);
       });
     Common.listForEach(document.getElementsByClassName(classes.lightCloud),
-      function(currentElement) {
+      function (currentElement) {
         Common.toggleClass(currentElement, classes.darkGrayCloud);
       });
     Common.fadeToggle(document.getElementById(ids.sun));
@@ -422,11 +419,15 @@ var Animations = (function() {
 
     // Animate the needles around the center of the dials in a range
     // of 10-110 randomly
-    leftNeedle.animate({transform: 'r' + ((30 * Math.random()) - 30) + ',' +
-    revmeter.getBBox().cx + ',' + revmeter.getBBox().cy}, 9000, mina.easeinout, function() {}, frameSkipRate);
-    rightNeedle.animate({transform: 'r' + ((45 * Math.random()) - 30) +  ', ' +
-    speedometer.getBBox().cx + ',' + speedometer.getBBox().cy},
-    9000 * Math.random(), mina.easeinout, function() {
+    leftNeedle.animate({
+      transform: 'r' + ((30 * Math.random()) - 30) + ',' +
+        revmeter.getBBox().cx + ',' + revmeter.getBBox().cy
+    }, 9000, mina.easeinout, function () { }, frameSkipRate);
+    rightNeedle.animate({
+      transform: 'r' + ((45 * Math.random()) - 30) + ', ' +
+        speedometer.getBBox().cx + ',' + speedometer.getBBox().cy
+    },
+    9000 * Math.random(), mina.easeinout, function () {
       // Repeat the animation
       animateNeedles();
     }, frameSkipRate);
@@ -435,16 +436,16 @@ var Animations = (function() {
   // Turn headlights on
   function lightsOn() {
     // Set the light to visible and fade in over 300ms
-    Snap.select(idSelectors.headlights).attr({display: '', opacity: 0});
-    Snap.select(idSelectors.headlights).animate({opacity: 1}, 300, mina.linear);
+    Snap.select(idSelectors.headlights).attr({ display: '', opacity: 0 });
+    Snap.select(idSelectors.headlights).animate({ opacity: 1 }, 300, mina.linear);
   }
 
   // Turn headlights off
   function lightsOff() {
     // Fade out the light over 500s
-    Snap.select(idSelectors.headlights).animate({opacity: 0}, 500, mina.linear, function() {
+    Snap.select(idSelectors.headlights).animate({ opacity: 0 }, 500, mina.linear, function () {
       // After fading, hide the light from the DOM
-      Snap.select(idSelectors.headlights).attr({display: 'none'});
+      Snap.select(idSelectors.headlights).attr({ display: 'none' });
     });
   }
 
@@ -474,7 +475,7 @@ var Animations = (function() {
   }
 
   // Rotate the wipers in degrees from -> to, then execute the next callback
-  function rotateWipers( from, to, next) {
+  function rotateWipers(from, to, next) {
     var rWiper = state.wipers.right;
     var lWiper = state.wipers.left;
     var speeds = {
@@ -488,7 +489,7 @@ var Animations = (function() {
     }
 
     // Begin the wiping animation
-    state.wipingAnim = Snap.animate(from, to, function(val) {
+    state.wipingAnim = Snap.animate(from, to, function (val) {
       rWiper.transform('r' + [val, rWiper.bbox.x + rWiper.bbox.w, rWiper.bbox.y + rWiper.bbox.h]);
       lWiper.transform('r' + [val, lWiper.bbox.x + lWiper.bbox.w, lWiper.bbox.y + lWiper.bbox.h]);
     }, 2000 / Math.max(speeds[wiperSpeed], speeds.lo), mina.linear, next, frameSkipRate);
