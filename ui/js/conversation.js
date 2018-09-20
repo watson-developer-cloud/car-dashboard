@@ -343,10 +343,6 @@ var Conversation = (function () {
         });
       }
     }
-
-    responses.forEach(function (res) {
-      console.log(res);
-    });
     return responses;
   }
 
