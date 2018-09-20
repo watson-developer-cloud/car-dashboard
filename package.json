@@ -38,7 +38,7 @@
     "helmet": "^3.13.0",
     "vcap_services": "^0.5.1",
     "watson-developer-cloud": "^3.10.0",
-    "whatwg-fetch": "^3.0.0"
+    "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
     "eslint": "^5.6.0",
