@@ -230,6 +230,11 @@ input#user-input:-moz-placeholder {
     background: #00B4A0;
 }
 
+.options-list {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  
 .option-buttons {
   background-color: #8d25e8;
   border-radius: 6px;
