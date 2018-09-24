@@ -45,6 +45,7 @@
     "eve": "^0.5.4",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
+    "semantic-release": "^14.0.4",
     "supertest": "^3.3.0"
   },
   "engines": {
