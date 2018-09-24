@@ -258,21 +258,21 @@ var Conversation = (function () {
   function getOptions(optionsList, preference) {
     var list = '';
     var i = 0;
-    if (optionsList !== null) {
-      if (preference === 'text') {
-        list = '<ul>';
-        for (i = 0; i < optionsList.length; i++) {
-          if (optionsList[i].value) {
-            list += '<li>' + optionsList[i].label + '</li>';
-          }
+    if (preference === 'text') {
+      list = '<ul>';
+      for (i = 0; i < optionsList.length; i++) {
+        if (optionsList[i].value) {
+          list += '<li><div class="options-list" onclick="Conversation.sendMessage(\'' +
+            optionsList[i].value.input.text + '\');" >' + optionsList[i].label + '</div></li>';
         }
-        list += '</ul>';
-      } else if (preference === 'button') {
-        for (i = 0; i < optionsList.length; i++) {
-          if (optionsList[i].value) {
-            var item = '<p class="option-buttons" onclick="Conversation.sendMessage(\'' + optionsList[i].value.input.text + '\');" >' + optionsList[i].label + '</p>';
-            list += item;
-          }
+      }
+      list += '</ul>';
+    } else if (preference === 'button') {
+      list = '<br>';
+      for (i = 0; i < optionsList.length; i++) {
+        if (optionsList[i].value) {
+          var item = '<p class="option-buttons" onclick="Conversation.sendMessage(\'' + optionsList[i].value.input.text + '\');" >' + optionsList[i].label + '</p>';
+          list += item;
         }
       }
     }
