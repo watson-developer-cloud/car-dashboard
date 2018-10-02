@@ -37,11 +37,11 @@
     "gulp-useref": "^3.1.5",
     "helmet": "^3.13.0",
     "vcap_services": "^0.5.1",
-    "watson-developer-cloud": "^3.10.0",
+    "watson-developer-cloud": "^3.11.1",
     "whatwg-fetch": "^2.0.4"
   },
   "devDependencies": {
-    "eslint": "^5.6.0",
+    "eslint": "^5.6.1",
     "eve": "^0.5.4",
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
